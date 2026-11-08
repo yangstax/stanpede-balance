@@ -24,7 +24,11 @@ def load_document(path):
     body = path.read_bytes()
     if len(body) > MAX_BYTES:
         raise ValueError("Config exceeds the app's size limit.")
-    return json.loads(body, object_pairs_hook=unique_properties)
+    return json.loads(body, object_pairs_hook=unique_properties, parse_constant=reject_nonfinite)
+
+
+def reject_nonfinite(value):
+    raise ValueError(f"Nonfinite JSON number: {value}")
 
 
 def validate(data, schema):
@@ -56,28 +60,39 @@ def validate(data, schema):
         raise ValidationError("A sound wave must finish before the next cast.")
     if any(not ability["name"].strip() for ability in data["abilityText"]):
         raise ValidationError("Ability names cannot be blank.")
+    if data["schemaVersion"] >= 2:
+        rates = data["tourCashMultipliers"]
+        if rates[0] != 1 or any(right < left for left, right in zip(rates, rates[1:])):
+            raise ValidationError("Tour cash rates must start at one and never decrease.")
+        if any(cooldown < data["bubbleLifetime"] for cooldown in data["bubbleCooldown"]):
+            raise ValidationError("A bubble must pop before the next cast.")
     return data
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--file", type=Path, default=ROOT / "v1/balance.json")
+    parser.add_argument("--file", type=Path)
     parser.add_argument("--publish-dir", type=Path)
     parser.add_argument("--revision")
     args = parser.parse_args()
-    schema_path = ROOT / "v1/balance.schema.json"
-    schema = json.loads(schema_path.read_text())
-    data = validate(load_document(args.file), schema)
-    if args.revision:
-        data["revision"] = args.revision
+    paths = [args.file] if args.file else sorted(ROOT.glob("v*/balance.json"))
+    for path in paths:
+        data = load_document(path)
+        version = f"v{data['schemaVersion']}"
+        schema_path = ROOT / version / "balance.schema.json"
+        schema = json.loads(schema_path.read_text())
         validate(data, schema)
+        if args.revision:
+            data["revision"] = args.revision
+            validate(data, schema)
+        if args.publish_dir:
+            destination = args.publish_dir / version
+            destination.mkdir(parents=True, exist_ok=True)
+            (destination / "balance.json").write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+            (destination / "balance.schema.json").write_text(schema_path.read_text())
+        print(f"Balance {version} valid: {data['revision']} ({len(data)} settings)")
     if args.publish_dir:
-        destination = args.publish_dir / "v1"
-        destination.mkdir(parents=True, exist_ok=True)
-        (destination / "balance.json").write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
-        (destination / "balance.schema.json").write_text(schema_path.read_text())
         (args.publish_dir / ".nojekyll").touch()
-    print(f"Balance valid: {data['revision']} ({len(data)} settings)")
     return 0
 
 

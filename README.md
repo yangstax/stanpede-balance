@@ -1,8 +1,12 @@
 # STANPEDE live balance
 
-[Live config](https://yangstax.github.io/stanpede-balance/v1/balance.json) · [Edit on GitHub](https://github.com/yangstax/stanpede-balance/edit/main/v1/balance.json)
+[Live config](https://yangstax.github.io/stanpede-balance/v2/balance.json) · [Edit on GitHub](https://github.com/yangstax/stanpede-balance/edit/main/v2/balance.json)
 
-`v1/balance.json` is the live source for pacing, fan stats, ability values/names/descriptions, XP, Hype, pickups and Training. Pushing a valid change to main publishes it through GitHub Pages. The game applies downloaded settings between matches and keeps a valid offline copy.
+`v2/balance.json` is the current source for pacing, fan stats, ability values/names/descriptions, tour payouts, XP, Hype, pickups and Training. Pushing a valid change to main publishes it through GitHub Pages. The updated app applies settings between matches and keeps a valid offline copy. Version 1 remains available for older apps; its values are archived separately.
+
+Tour cash pays 1× / 1.25× / 1.5× / 1.75× / 2× / 2.25× on bills and follower support. Fractional cash carries across pickups and runs. XP, career goals and first-clear bonuses stay separate. Higher stops add 20% fan endurance, 12% regular arrival pressure and 30% rival endurance per stop after Tour 1. The active crowd cap remains 180 across all sources.
+
+Selfie Drone uses the stable `FancamFlash` key, with total burst power shared across its photos. Bubble Pop unlocks for Tour 2; Photo Standee for Tour 3; Selfie Drone for Tour 4. `AGENTS.md` describes their settings. These mechanics and strict shared-cap enforcement require the updated app; later supported tuning uses this endpoint without another build.
 
 ## Change it from ChatGPT on your phone
 
