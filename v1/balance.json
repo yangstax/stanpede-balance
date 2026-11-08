@@ -400,11 +400,11 @@
   "firstRecoveryDropTime": 60,
   "recoveryPickupDelay": 0.6,
   "recoveryHealFraction": 0.35,
-  "firstLevelFollowers": 180,
+  "firstLevelFollowers": 258,
   "openingLevelFollowers": [
-    300,
-    420,
-    560
+    429,
+    600,
+    800
   ],
   "levelGrowth": 1.12,
   "hypeDropFansMin": 18,
