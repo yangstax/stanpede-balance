@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "revision": "2026-11-08.3",
+  "revision": "2026-11-08.4",
   "abilityText": [
     {
       "key": "FingerHeart",
@@ -421,7 +421,7 @@
   "forwardSpawnAngleDegrees": 140,
   "maxHostiles": 420,
   "charmGrowthLinear": 0.28,
-  "charmGrowthQuadratic": 0.075,
+  "charmGrowthQuadratic": 0.15,
   "charmGrowthDelay": 60,
   "fanScalingSecondsPerLevel": 30,
   "fanScalingOverflowFraction": 0.7,
@@ -454,7 +454,7 @@
     },
     {
       "kind": 2,
-      "charm": 24,
+      "charm": 72,
       "speed": 1.5,
       "contactDamage": 6,
       "followerValue": 60,
@@ -463,7 +463,7 @@
     },
     {
       "kind": 3,
-      "charm": 45,
+      "charm": 90,
       "speed": 1.3,
       "contactDamage": 10,
       "followerValue": 300,
@@ -499,7 +499,7 @@
     },
     {
       "kind": 7,
-      "charm": 28,
+      "charm": 56,
       "speed": 1.35,
       "contactDamage": 8,
       "followerValue": 120,
