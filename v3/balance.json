@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "revision": "2026-11-08.ability-progression-v3",
+  "revision": "2026-11-08.selfie-drone-tour1",
   "abilityText": [
     {
       "key": "FingerHeart",
@@ -989,7 +989,7 @@
     },
     {
       "key": "FancamFlash",
-      "tour": 2
+      "tour": 1
     },
     {
       "key": "BubblePop",
@@ -1001,7 +1001,7 @@
     }
   ],
   "tourAbilityRewards": [
-    "FancamFlash",
+    "PhotocardRicochet",
     "ConfettiTrail",
     "BubblePop",
     "HeartBarrage",

@@ -157,7 +157,7 @@ class BalanceValidationTests(unittest.TestCase):
 
     def test_opening_requires_three_new_attack_choices(self):
         for entry in self.data["abilityUnlocks"]:
-            if entry["key"] == "Wink":
+            if entry["key"] in ("Wink", "HighNote"):
                 entry["tour"] = 2
         self.data["tourAbilityRewards"][0] = "Wink"
         with self.assertRaises(ValidationError):

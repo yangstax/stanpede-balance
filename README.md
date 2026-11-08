@@ -6,7 +6,7 @@
 
 Tour cash pays 1× / 1.25× / 1.5× / 1.75× / 2× / 2.25× on bills and follower support. Fractional cash carries across pickups and runs. XP, career goals and first-clear bonuses stay separate. Higher stops add 20% fan endurance, 12% regular arrival pressure and 30% rival endurance per stop after Tour 1. The active crowd cap remains 180 across all sources.
 
-Ability unlocks and featured clear rewards are configurable in `abilityUnlocks` and `tourAbilityRewards`. The current order is Selfie Drone after Tour 1, Photo Standee after Tour 2 and Bubble Pop after Tour 3. Selfie Drone uses the stable `FancamFlash` key. Reward displays and first upgrade choices follow the same config. The one-time app update adds v3 support; subsequent reorderings work from a phone without another build. Existing career progress is preserved. See `AGENTS.md` for fields and validation rules.
+Ability unlocks and featured clear rewards are configurable in `abilityUnlocks` and `tourAbilityRewards`. Selfie Drone is available in Tour 1 and appears in a fresh career's first upgrade choices. Clearing Tour 1 features Photocard Ricochet; Photo Standee stays after Tour 2 and Bubble Pop after Tour 3. Selfie Drone uses the stable `FancamFlash` key. Reward displays and first upgrade choices follow the same config. The one-time app update adds v3 support; subsequent reorderings work from a phone without another build. Existing career progress is preserved. See `AGENTS.md` for fields and validation rules.
 
 ## Change it from ChatGPT on your phone
 
