@@ -79,6 +79,12 @@ def validate(data, schema):
         for tour, key in enumerate(data["tourAbilityRewards"], start=2):
             if unlocks[key] != tour:
                 raise ValidationError("Each featured reward must newly unlock on the following tour.")
+    if data["schemaVersion"] >= 4:
+        for row in data["fanArrivals"]:
+            if row["commonWeight"] < row["initialWeight"]:
+                raise ValidationError("A learned fan class cannot become rarer as its ramp completes.")
+            if not row["introductionCount"] <= row["initialMaxActive"] <= row["commonMaxActive"]:
+                raise ValidationError("Reveal size and active limits must grow in order.")
     return data
 
 

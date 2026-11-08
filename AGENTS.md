@@ -4,16 +4,16 @@ This repository controls the live balance of STANPEDE, a K-pop survivors game. T
 
 ## Make a change
 
-1. Pull latest main, then read `v3/balance.json` and `v3/balance.schema.json`. Fetch the live v3 snapshot with a fresh query parameter before editing. Versions 1 and 2 are archived for older builds: preserve its values unless the user explicitly requests an older-client change.
+1. Pull latest main, then read `v4/balance.json` and `v4/balance.schema.json`. Fetch the live v4 snapshot with a fresh query parameter before editing. Versions 1–3 are archived for older builds: preserve its values unless the user explicitly requests an older-client change.
 2. Change only the requested values. Preserve the existing unrelated balance. Keep names short, clear and affectionate; use Charm power, faint, health, and Chart Topper. Never introduce violent wording.
 3. Keep upgrade keys and fan kind IDs stable. Change `abilityText[].name` to rename an upgrade; update its descriptions when needed. Fan kind IDs: 0 ordinary, 1 filmer, 2 banner, 3 dad, 4 grandma, 5 rival fans, 6 rival idol, 7 headphones, 8 plush tosser.
 4. Install `requirements.txt`, then run `python3 -m unittest test_validation.py` and `python3 validate.py`.
 5. Commit and push to **main** as `yangstax` when the user requests a completed change. These instructions authorize routine config publication for a requested balance change; no game build or local Mac is needed.
 6. Watch the GitHub Actions result, then fetch the live URL with a fresh query parameter and verify the changed values. Report the actual published revision and exact changes. A successful push alone does not prove publication.
 
-Current live URL: https://yangstax.github.io/stanpede-balance/v3/balance.json
+Current live URL: https://yangstax.github.io/stanpede-balance/v4/balance.json
 
-Version 3 contains 300 settings, nine fan kinds, nineteen ability texts and seventeen persistent ability unlock rows. Use schemaVersion 3. Names and five-rank descriptions are configurable; IDs and array sizes are the app contract. The stable `FancamFlash` key now means Selfie Drone. `BubblePop` and `PhotoStandee` are new keys. `LaserLight` and `BoomBox` remain retired.
+Version 4 contains 303 settings, nine fan kinds, nineteen ability texts and seventeen persistent ability unlock rows. Use schemaVersion 4. Names and five-rank descriptions are configurable; IDs and array sizes are the app contract. The stable `FancamFlash` key now means Selfie Drone. `BubblePop` and `PhotoStandee` are new keys. `LaserLight` and `BoomBox` remain retired.
 
 The workflow validates the entire snapshot, publishes only JSON/schema files, and uses the source commit as the served revision. Existing matches keep their snapshot. The game downloads changes on launch/resume and about once a minute, applying them between matches. It keeps the last valid config for offline play.
 
@@ -23,7 +23,36 @@ The workflow validates the entire snapshot, publishes only JSON/schema files, an
 - `tourAbilityRewards`: five stable keys, respectively featured after clearing Tours 1–5. The matching ability must newly unlock at tour 2/3/4/5/6. Update both tables atomically when swapping unlocks. Reward icons, Home tour descriptions and first choices use this mapping.
 - Selfie Drone (`FancamFlash`) is available immediately in Tour 1. Photo Standee stays at tour 3 and Bubble Pop at tour 4. The Tour 1 clear features Photocard Ricochet, which newly unlocks at tour 2. When changing gates, keep each featured clear reward consistent with the following tour's new unlocks. Do not change stable IDs, art or power unless requested.
 - Validators require complete unique supported keys, valid tours and rewards, at least four starting attacks (starter plus three choices), and each idol's starter available by that idol's unlock tour. Featured base moves get first-menu priority; passive rewards keep normal offer rules and evolutions still require their gameplay recipe. New Era follows the sixth clear rather than an ability reward.
-- These existing-ability progression edits now publish from this repository with no app rebuild. The game update that first adds v3 support is required once. It preserves career v4 progress; invalid snapshots retain the last valid config.
+- These existing-ability progression edits now publish from this repository with no app rebuild. The game update that first adds v4 support is required once. It preserves career v4 progress; invalid snapshots retain the last valid config.
+
+## Fan progression
+
+`fanArrivals` has exactly one row for each of classes 1/2/3/4/7/8. Row order is free. Ordinary fans use
+`basicFanWeight`; rival fans/bosses retain their required encounter rules. Every regular or scripted arrival
+uses the same class weights, active limits and budget costs. Required fan introductions use the reveal count.
+
+| Field | Meaning |
+|---|---|
+| `introductionCount` | Fans in the held first reveal; 1–8, at most the initial active limit |
+| `initialWeight`, `commonWeight` | Relative odds alongside basic weight 1; weights grow linearly, and capped classes temporarily leave the draw |
+| `levelsToCommon` | Earned levels after that class's reveal until common odds/limit; 1–100 |
+| `initialMaxActive`, `commonMaxActive` | Shared class limits for regular/swarm arrivals, growing with the same ramp |
+| `arrivalCost` | Budget spent by one fan; ordinary fans cost 1. A Banner costing 3 replaces three ordinary arrivals |
+
+`fans[kind=2].charm` is Banner's base endurance; `followerValue` is XP per faint, while `moneyValue` stays
+Training cash. Current Banner values are endurance 96, XP 120, cash 2, speed 2.2 and contact 6. Its reveal
+count is 1, weights 0.04 → 0.32, ramp 12 levels, limits 2 → 18 and cost 3. All other fan attributes stay as
+in v3. Later tours start with previous classes already established; their next new class still reveals rare.
+
+Basic fans start fading at `retireBasicLevel` on `retireBasicTour` or later, over `basicFanFadeLevels` earned
+levels. Current values are tour 1, level 32 and 20 levels, so basics are gone at 52. Swarm count settings now
+mean ordinary-fan budget units: durable members buy fewer bodies. Saturated arrivals discard unused budget;
+class caps and the global `maxHostiles = 180` never queue a release flood. A repeated late beat at a full
+class allowance advances without adding more of that type.
+
+Future Banner retunes need only this config: edit its `fans` row and/or `fanArrivals` row, preserve every
+other row and unrelated field, run validation, publish and verify v4. The one update adding v4 is required;
+subsequent health/count/rarity/ramp/retirement changes need no rebuild. Do not copy v4 values onto v1–3.
 
 ## Useful settings
 
@@ -45,4 +74,4 @@ The workflow validates the entire snapshot, publishes only JSON/schema files, an
 - `standee*`: photo power/tick, cooldown, duration, attraction radius and fan limit for one cardboard photo prop. Rivals ignore the distraction.
 - Hype, recovery, gifts, pickup ranges, camera/readability and audio mix are also in this snapshot.
 
-Changes to mechanics, new IDs, art, audio recordings, pool sizes or code require a game update. Keep schema version 3 stable for supported value/text/unlock changes; incompatible changes require a new versioned endpoint. Run validation for all three versions before publication. Never add secrets, authentication tokens or personal data to this public repository.
+Changes to mechanics, new IDs, art, audio recordings, pool sizes or code require a game update. Keep schema version 4 stable for supported value/text/unlock changes; incompatible changes require a new versioned endpoint. Run validation for all four versions before publication. Never add secrets, authentication tokens or personal data to this public repository.

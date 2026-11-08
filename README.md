@@ -1,12 +1,14 @@
 # STANPEDE live balance
 
-[Live config](https://yangstax.github.io/stanpede-balance/v3/balance.json) · [Edit on GitHub](https://github.com/yangstax/stanpede-balance/edit/main/v3/balance.json)
+[Live config](https://yangstax.github.io/stanpede-balance/v4/balance.json) · [Edit on GitHub](https://github.com/yangstax/stanpede-balance/edit/main/v4/balance.json)
 
-`v3/balance.json` is the current source for pacing, fan stats, ability values/names/descriptions/unlocks, tour rewards/payouts, XP, Hype, pickups and Training. Pushing a valid change to main publishes it through GitHub Pages. The updated app applies settings between matches and keeps a valid offline copy. Versions 1 and 2 remain available for older apps with their existing values.
+`v4/balance.json` is the current source for pacing, fan stats, ability values/names/descriptions/unlocks, tour rewards/payouts, XP, Hype, pickups and Training. Pushing a valid change to main publishes it through GitHub Pages. The updated app applies settings between matches and keeps a valid offline copy. Versions 1–3 remain available for older apps with their existing values.
 
 Tour cash pays 1× / 1.25× / 1.5× / 1.75× / 2× / 2.25× on bills and follower support. Fractional cash carries across pickups and runs. XP, career goals and first-clear bonuses stay separate. Higher stops add 20% fan endurance, 12% regular arrival pressure and 30% rival endurance per stop after Tour 1. The active crowd cap remains 180 across all sources.
 
-Ability unlocks and featured clear rewards are configurable in `abilityUnlocks` and `tourAbilityRewards`. Selfie Drone is available in Tour 1 and appears in a fresh career's first upgrade choices. Clearing Tour 1 features Photocard Ricochet; Photo Standee stays after Tour 2 and Bubble Pop after Tour 3. Selfie Drone uses the stable `FancamFlash` key. Reward displays and first upgrade choices follow the same config. The one-time app update adds v3 support; subsequent reorderings work from a phone without another build. Existing career progress is preserved. See `AGENTS.md` for fields and validation rules.
+Ability unlocks and featured clear rewards are configurable in `abilityUnlocks` and `tourAbilityRewards`. Selfie Drone is available in Tour 1 and appears in a fresh career's first upgrade choices. Clearing Tour 1 features Photocard Ricochet; Photo Standee stays after Tour 2 and Bubble Pop after Tour 3. Selfie Drone uses the stable `FancamFlash` key. Reward displays and first upgrade choices follow the same config. The one-time app update adds v4 support; subsequent reorderings work from a phone without another build. Existing career progress is preserved. See `AGENTS.md` for fields and validation rules.
+
+Fan progression is also configurable in `fanArrivals`: new classes reveal in small numbers, then their odds and active limits grow over earned levels. Tougher fans spend more arrival budget, giving fewer bodies. Banner starts alone at endurance 96, grows from a two-active limit, and becomes common over twelve levels. Basics fade between levels 32 and 52. Edit these values from the phone balance chat; see the field table in `AGENTS.md`. The one app update adding v4 is required once.
 
 ## Change it from ChatGPT on your phone
 

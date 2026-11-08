@@ -1,0 +1,1074 @@
+{
+  "schemaVersion": 4,
+  "revision": "2026-11-08.focused-arrivals",
+  "abilityText": [
+    {
+      "key": "FingerHeart",
+      "name": "Finger Heart",
+      "shortDescription": "Shoots at the nearest fan.",
+      "descriptions": [
+        "Hearts target the nearest fans.",
+        "Stronger hearts. Faster shots.",
+        "Fires 2 hearts at once.",
+        "Hearts pierce 1 extra fan.",
+        "Faster triple shots. Add Attack Speed to evolve."
+      ]
+    },
+    {
+      "key": "Wink",
+      "name": "Sparkle Burst",
+      "shortDescription": "A wide burst in front of you.",
+      "descriptions": [
+        "Three sparkles spread across fans in front.",
+        "Stronger sparkles pierce more fans.",
+        "Fires four sparkles in a wide burst.",
+        "Stronger sparkles pierce more fans.",
+        "Faster five-sparkle bursts."
+      ]
+    },
+    {
+      "key": "Lightstick",
+      "name": "Lightstick Orbit",
+      "shortDescription": "Steer fans into the orbit.",
+      "descriptions": [
+        "Spins around you, charming nearby fans.",
+        "Adds a lightstick to your orbit.",
+        "Adds a lightstick to your orbit.",
+        "Wider orbit. Faster spin.",
+        "Adds a lightstick to your orbit."
+      ]
+    },
+    {
+      "key": "HighNote",
+      "name": "Sound Wave",
+      "shortDescription": "One expanding pulse.",
+      "descriptions": [
+        "One expanding pulse hits nearby fans.",
+        "One expanding pulse hits nearby fans.",
+        "One expanding pulse hits nearby fans.",
+        "One expanding pulse hits nearby fans.",
+        "One expanding pulse hits nearby fans."
+      ]
+    },
+    {
+      "key": "VocalTraining",
+      "name": "Charm Power",
+      "shortDescription": "All moves.",
+      "descriptions": [
+        "Makes every charm move stronger.",
+        "Makes every charm move stronger.",
+        "Makes every charm move stronger.",
+        "Makes every charm move stronger.",
+        "Makes every charm move stronger."
+      ]
+    },
+    {
+      "key": "DancePractice",
+      "name": "Move Speed",
+      "shortDescription": "",
+      "descriptions": [
+        "Move faster through the crowd.",
+        "Move faster through the crowd.",
+        "Move faster through the crowd.",
+        "Move faster through the crowd.",
+        "Move faster through the crowd."
+      ]
+    },
+    {
+      "key": "StagePresence",
+      "name": "Attack Size",
+      "shortDescription": "Shots, waves and orbits.",
+      "descriptions": [
+        "Wider sparkles, orbits, waves, cards, trails and flashes.",
+        "Wider sparkles, orbits, waves, cards, trails and flashes.",
+        "Wider sparkles, orbits, waves, cards, trails and flashes.",
+        "Wider sparkles, orbits, waves, cards, trails and flashes.",
+        "Wider sparkles, orbits, waves, cards, trails and flashes."
+      ]
+    },
+    {
+      "key": "Bodyguards",
+      "name": "Crowd Protection",
+      "shortDescription": "",
+      "descriptions": [
+        "Lose less health when fans crowd you.",
+        "Lose less health when fans crowd you.",
+        "Lose less health when fans crowd you.",
+        "Lose less health when fans crowd you.",
+        "Lose less health when fans crowd you."
+      ]
+    },
+    {
+      "key": "Manager",
+      "name": "Cash Magnet",
+      "shortDescription": "",
+      "descriptions": [
+        "Collect pickups from farther away.",
+        "Collect pickups from farther away.",
+        "Collect pickups from farther away.",
+        "Collect pickups from farther away.",
+        "Collect pickups from farther away."
+      ]
+    },
+    {
+      "key": "Aegyo",
+      "name": "Attack Speed",
+      "shortDescription": "",
+      "descriptions": [
+        "Faster firing and trail drops. Evolves Lv5 Finger Heart.",
+        "Faster firing and trail drops. Evolves Lv5 Finger Heart.",
+        "Faster firing and trail drops. Evolves Lv5 Finger Heart.",
+        "Faster firing and trail drops. Evolves Lv5 Finger Heart.",
+        "Faster firing and trail drops. Evolves Lv5 Finger Heart."
+      ]
+    },
+    {
+      "key": "DominoSwoon",
+      "name": "Chain Reaction",
+      "shortDescription": "Swoons spread to nearby fans.",
+      "descriptions": [
+        "One fan swooning charms nearby fans.",
+        "Bigger, stronger chain reactions.",
+        "Bigger, stronger chain reactions.",
+        "Bigger, stronger chain reactions.",
+        "Bigger, stronger chain reactions."
+      ]
+    },
+    {
+      "key": "HeartBarrage",
+      "name": "Heart Barrage",
+      "shortDescription": "Homing hearts pierce fans.",
+      "descriptions": [
+        "Rapid homing hearts pierce through fans.",
+        "Rapid homing hearts pierce through fans.",
+        "Rapid homing hearts pierce through fans.",
+        "Rapid homing hearts pierce through fans.",
+        "Rapid homing hearts pierce through fans."
+      ]
+    },
+    {
+      "key": "BananaMilk",
+      "name": "Yakult",
+      "shortDescription": "",
+      "descriptions": [
+        "Restores health immediately.",
+        "Restores health immediately.",
+        "Restores health immediately.",
+        "Restores health immediately.",
+        "Restores health immediately."
+      ]
+    },
+    {
+      "key": "FanMeetBonus",
+      "name": "Fan Meet Bonus",
+      "shortDescription": "",
+      "descriptions": [
+        "Adds Training cash immediately.",
+        "Adds Training cash immediately.",
+        "Adds Training cash immediately.",
+        "Adds Training cash immediately.",
+        "Adds Training cash immediately."
+      ]
+    },
+    {
+      "key": "PhotocardRicochet",
+      "name": "Photocard Ricochet",
+      "shortDescription": "Bounces between fans.",
+      "descriptions": [
+        "Your idol photocard bounces from fan to fan.",
+        "Your idol photocard bounces from fan to fan.",
+        "Your idol photocard bounces from fan to fan.",
+        "Your idol photocard bounces from fan to fan.",
+        "Your idol photocard bounces from fan to fan."
+      ]
+    },
+    {
+      "key": "ConfettiTrail",
+      "name": "Aura Trail",
+      "shortDescription": "Leave a trail as you move.",
+      "descriptions": [
+        "Leave a soft glow that charms fans walking through it.",
+        "Leave a soft glow that charms fans walking through it.",
+        "Leave a soft glow that charms fans walking through it.",
+        "Leave a soft glow that charms fans walking through it.",
+        "Leave a soft glow that charms fans walking through it."
+      ]
+    },
+    {
+      "key": "FancamFlash",
+      "name": "Selfie Drone",
+      "shortDescription": "Takes quick group photos.",
+      "descriptions": [
+        "A flying camera takes quick group photos.",
+        "A flying camera takes quick group photos.",
+        "A flying camera takes quick group photos.",
+        "A flying camera takes quick group photos.",
+        "A flying camera takes quick group photos."
+      ]
+    },
+    {
+      "key": "BubblePop",
+      "name": "Bubble Pop",
+      "shortDescription": "Holds fans, then pops.",
+      "descriptions": [
+        "A bubble holds a few fans, then pops with charm.",
+        "A bubble holds a few fans, then pops with charm.",
+        "A bubble holds a few fans, then pops with charm.",
+        "A bubble holds a few fans, then pops with charm.",
+        "A bubble holds a few fans, then pops with charm."
+      ]
+    },
+    {
+      "key": "PhotoStandee",
+      "name": "Photo Standee",
+      "shortDescription": "Fans stop for a photo.",
+      "descriptions": [
+        "Fans gather to pose with your cardboard cutout.",
+        "Fans gather to pose with your cardboard cutout.",
+        "Fans gather to pose with your cardboard cutout.",
+        "Fans gather to pose with your cardboard cutout.",
+        "Fans gather to pose with your cardboard cutout."
+      ]
+    }
+  ],
+  "fingerHeartCooldown": [
+    0.8,
+    0.72,
+    0.66,
+    0.6,
+    0.5
+  ],
+  "fingerHeartShots": [
+    1,
+    1,
+    2,
+    2,
+    3
+  ],
+  "fingerHeartPower": [
+    7,
+    8.5,
+    9,
+    10,
+    12
+  ],
+  "fingerHeartPierce": [
+    0,
+    0,
+    0,
+    1,
+    1
+  ],
+  "fingerHeartSpeed": 9,
+  "fingerHeartLifetime": 1.4,
+  "fingerHeartRange": 8.5,
+  "sparkleCooldown": [
+    1.4,
+    1.3,
+    1.2,
+    1.1,
+    0.95
+  ],
+  "sparklePower": [
+    4,
+    5,
+    8,
+    9,
+    13
+  ],
+  "sparklePierce": [
+    2,
+    3,
+    3,
+    4,
+    5
+  ],
+  "sparkleShots": [
+    3,
+    3,
+    4,
+    4,
+    5
+  ],
+  "sparkleSpreadDegrees": 60,
+  "sparkleAimDegrees": 90,
+  "sparkleSpeed": 13,
+  "sparkleLifetime": 0.38,
+  "lightstickCount": [
+    1,
+    2,
+    3,
+    3,
+    4
+  ],
+  "lightstickRadius": [
+    1.5,
+    1.6,
+    1.7,
+    2,
+    2.1
+  ],
+  "lightstickSpin": [
+    180,
+    190,
+    200,
+    225,
+    245
+  ],
+  "soundWaveSeconds": 0.45,
+  "barragePower": 12,
+  "barrageCooldown": 0.1,
+  "barrageSpeed": 11,
+  "barragePierce": 2,
+  "barrageLifetime": 1.6,
+  "barrageHoming": 5,
+  "powerPerRank": 0.15,
+  "moveSpeedPerRank": 0.08,
+  "areaPerRank": 0.1,
+  "protectionPerRank": 0.08,
+  "cooldownReductionPerRank": 0.06,
+  "chainBasePower": 3,
+  "chainPowerPerRank": 2.2,
+  "chainBaseRadius": 0.85,
+  "chainRadiusPerRank": 0.15,
+  "instantHealFraction": 0.4,
+  "instantCash": 60,
+  "sfxVolume": 0.85,
+  "sfxRoutineVolume": 0.7,
+  "sfxEventVolume": 0.8,
+  "sfxPulseVolume": 0.5,
+  "sfxRoutineCutoff": 4800,
+  "sfxEventCutoff": 7200,
+  "sfxArrivalCutoff": 6500,
+  "sfxPopGap": 0.16,
+  "sfxFaintVolume": 0.55,
+  "sfxCashVolume": 0.5,
+  "sfxCashPitch": 1.26,
+  "sfxCashCutoff": 14000,
+  "crowdChatterVolume": 0.16,
+  "crowdChatterFullAt": 14,
+  "sfxCoinGap": 0.1,
+  "hitHapticIntensity": 0.65,
+  "giftHapticIntensity": 0.4,
+  "sfxShotGap": 0.2,
+  "sfxWinkGap": 0.35,
+  "sfxPulseGap": 2.4,
+  "sfxHurtGap": 0.22,
+  "sfxHypeGap": 2,
+  "sfxShutterGap": 0.14,
+  "menuMusicVolume": 0.6,
+  "matchMusicVolume": 0.42,
+  "musicDuckVolume": 0.55,
+  "cameraWorldWidth": 12,
+  "cashBundleRadius": 0.75,
+  "cashBundleSettleSeconds": 0.8,
+  "selfiePhotos": [
+    2,
+    2,
+    3,
+    3,
+    4
+  ],
+  "selfiePhotoInterval": 0.35,
+  "selfieFollowOffset": 1.5,
+  "bubblePower": [
+    8,
+    11,
+    14,
+    18,
+    22
+  ],
+  "bubbleCooldown": [
+    6.5,
+    6.1,
+    5.7,
+    5.3,
+    4.9
+  ],
+  "bubbleRadius": [
+    1,
+    1.1,
+    1.2,
+    1.3,
+    1.4
+  ],
+  "bubbleMaxFans": [
+    3,
+    4,
+    5,
+    6,
+    8
+  ],
+  "bubbleLifetime": 1.8,
+  "bubbleSpeed": 1.8,
+  "bubbleTargetRange": 6,
+  "standeePower": [
+    5,
+    7,
+    9,
+    12,
+    15
+  ],
+  "standeeCooldown": [
+    10,
+    9.5,
+    9,
+    8.5,
+    8
+  ],
+  "standeeDuration": [
+    4,
+    4.5,
+    5,
+    5.5,
+    6
+  ],
+  "standeeRadius": [
+    3,
+    3.25,
+    3.5,
+    3.75,
+    4
+  ],
+  "standeeMaxFans": [
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "standeeTickSeconds": 0.8,
+  "runDuration": 600,
+  "encoreTime": 540,
+  "rivalArenaHeadroom": 2.6,
+  "rivalArenaBottomInset": 0.65,
+  "rivalDashWarningSeconds": 0.9,
+  "rivalDashSeconds": 0.5,
+  "rivalDashSpeedMult": 2.6,
+  "rivalProjectileSpeed": 4.6,
+  "rivalProjectileScale": 1.12,
+  "dropTime": 240,
+  "dropSeconds": 45,
+  "dropTargetPace": 0.65,
+  "dropMinFans": 20,
+  "dropMaxFans": 60,
+  "dropSpawnMult": 1.35,
+  "allKillCash": 150,
+  "peakedCash": 40,
+  "arrivalSeconds": 5.2,
+  "arrivalWalkSeconds": 2.5,
+  "arrivalNoticeTime": 1.2,
+  "arrivalSkipAfter": 1,
+  "arrivalWalkDistance": 5.2,
+  "arrivalGateY": 3,
+  "arrivalSceneryFadeDelay": 0.35,
+  "arrivalSceneryFadeSeconds": 1,
+  "arrivalFrameRate": 7,
+  "arrivalFanApproachSeconds": 1.5,
+  "arrivalFlashDelay": 0.18,
+  "arrivalFlashInterval": 0.22,
+  "arrivalFanStaggerSeconds": 0.15,
+  "arrivalReactionHopHeight": 0.16,
+  "arrivalFingerHeartTime": 3.65,
+  "arrivalFingerHeartSeconds": 0.85,
+  "arrivalWalkVolume": 0.15,
+  "arrivalCrowdVolume": 0.7,
+  "arrivalCrowdReactionVolume": 0.4,
+  "arrivalCrowdDuckSeconds": 0.2,
+  "arrivalNoticeVolume": 0.7,
+  "arrivalShutterVolume": 0.7,
+  "arrivalCrowdFadeSeconds": 0.35,
+  "openingSeconds": 120,
+  "openingSideEntrySeconds": 18,
+  "openingCrowdGraceSeconds": 60,
+  "openingMaxHostiles": 20,
+  "firstUpgradeBreatherSeconds": 3,
+  "openingWaveTime": 70,
+  "openingWaveFans": 12,
+  "swarmWarningSeconds": 3,
+  "swarmDepth": 2,
+  "gateRushTime": 120,
+  "gateRushFans": 28,
+  "gateRushGapDegrees": 40,
+  "moveSpeed": 4.4,
+  "maxStamina": 100,
+  "playerRadius": 0.32,
+  "autoTargetScreenInset": 0.5,
+  "minHitInterval": 0.15,
+  "fanHitCooldown": 1,
+  "pickupRadius": 1.5,
+  "cashMagnetRadius": 0.9,
+  "grandmaMilkDropChance": 0.1,
+  "firstRecoveryDropTime": 60,
+  "recoveryPickupDelay": 0.6,
+  "recoveryHealFraction": 0.35,
+  "firstLevelFollowers": 258,
+  "openingLevelFollowers": [
+    429,
+    600,
+    800
+  ],
+  "levelGrowth": 1.12,
+  "hypeDropFansMin": 18,
+  "hypeDropFansMax": 28,
+  "hypePerPickup": 50,
+  "hypePickupDelay": 0.6,
+  "spawnRateStart": 0.9,
+  "regularGroupSize": 3,
+  "regularGroupSpacing": 0.75,
+  "spawnRateEnd": 17,
+  "encoreSpawnMult": 1.5,
+  "spawnCurve": 1.5,
+  "forwardSpawnChance": 0.3,
+  "forwardSpawnAngleDegrees": 140,
+  "maxHostiles": 180,
+  "charmGrowthLinear": 0.28,
+  "charmGrowthQuadratic": 0.15,
+  "charmGrowthDelay": 60,
+  "fanScalingSecondsPerLevel": 30,
+  "fanScalingOverflowFraction": 0.7,
+  "damageGrowthPerMinute": 0.22,
+  "crowdAreaRadius": 10,
+  "crowdAreaFans": 36,
+  "crowdAreaRefillSeconds": 60,
+  "crowdAreaQuietRate": 0.8,
+  "ultChargeNeeded": 120,
+  "ultChargeGrowth": 1.4,
+  "faintSeconds": 0.85,
+  "fans": [
+    {
+      "kind": 0,
+      "charm": 8,
+      "speed": 1.8,
+      "contactDamage": 8,
+      "followerValue": 30,
+      "moneyValue": 1,
+      "radius": 0.3
+    },
+    {
+      "kind": 1,
+      "charm": 22,
+      "speed": 2.4,
+      "contactDamage": 4,
+      "followerValue": 45,
+      "moneyValue": 1,
+      "radius": 0.3
+    },
+    {
+      "kind": 2,
+      "charm": 96,
+      "speed": 2.2,
+      "contactDamage": 6,
+      "followerValue": 120,
+      "moneyValue": 2,
+      "radius": 0.32
+    },
+    {
+      "kind": 3,
+      "charm": 90,
+      "speed": 1.3,
+      "contactDamage": 10,
+      "followerValue": 300,
+      "moneyValue": 5,
+      "radius": 0.38
+    },
+    {
+      "kind": 4,
+      "charm": 18,
+      "speed": 2.3,
+      "contactDamage": 6,
+      "followerValue": 60,
+      "moneyValue": 2,
+      "radius": 0.3
+    },
+    {
+      "kind": 5,
+      "charm": 10,
+      "speed": 2.3,
+      "contactDamage": 5,
+      "followerValue": 30,
+      "moneyValue": 1,
+      "radius": 0.3
+    },
+    {
+      "kind": 6,
+      "charm": 1350,
+      "speed": 1.9,
+      "contactDamage": 8,
+      "followerValue": 2000,
+      "moneyValue": 25,
+      "radius": 0.6
+    },
+    {
+      "kind": 7,
+      "charm": 56,
+      "speed": 1.35,
+      "contactDamage": 8,
+      "followerValue": 120,
+      "moneyValue": 3,
+      "radius": 0.35
+    },
+    {
+      "kind": 8,
+      "charm": 24,
+      "speed": 1.3,
+      "contactDamage": 6,
+      "followerValue": 120,
+      "moneyValue": 3,
+      "radius": 0.32
+    }
+  ],
+  "cashMagnetRangePerRank": 0.5,
+  "moveSlots": 6,
+  "lightstickDamage": [
+    8,
+    10,
+    12,
+    15,
+    18
+  ],
+  "lightstickHitInterval": 0.85,
+  "heartVisualScale": 2,
+  "lightstickVisualScale": 1.6,
+  "photocardDamage": [
+    7,
+    8,
+    9,
+    10,
+    12
+  ],
+  "photocardTargets": [
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "photocardCooldown": [
+    0.8,
+    0.75,
+    0.7,
+    0.65,
+    0.6
+  ],
+  "photocardFirstDelay": 0.35,
+  "photocardSpeed": 10,
+  "photocardTargetRange": 8.5,
+  "photocardBounceRange": 4.5,
+  "photocardLifetime": 3,
+  "photocardHitRadius": 0.22,
+  "photocardScale": 1.6,
+  "photocardSpin": 300,
+  "confettiDamage": [
+    2.2,
+    2.8,
+    3.5,
+    4.2,
+    5
+  ],
+  "confettiDropInterval": [
+    0.45,
+    0.42,
+    0.39,
+    0.36,
+    0.33
+  ],
+  "confettiRadius": [
+    0.85,
+    0.95,
+    1.05,
+    1.15,
+    1.3
+  ],
+  "confettiLifetime": [
+    3,
+    3.5,
+    4,
+    4.5,
+    5
+  ],
+  "confettiTickSeconds": 0.5,
+  "confettiMinMoveDistance": 0.8,
+  "confettiBehindDistance": 0.55,
+  "confettiFadeSeconds": 0.6,
+  "auraRibbonWidth": 0.3,
+  "auraRibbonSpacing": 0.2,
+  "auraRibbonOpacity": 0.85,
+  "auraReachOpacity": 0.09,
+  "fancamDamage": [
+    12,
+    15,
+    18,
+    22,
+    28
+  ],
+  "fancamCooldown": [
+    4.6,
+    4.3,
+    4,
+    3.7,
+    3.4
+  ],
+  "fancamRadius": [
+    1.2,
+    1.35,
+    1.5,
+    1.65,
+    1.8
+  ],
+  "fancamFirstDelay": 0.35,
+  "fancamTargetRange": 8,
+  "fancamMarkSeconds": 0.65,
+  "fancamFlashSeconds": 0.18,
+  "fancamCameraOffset": 0.65,
+  "fancamCameraScale": 1.6,
+  "fancamBoundaryOpacity": 0.16,
+  "fanSpeechInterval": 8,
+  "trainingBaseCosts": [
+    80,
+    80,
+    140,
+    140,
+    330,
+    330,
+    540,
+    540,
+    1120,
+    1120,
+    1680,
+    1680,
+    3100,
+    3100,
+    4500,
+    4500,
+    7800,
+    7800,
+    11400,
+    11400
+  ],
+  "trainingAdvancedCosts": [
+    240,
+    240,
+    360,
+    360,
+    840,
+    840,
+    1260,
+    1260,
+    2480,
+    2480,
+    3600,
+    3600,
+    6500,
+    6500,
+    9500,
+    9500,
+    16800,
+    16800,
+    25200,
+    25200
+  ],
+  "trainingSignatureCosts": [
+    1300,
+    1300,
+    1800,
+    1800,
+    3900,
+    3900,
+    5400,
+    5400,
+    10000,
+    10000,
+    13600,
+    13600,
+    22500,
+    22500,
+    29000,
+    29000,
+    44400,
+    44400,
+    57000,
+    57000
+  ],
+  "trainingAdvancedUnlock": 8,
+  "signatureFoundationUnlock": 12,
+  "signatureAdvancedUnlock": 8,
+  "signatureGoalUnlock": 3,
+  "careerGoalRewards": [
+    60,
+    60,
+    120,
+    100,
+    160,
+    150,
+    220,
+    300,
+    220,
+    450,
+    600,
+    750,
+    900,
+    1100,
+    1600,
+    2000,
+    3000,
+    4500,
+    7000,
+    10000
+  ],
+  "trainingDamagePerRank": 0.005,
+  "trainingAttackSpeedPerRank": 0.0025,
+  "trainingHealthPerRank": 0.75,
+  "trainingHealingPerRank": 0.00875,
+  "trainingPickupPerRank": 0.0125,
+  "trainingHypeDurationPerRank": 0.0075,
+  "trainingHypeDamagePerRank": 0.00375,
+  "signatureHeartPierce": 1,
+  "heartPierceRankInterval": 6,
+  "signatureHeartDamagePerRank": 0.005,
+  "secondWindThreshold": 0.3,
+  "secondWindHealing": 0.25,
+  "secondWindHealingPerRank": 0.0075,
+  "secondWindProtection": 1.2,
+  "secondWindProtectionPerRank": 0.04,
+  "secondWindExtraUseRank": 20,
+  "giftTourHealth": 4,
+  "giftTourCharge": 0.15,
+  "giftTourChargePerRank": 0.005,
+  "giftTourCashPerRank": 1.5,
+  "giftTourMasterReach": 0.45,
+  "hypeChargeNeeded": 100,
+  "hypeShieldSeconds": 8,
+  "hypeBurstDamage": 0.35,
+  "hypeExtensionSeconds": 1,
+  "hypeDropGrowthSeconds": 300,
+  "hypeBurstRadius": 3.5,
+  "followersPerTrainingCash": 100,
+  "giftCellSize": 18,
+  "giftOpenRadius": 1.15,
+  "giftVisualScale": 1.25,
+  "giftHealth": 8,
+  "giftDamage": 0.04,
+  "giftCash": 25,
+  "tourSingleLevels": [
+    16,
+    26
+  ],
+  "tourRivalLevels": [
+    20,
+    30
+  ],
+  "tourFanLevels": [
+    14,
+    22
+  ],
+  "tourCycleLevels": 10,
+  "lateSwarmTimes": [
+    330,
+    435,
+    540
+  ],
+  "lateSwarmFans": [
+    41,
+    44,
+    48
+  ],
+  "swarmFansPerTour": 4,
+  "tourClearRivals": 2,
+  "retireBasicTour": 1,
+  "retireBasicLevel": 32,
+  "tourHealthPerStop": 0.2,
+  "tourArrivalsPerStop": 0.12,
+  "tourCashMultipliers": [
+    1,
+    1.25,
+    1.5,
+    1.75,
+    2,
+    2.25
+  ],
+  "tourFirstClearCash": 150,
+  "tourClearCashPerStop": 50,
+  "rivalMidHealth": 300,
+  "rivalMidXp": 300,
+  "rivalFinalHealth": 1800,
+  "rivalHealthPerStop": 0.3,
+  "rivalHealthPerRepeat": 0.25,
+  "rivalEnrageSeconds": 80,
+  "soundWaveDamage": [
+    6,
+    7.5,
+    9,
+    11,
+    14
+  ],
+  "soundWaveCooldown": [
+    3.8,
+    3.6,
+    3.4,
+    3.2,
+    3
+  ],
+  "soundWaveRadius": [
+    2.4,
+    2.6,
+    2.8,
+    3,
+    3.2
+  ],
+  "soundWaveKnockback": 0.2,
+  "headphoneWaveDamageMult": 0.65,
+  "headphoneKnockbackMult": 0.2,
+  "dadKnockbackMult": 0.25,
+  "tosserRange": 5.2,
+  "tosserWarningSeconds": 0.8,
+  "tosserCooldown": 3.4,
+  "tosserShotSpeed": 3.4,
+  "tosserShotDamage": 4,
+  "scenerySpacing": 18,
+  "sceneryScale": 1,
+  "playerVisualScale": 1.25,
+  "fanVisualScale": 1.12,
+  "pickupVisualScale": 1.25,
+  "abilityUnlocks": [
+    {
+      "key": "FingerHeart",
+      "tour": 1
+    },
+    {
+      "key": "Wink",
+      "tour": 1
+    },
+    {
+      "key": "Lightstick",
+      "tour": 1
+    },
+    {
+      "key": "HighNote",
+      "tour": 1
+    },
+    {
+      "key": "VocalTraining",
+      "tour": 1
+    },
+    {
+      "key": "DancePractice",
+      "tour": 1
+    },
+    {
+      "key": "StagePresence",
+      "tour": 1
+    },
+    {
+      "key": "Bodyguards",
+      "tour": 1
+    },
+    {
+      "key": "Manager",
+      "tour": 1
+    },
+    {
+      "key": "Aegyo",
+      "tour": 1
+    },
+    {
+      "key": "DominoSwoon",
+      "tour": 6
+    },
+    {
+      "key": "HeartBarrage",
+      "tour": 5
+    },
+    {
+      "key": "PhotocardRicochet",
+      "tour": 2
+    },
+    {
+      "key": "ConfettiTrail",
+      "tour": 3
+    },
+    {
+      "key": "FancamFlash",
+      "tour": 1
+    },
+    {
+      "key": "BubblePop",
+      "tour": 4
+    },
+    {
+      "key": "PhotoStandee",
+      "tour": 3
+    }
+  ],
+  "tourAbilityRewards": [
+    "PhotocardRicochet",
+    "ConfettiTrail",
+    "BubblePop",
+    "HeartBarrage",
+    "DominoSwoon"
+  ],
+  "basicFanWeight": 1,
+  "basicFanFadeLevels": 20,
+  "fanArrivals": [
+    {
+      "kind": 2,
+      "introductionCount": 1,
+      "initialWeight": 0.04,
+      "commonWeight": 0.32,
+      "levelsToCommon": 12,
+      "initialMaxActive": 2,
+      "commonMaxActive": 18,
+      "arrivalCost": 3
+    },
+    {
+      "kind": 1,
+      "introductionCount": 1,
+      "initialWeight": 0.04,
+      "commonWeight": 0.3,
+      "levelsToCommon": 12,
+      "initialMaxActive": 2,
+      "commonMaxActive": 18,
+      "arrivalCost": 2
+    },
+    {
+      "kind": 3,
+      "introductionCount": 1,
+      "initialWeight": 0.02,
+      "commonWeight": 0.16,
+      "levelsToCommon": 12,
+      "initialMaxActive": 1,
+      "commonMaxActive": 8,
+      "arrivalCost": 4
+    },
+    {
+      "kind": 4,
+      "introductionCount": 1,
+      "initialWeight": 0.04,
+      "commonWeight": 0.3,
+      "levelsToCommon": 12,
+      "initialMaxActive": 2,
+      "commonMaxActive": 24,
+      "arrivalCost": 2
+    },
+    {
+      "kind": 7,
+      "introductionCount": 1,
+      "initialWeight": 0.03,
+      "commonWeight": 0.3,
+      "levelsToCommon": 12,
+      "initialMaxActive": 2,
+      "commonMaxActive": 18,
+      "arrivalCost": 3
+    },
+    {
+      "kind": 8,
+      "introductionCount": 1,
+      "initialWeight": 0.03,
+      "commonWeight": 0.25,
+      "levelsToCommon": 12,
+      "initialMaxActive": 2,
+      "commonMaxActive": 16,
+      "arrivalCost": 2
+    }
+  ]
+}

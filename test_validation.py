@@ -13,8 +13,8 @@ from validate import ROOT, load_document, unique_properties, validate
 
 class BalanceValidationTests(unittest.TestCase):
     def setUp(self):
-        self.data = json.loads((ROOT / "v3/balance.json").read_text())
-        self.schema = json.loads((ROOT / "v3/balance.schema.json").read_text())
+        self.data = json.loads((ROOT / "v4/balance.json").read_text())
+        self.schema = json.loads((ROOT / "v4/balance.schema.json").read_text())
 
     def test_current_snapshot_is_valid(self):
         validate(self.data, self.schema)
@@ -64,7 +64,7 @@ class BalanceValidationTests(unittest.TestCase):
             json.loads('{"revision":"a","revision":"b"}', object_pairs_hook=unique_properties)
 
     def test_older_client_contract_remains_valid(self):
-        for version in (1, 2):
+        for version in (1, 2, 3):
             data = json.loads((ROOT / f"v{version}/balance.json").read_text())
             schema = json.loads((ROOT / f"v{version}/balance.schema.json").read_text())
             validate(data, schema)
@@ -93,14 +93,14 @@ class BalanceValidationTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             subprocess.run([sys.executable, str(ROOT / "validate.py"), "--publish-dir", directory,
                             "--revision", "published.test"], check=True, capture_output=True)
-            for version in (1, 2, 3):
+            for version in (1, 2, 3, 4):
                 data = json.loads((Path(directory) / f"v{version}/balance.json").read_text())
                 self.assertEqual(data["schemaVersion"], version)
                 self.assertEqual(data["revision"], "published.test")
                 original = json.loads((ROOT / f"v{version}/balance.json").read_text())
                 original["revision"] = "published.test"
                 self.assertEqual(data, original)
-            self.assertEqual(len(list(Path(directory).rglob("*.json"))), 6)
+            self.assertEqual(len(list(Path(directory).rglob("*.json"))), 8)
 
     def test_unlocks_can_be_reordered_without_changing_ids(self):
         self.data["abilityUnlocks"].reverse()
@@ -169,6 +169,51 @@ class BalanceValidationTests(unittest.TestCase):
             path.write_text('{"tourCashMultipliers":[NaN]}')
             with self.assertRaises(ValueError):
                 load_document(path)
+
+    def test_fan_progression_can_be_retuned_and_reordered(self):
+        self.data["fanArrivals"].reverse()
+        banner = next(row for row in self.data["fanArrivals"] if row["kind"] == 2)
+        banner.update(introductionCount=2, initialMaxActive=3, commonMaxActive=12,
+                      initialWeight=0.08, commonWeight=0.5, levelsToCommon=8, arrivalCost=4)
+        validate(self.data, self.schema)
+
+    def test_missing_fan_progression_is_rejected(self):
+        self.data.pop("fanArrivals")
+        with self.assertRaises(ValidationError):
+            validate(self.data, self.schema)
+
+    def test_duplicate_arrival_classes_are_rejected(self):
+        self.data["fanArrivals"][1] = copy.deepcopy(self.data["fanArrivals"][0])
+        with self.assertRaises(ValidationError):
+            validate(self.data, self.schema)
+
+    def test_rivals_cannot_enter_regular_arrival_profiles(self):
+        self.data["fanArrivals"][0]["kind"] = 6
+        with self.assertRaises(ValidationError):
+            validate(self.data, self.schema)
+
+    def test_a_reveal_cannot_exceed_its_initial_active_limit(self):
+        self.data["fanArrivals"][0]["introductionCount"] = 3
+        with self.assertRaises(ValidationError):
+            validate(self.data, self.schema)
+
+    def test_common_caps_cannot_shrink(self):
+        self.data["fanArrivals"][0]["commonMaxActive"] = 1
+        with self.assertRaises(ValidationError):
+            validate(self.data, self.schema)
+
+    def test_common_odds_cannot_be_less_than_introductory_odds(self):
+        self.data["fanArrivals"][0]["commonWeight"] = 0.01
+        with self.assertRaises(ValidationError):
+            validate(self.data, self.schema)
+
+    def test_zero_cost_and_instant_ramps_are_rejected(self):
+        for field in ("arrivalCost", "levelsToCommon"):
+            with self.subTest(field=field):
+                candidate = copy.deepcopy(self.data)
+                candidate["fanArrivals"][0][field] = 0
+                with self.assertRaises(ValidationError):
+                    validate(candidate, self.schema)
 
 
 if __name__ == "__main__":
