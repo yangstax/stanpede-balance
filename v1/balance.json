@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "revision": "2026-11-08.2",
+  "revision": "2026-11-08.3",
   "abilityText": [
     {
       "key": "FingerHeart",
@@ -400,13 +400,13 @@
   "firstRecoveryDropTime": 60,
   "recoveryPickupDelay": 0.6,
   "recoveryHealFraction": 0.35,
-  "firstLevelFollowers": 120,
+  "firstLevelFollowers": 180,
   "openingLevelFollowers": [
-    180,
-    260,
-    340
+    300,
+    420,
+    560
   ],
-  "levelGrowth": 1.08,
+  "levelGrowth": 1.12,
   "hypeDropFansMin": 18,
   "hypeDropFansMax": 28,
   "hypePerPickup": 50,
