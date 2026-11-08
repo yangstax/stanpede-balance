@@ -1,0 +1,85 @@
+"""Validate a balance snapshot and optionally stage the GitHub Pages artifact."""
+
+import argparse
+import json
+import re
+from pathlib import Path
+
+from jsonschema import Draft202012Validator, ValidationError
+
+ROOT = Path(__file__).resolve().parent
+MAX_BYTES = 131072
+
+
+def unique_properties(pairs):
+    result = {}
+    for name, value in pairs:
+        if name in result:
+            raise ValueError(f"Duplicate property: {name}")
+        result[name] = value
+    return result
+
+
+def load_document(path):
+    body = path.read_bytes()
+    if len(body) > MAX_BYTES:
+        raise ValueError("Config exceeds the app's size limit.")
+    return json.loads(body, object_pairs_hook=unique_properties)
+
+
+def validate(data, schema):
+    Draft202012Validator(schema).validate(data)
+    if re.fullmatch(r"[A-Za-z0-9._-]{1,64}", data["revision"]) is None:
+        raise ValidationError("Invalid revision.")
+    phases = zip(data["tourFanLevels"], data["tourSingleLevels"], data["tourRivalLevels"], strict=True)
+    previous_rival = 0
+    for fan, single, rival in phases:
+        if not previous_rival < fan < single < rival:
+            raise ValidationError("Milestones must follow fan, single, rival order.")
+        previous_rival = rival
+    if data["tourFanLevels"][-1] + data["tourCycleLevels"] <= previous_rival:
+        raise ValidationError("The next fan phase must follow the previous rival.")
+    if data["openingMaxHostiles"] > data["maxHostiles"]:
+        raise ValidationError("Opening crowd exceeds the crowd cap.")
+    if data["dropMinFans"] > data["dropMaxFans"] or data["hypeDropFansMin"] > data["hypeDropFansMax"]:
+        raise ValidationError("A minimum exceeds its maximum.")
+    if data["openingWaveTime"] < data["swarmWarningSeconds"] or data["gateRushTime"] <= data["openingWaveTime"]:
+        raise ValidationError("Opening swarm times are out of order.")
+    if len(data["lateSwarmTimes"]) != len(data["lateSwarmFans"]):
+        raise ValidationError("Each late swarm needs a time and count.")
+    previous_time = data["gateRushTime"]
+    for wave_time in data["lateSwarmTimes"]:
+        if wave_time <= previous_time:
+            raise ValidationError("Late swarm times must increase after the gate rush.")
+        previous_time = wave_time
+    if any(cooldown < data["soundWaveSeconds"] for cooldown in data["soundWaveCooldown"]):
+        raise ValidationError("A sound wave must finish before the next cast.")
+    if any(not ability["name"].strip() for ability in data["abilityText"]):
+        raise ValidationError("Ability names cannot be blank.")
+    return data
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--file", type=Path, default=ROOT / "v1/balance.json")
+    parser.add_argument("--publish-dir", type=Path)
+    parser.add_argument("--revision")
+    args = parser.parse_args()
+    schema_path = ROOT / "v1/balance.schema.json"
+    schema = json.loads(schema_path.read_text())
+    data = validate(load_document(args.file), schema)
+    if args.revision:
+        data["revision"] = args.revision
+        validate(data, schema)
+    if args.publish_dir:
+        destination = args.publish_dir / "v1"
+        destination.mkdir(parents=True, exist_ok=True)
+        (destination / "balance.json").write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+        (destination / "balance.schema.json").write_text(schema_path.read_text())
+        (args.publish_dir / ".nojekyll").touch()
+    print(f"Balance valid: {data['revision']} ({len(data)} settings)")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
