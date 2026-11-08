@@ -13,8 +13,29 @@ from validate import ROOT, load_document, unique_properties, validate
 
 class BalanceValidationTests(unittest.TestCase):
     def setUp(self):
-        self.data = json.loads((ROOT / "v5/balance.json").read_text())
-        self.schema = json.loads((ROOT / "v5/balance.schema.json").read_text())
+        self.data = json.loads((ROOT / "v6/balance.json").read_text())
+        self.schema = json.loads((ROOT / "v6/balance.schema.json").read_text())
+
+    def test_regeneration_has_five_ranks(self):
+        self.data["healthRegenFraction"] = [0.01]
+        with self.assertRaises(ValidationError):
+            validate(self.data, self.schema)
+
+    def test_regeneration_rejects_instant_or_negative_healing(self):
+        for field, value in (("healthRegenSeconds", 0), ("healthRegenFraction", [-0.01] * 5), ("giftHealFraction", -0.1)):
+            with self.subTest(field=field):
+                data = copy.deepcopy(self.data)
+                data[field] = value
+                with self.assertRaises(ValidationError):
+                    validate(data, self.schema)
+
+    def test_regeneration_needs_text_and_unlock(self):
+        for field in ("abilityText", "abilityUnlocks"):
+            with self.subTest(field=field):
+                data = copy.deepcopy(self.data)
+                data[field] = [row for row in data[field] if row["key"] != "HealthRegen"]
+                with self.assertRaises(ValidationError):
+                    validate(data, self.schema)
 
     def test_current_snapshot_is_valid(self):
         validate(self.data, self.schema)
@@ -64,7 +85,7 @@ class BalanceValidationTests(unittest.TestCase):
             json.loads('{"revision":"a","revision":"b"}', object_pairs_hook=unique_properties)
 
     def test_older_client_contract_remains_valid(self):
-        for version in (1, 2, 3, 4):
+        for version in (1, 2, 3, 4, 5):
             data = json.loads((ROOT / f"v{version}/balance.json").read_text())
             schema = json.loads((ROOT / f"v{version}/balance.schema.json").read_text())
             validate(data, schema)
@@ -93,14 +114,14 @@ class BalanceValidationTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             subprocess.run([sys.executable, str(ROOT / "validate.py"), "--publish-dir", directory,
                             "--revision", "published.test"], check=True, capture_output=True)
-            for version in (1, 2, 3, 4, 5):
+            for version in (1, 2, 3, 4, 5, 6):
                 data = json.loads((Path(directory) / f"v{version}/balance.json").read_text())
                 self.assertEqual(data["schemaVersion"], version)
                 self.assertEqual(data["revision"], "published.test")
                 original = json.loads((ROOT / f"v{version}/balance.json").read_text())
                 original["revision"] = "published.test"
                 self.assertEqual(data, original)
-            self.assertEqual(len(list(Path(directory).rglob("*.json"))), 10)
+            self.assertEqual(len(list(Path(directory).rglob("*.json"))), 12)
 
     def test_unlocks_can_be_reordered_without_changing_ids(self):
         self.data["abilityUnlocks"].reverse()
