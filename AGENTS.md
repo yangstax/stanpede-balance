@@ -4,16 +4,16 @@ This repository controls the live balance of STANPEDE, a K-pop survivors game. T
 
 ## Make a change
 
-1. Pull latest main, then read `v4/balance.json` and `v4/balance.schema.json`. Fetch the live v4 snapshot with a fresh query parameter before editing. Versions 1–3 are archived for older builds: preserve its values unless the user explicitly requests an older-client change.
+1. Pull latest main, then read `v5/balance.json` and `v5/balance.schema.json`. Fetch the live v5 snapshot with a fresh query parameter before editing. Versions 1–4 are archived for older builds: preserve their values unless the user explicitly requests an older-client change.
 2. Change only the requested values. Preserve the existing unrelated balance. Keep names short, clear and affectionate; use Charm power, faint, health, and Chart Topper. Never introduce violent wording.
 3. Keep upgrade keys and fan kind IDs stable. Change `abilityText[].name` to rename an upgrade; update its descriptions when needed. Fan kind IDs: 0 ordinary, 1 filmer, 2 banner, 3 dad, 4 grandma, 5 rival fans, 6 rival idol, 7 headphones, 8 plush tosser.
 4. Install `requirements.txt`, then run `python3 -m unittest test_validation.py` and `python3 validate.py`.
 5. Commit and push to **main** as `yangstax` when the user requests a completed change. These instructions authorize routine config publication for a requested balance change; no game build or local Mac is needed.
 6. Watch the GitHub Actions result, then fetch the live URL with a fresh query parameter and verify the changed values. Report the actual published revision and exact changes. A successful push alone does not prove publication.
 
-Current live URL: https://yangstax.github.io/stanpede-balance/v4/balance.json
+Current live URL: https://yangstax.github.io/stanpede-balance/v5/balance.json
 
-Version 4 contains 303 settings, nine fan kinds, nineteen ability texts and seventeen persistent ability unlock rows. Use schemaVersion 4. Names and five-rank descriptions are configurable; IDs and array sizes are the app contract. The stable `FancamFlash` key now means Selfie Drone. `BubblePop` and `PhotoStandee` are new keys. `LaserLight` and `BoomBox` remain retired.
+Version 5 contains 309 settings, nine fan kinds, nineteen ability texts and seventeen persistent ability unlock rows. Use schemaVersion 5. Names and five-rank descriptions are configurable; IDs and array sizes are the app contract. The stable `FancamFlash` key now means Selfie Drone. `BubblePop` and `PhotoStandee` are new keys. `LaserLight` and `BoomBox` remain retired.
 
 The workflow validates the entire snapshot, publishes only JSON/schema files, and uses the source commit as the served revision. Existing matches keep their snapshot. The game downloads changes on launch/resume and about once a minute, applying them between matches. It keeps the last valid config for offline play.
 
@@ -23,7 +23,7 @@ The workflow validates the entire snapshot, publishes only JSON/schema files, an
 - `tourAbilityRewards`: five stable keys, respectively featured after clearing Tours 1–5. The matching ability must newly unlock at tour 2/3/4/5/6. Update both tables atomically when swapping unlocks. Reward icons, Home tour descriptions and first choices use this mapping.
 - Selfie Drone (`FancamFlash`) is available immediately in Tour 1. Photo Standee stays at tour 3 and Bubble Pop at tour 4. The Tour 1 clear features Photocard Ricochet, which newly unlocks at tour 2. When changing gates, keep each featured clear reward consistent with the following tour's new unlocks. Do not change stable IDs, art or power unless requested.
 - Validators require complete unique supported keys, valid tours and rewards, at least four starting attacks (starter plus three choices), and each idol's starter available by that idol's unlock tour. Featured base moves get first-menu priority; passive rewards keep normal offer rules and evolutions still require their gameplay recipe. New Era follows the sixth clear rather than an ability reward.
-- These existing-ability progression edits now publish from this repository with no app rebuild. The game update that first adds v4 support is required once. It preserves career v4 progress; invalid snapshots retain the last valid config.
+- These existing-ability progression edits now publish from this repository with no app rebuild. The game update that first adds v5 support is required once. It preserves career v4 progress; invalid snapshots retain the last valid config.
 
 ## Fan progression
 
@@ -51,8 +51,29 @@ class caps and the global `maxHostiles = 180` never queue a release flood. A rep
 class allowance advances without adding more of that type.
 
 Future Banner retunes need only this config: edit its `fans` row and/or `fanArrivals` row, preserve every
-other row and unrelated field, run validation, publish and verify v4. The one update adding v4 is required;
+other row and unrelated field, run validation, publish and verify v5. The one update adding these profiles is required;
 subsequent health/count/rarity/ramp/retirement changes need no rebuild. Do not copy v4 values onto v1–3.
+
+## Shooting Star and Sound Wave
+
+`Wink` now displays as Shooting Star: it automatically aims at tough visible fans and bursts around its
+chosen target. `sparklePower` is total volley power, shared across `sparkleShots`; added stars spread the
+volley or focus the same elite. `sparkleCooldown`, `sparkleSpeed` and `sparkleLifetime` keep their units.
+`starBurstRadius` has five ranks, `starTurnDegrees` is steering degrees/second, `starTargetRange` excludes
+hidden/HUD-covered fans, `starHitRadius` sets impact reach, `starVisualScale` sets size and `starFirstDelay`
+sets the first cast. The legacy `sparklePierce`, `sparkleAimDegrees` and `sparkleSpreadDegrees` fields are
+retained for compatibility but do not control the v5 homing star.
+
+Sound Wave uses `soundWaveDamage`, `soundWaveCooldown`, `soundWaveRadius`, `soundWaveKnockback` and
+`soundWaveSeconds`. The short pulse follows the idol in v5. Its three existing nonvocal ElevenLabs takes
+play once on cast; `sfxPulseVolume`/`sfxPulseGap` control the mix. Preserve the Drone, fans, XP, Training,
+arrival profiles and all unrelated values during ability retunes.
+
+Orbit’s rank-one contact is 10 (was 8); higher ranks stay 10/12/15/18, retaining the closer-positioning payoff.
+V4 receives the supported Wave numeric/text/mix and rank-one Orbit edits, so the currently installed older app can benefit
+between matches. V1–3 values stay unchanged. V5 adds the new star mechanics/knobs and requires one app
+update; subsequent supported power/cooldown/radius/steering/audio edits remain config-only. Career v4 is
+preserved, and v5 uses its own balance cache.
 
 ## Useful settings
 
@@ -63,7 +84,7 @@ subsequent health/count/rarity/ramp/retirement changes need no rebuild. Do not c
 - `crowdAreaQuietRate`: how much arrival pressure remains on cleared ground. Preserve time to collect loot, while preventing stationary safety.
 - `firstLevelFollowers`, `openingLevelFollowers`, `levelGrowth`: XP requirements. Filling a bar must still earn its choice; rival battles hold choices until won.
 - Ability arrays have five ranks. `fingerHeartPower`, `sparklePower`, `lightstickDamage`, `soundWaveDamage`, `photocardDamage`, `confettiDamage`, `fancamDamage` are internal values; cards show power ×10. Cooldowns are seconds.
-- Sparkle Burst uses the stable `Wink` key. `sparkleSpreadDegrees` is the total fan width; `sparkleAimDegrees` is the forward cone for assistance. Its reach follows `sparkleSpeed × sparkleLifetime`; power is per comet, so consider the shot count when tuning it.
+- Shooting Star uses the stable `Wink` key. `sparklePower` is total volley power, divided across its shot count; see the v5 star fields above. The old spread/aim/pierce fields no longer control its behavior.
 - `powerPerRank`, `protectionPerRank`, `cooldownReductionPerRank`, `areaPerRank`: match passive effects, written as fractions (0.15 means 15%).
 - `training*`, signature settings and `careerGoalRewards`: permanent progression. Costs are twenty entries per track.
 - `tourCashMultipliers`: six repeatable Training-cash rates, currently 1 / 1.25 / 1.5 / 1.75 / 2 / 2.25. Applies to bills and follower support, including Exit to Home; match XP, career goals and first-clear bonuses stay separate. Each run locks its rate and preserves fractional earnings.
@@ -74,4 +95,4 @@ subsequent health/count/rarity/ramp/retirement changes need no rebuild. Do not c
 - `standee*`: photo power/tick, cooldown, duration, attraction radius and fan limit for one cardboard photo prop. Rivals ignore the distraction.
 - Hype, recovery, gifts, pickup ranges, camera/readability and audio mix are also in this snapshot.
 
-Changes to mechanics, new IDs, art, audio recordings, pool sizes or code require a game update. Keep schema version 4 stable for supported value/text/unlock changes; incompatible changes require a new versioned endpoint. Run validation for all four versions before publication. Never add secrets, authentication tokens or personal data to this public repository.
+Changes to mechanics, new IDs, art, audio recordings, pool sizes or code require a game update. Keep schema version 5 stable for supported value/text/unlock changes; incompatible changes require a new versioned endpoint. Run validation for all five versions before publication. Never add secrets, authentication tokens or personal data to this public repository.

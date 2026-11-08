@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "revision": "2026-11-08.focused-arrivals",
+  "revision": "2026-11-08.sound-wave-buff",
   "abilityText": [
     {
       "key": "FingerHeart",
@@ -41,13 +41,13 @@
     {
       "key": "HighNote",
       "name": "Sound Wave",
-      "shortDescription": "One expanding pulse.",
+      "shortDescription": "Clears nearby fans in every direction.",
       "descriptions": [
-        "One expanding pulse hits nearby fans.",
-        "One expanding pulse hits nearby fans.",
-        "One expanding pulse hits nearby fans.",
-        "One expanding pulse hits nearby fans.",
-        "One expanding pulse hits nearby fans."
+        "A strong expanding pulse charms nearby fans.",
+        "A strong expanding pulse charms nearby fans.",
+        "A strong expanding pulse charms nearby fans.",
+        "A strong expanding pulse charms nearby fans.",
+        "A strong expanding pulse charms nearby fans."
       ]
     },
     {
@@ -336,7 +336,7 @@
   "sfxVolume": 0.85,
   "sfxRoutineVolume": 0.7,
   "sfxEventVolume": 0.8,
-  "sfxPulseVolume": 0.5,
+  "sfxPulseVolume": 0.7,
   "sfxRoutineCutoff": 4800,
   "sfxEventCutoff": 7200,
   "sfxArrivalCutoff": 6500,
@@ -352,7 +352,7 @@
   "giftHapticIntensity": 0.4,
   "sfxShotGap": 0.2,
   "sfxWinkGap": 0.35,
-  "sfxPulseGap": 2.4,
+  "sfxPulseGap": 0.75,
   "sfxHurtGap": 0.22,
   "sfxHypeGap": 2,
   "sfxShutterGap": 0.14,
@@ -621,7 +621,7 @@
   "cashMagnetRangePerRank": 0.5,
   "moveSlots": 6,
   "lightstickDamage": [
-    8,
+    10,
     10,
     12,
     15,
@@ -896,25 +896,25 @@
   "rivalHealthPerRepeat": 0.25,
   "rivalEnrageSeconds": 80,
   "soundWaveDamage": [
-    6,
-    7.5,
-    9,
-    11,
-    14
+    10,
+    12,
+    14,
+    17,
+    20
   ],
   "soundWaveCooldown": [
-    3.8,
     3.6,
-    3.4,
+    3.45,
+    3.3,
     3.2,
-    3
+    3.1
   ],
   "soundWaveRadius": [
-    2.4,
-    2.6,
+    2.5,
+    2.65,
     2.8,
-    3,
-    3.2
+    2.95,
+    3.1
   ],
   "soundWaveKnockback": 0.2,
   "headphoneWaveDamageMult": 0.65,
