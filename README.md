@@ -1,12 +1,12 @@
 # STANPEDE live balance
 
-[Live config](https://yangstax.github.io/stanpede-balance/v2/balance.json) · [Edit on GitHub](https://github.com/yangstax/stanpede-balance/edit/main/v2/balance.json)
+[Live config](https://yangstax.github.io/stanpede-balance/v3/balance.json) · [Edit on GitHub](https://github.com/yangstax/stanpede-balance/edit/main/v3/balance.json)
 
-`v2/balance.json` is the current source for pacing, fan stats, ability values/names/descriptions, tour payouts, XP, Hype, pickups and Training. Pushing a valid change to main publishes it through GitHub Pages. The updated app applies settings between matches and keeps a valid offline copy. Version 1 remains available for older apps; its values are archived separately.
+`v3/balance.json` is the current source for pacing, fan stats, ability values/names/descriptions/unlocks, tour rewards/payouts, XP, Hype, pickups and Training. Pushing a valid change to main publishes it through GitHub Pages. The updated app applies settings between matches and keeps a valid offline copy. Versions 1 and 2 remain available for older apps with their existing values.
 
 Tour cash pays 1× / 1.25× / 1.5× / 1.75× / 2× / 2.25× on bills and follower support. Fractional cash carries across pickups and runs. XP, career goals and first-clear bonuses stay separate. Higher stops add 20% fan endurance, 12% regular arrival pressure and 30% rival endurance per stop after Tour 1. The active crowd cap remains 180 across all sources.
 
-Selfie Drone uses the stable `FancamFlash` key, with total burst power shared across its photos. The updated app unlocks Selfie Drone for Tour 2, Photo Standee for Tour 3 and Bubble Pop for Tour 4. Unlock gates and clear rewards require the updated app; they are not live config fields. `AGENTS.md` describes their configurable values. Later supported value/text tuning uses this endpoint without another build.
+Ability unlocks and featured clear rewards are configurable in `abilityUnlocks` and `tourAbilityRewards`. The current order is Selfie Drone after Tour 1, Photo Standee after Tour 2 and Bubble Pop after Tour 3. Selfie Drone uses the stable `FancamFlash` key. Reward displays and first upgrade choices follow the same config. The one-time app update adds v3 support; subsequent reorderings work from a phone without another build. Existing career progress is preserved. See `AGENTS.md` for fields and validation rules.
 
 ## Change it from ChatGPT on your phone
 

@@ -9,6 +9,10 @@ from jsonschema import Draft202012Validator, ValidationError
 
 ROOT = Path(__file__).resolve().parent
 MAX_BYTES = 131072
+STARTER_TOURS = {"FingerHeart": 1, "PhotocardRicochet": 2, "Wink": 3, "Lightstick": 4,
+                 "HighNote": 5, "FancamFlash": 6}
+BASE_MOVES = {"FingerHeart", "Wink", "Lightstick", "HighNote", "PhotocardRicochet", "ConfettiTrail",
+              "FancamFlash", "BubblePop", "PhotoStandee"}
 
 
 def unique_properties(pairs):
@@ -66,6 +70,15 @@ def validate(data, schema):
             raise ValidationError("Tour cash rates must start at one and never decrease.")
         if any(cooldown < data["bubbleLifetime"] for cooldown in data["bubbleCooldown"]):
             raise ValidationError("A bubble must pop before the next cast.")
+    if data["schemaVersion"] >= 3:
+        unlocks = {entry["key"]: entry["tour"] for entry in data["abilityUnlocks"]}
+        if any(unlocks[key] > tour for key, tour in STARTER_TOURS.items()):
+            raise ValidationError("An idol's starting move must be available when that idol unlocks.")
+        if sum(unlocks[key] == 1 for key in BASE_MOVES) < 4:
+            raise ValidationError("Tour 1 needs its starter plus three new attack choices.")
+        for tour, key in enumerate(data["tourAbilityRewards"], start=2):
+            if unlocks[key] != tour:
+                raise ValidationError("Each featured reward must newly unlock on the following tour.")
     return data
 
 

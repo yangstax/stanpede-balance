@@ -4,18 +4,26 @@ This repository controls the live balance of STANPEDE, a K-pop survivors game. T
 
 ## Make a change
 
-1. Pull latest main, then read `v2/balance.json` and `v2/balance.schema.json`. Fetch the live v2 snapshot with a fresh query parameter before editing. Version 1 is archived for older builds: preserve its values unless the user explicitly requests an older-client change.
+1. Pull latest main, then read `v3/balance.json` and `v3/balance.schema.json`. Fetch the live v3 snapshot with a fresh query parameter before editing. Versions 1 and 2 are archived for older builds: preserve its values unless the user explicitly requests an older-client change.
 2. Change only the requested values. Preserve the existing unrelated balance. Keep names short, clear and affectionate; use Charm power, faint, health, and Chart Topper. Never introduce violent wording.
 3. Keep upgrade keys and fan kind IDs stable. Change `abilityText[].name` to rename an upgrade; update its descriptions when needed. Fan kind IDs: 0 ordinary, 1 filmer, 2 banner, 3 dad, 4 grandma, 5 rival fans, 6 rival idol, 7 headphones, 8 plush tosser.
 4. Install `requirements.txt`, then run `python3 -m unittest test_validation.py` and `python3 validate.py`.
 5. Commit and push to **main** as `yangstax` when the user requests a completed change. These instructions authorize routine config publication for a requested balance change; no game build or local Mac is needed.
 6. Watch the GitHub Actions result, then fetch the live URL with a fresh query parameter and verify the changed values. Report the actual published revision and exact changes. A successful push alone does not prove publication.
 
-Current live URL: https://yangstax.github.io/stanpede-balance/v2/balance.json
+Current live URL: https://yangstax.github.io/stanpede-balance/v3/balance.json
 
-Version 2 contains 298 settings, nine fan kinds and nineteen active upgrades. Use schemaVersion 2. Names and five-rank descriptions are configurable; IDs and array sizes are the app contract. The stable `FancamFlash` key now means Selfie Drone. `BubblePop` and `PhotoStandee` are new keys. `LaserLight` and `BoomBox` remain retired.
+Version 3 contains 300 settings, nine fan kinds, nineteen ability texts and seventeen persistent ability unlock rows. Use schemaVersion 3. Names and five-rank descriptions are configurable; IDs and array sizes are the app contract. The stable `FancamFlash` key now means Selfie Drone. `BubblePop` and `PhotoStandee` are new keys. `LaserLight` and `BoomBox` remain retired.
 
 The workflow validates the entire snapshot, publishes only JSON/schema files, and uses the source commit as the served revision. Existing matches keep their snapshot. The game downloads changes on launch/resume and about once a minute, applying them between matches. It keeps the last valid config for offline play.
+
+## Ability unlocks and featured rewards
+
+- `abilityUnlocks`: one row for each of the seventeen persistent abilities, identified by its stable `key`; `tour` is 1–6. Tour 1 means immediately available. Tour 2 means clearing Tour 1. This uses career unlock progress, so earned abilities remain available when replaying earlier tours. Instant cash/healing are always available and have no unlock rows.
+- `tourAbilityRewards`: five stable keys, respectively featured after clearing Tours 1–5. The matching ability must newly unlock at tour 2/3/4/5/6. Update both tables atomically when swapping unlocks. Reward icons, Home tour descriptions and first choices use this mapping.
+- Current companion order is Selfie Drone (`FancamFlash`) at tour 2, Photo Standee at tour 3, Bubble Pop at tour 4. To swap Drone and Bubble again, change their `abilityUnlocks[].tour` values and entries 0/2 of `tourAbilityRewards` together. Do not change their stable IDs, art or power unless requested.
+- Validators require complete unique supported keys, valid tours and rewards, at least four starting attacks (starter plus three choices), and each idol's starter available by that idol's unlock tour. Featured base moves get first-menu priority; passive rewards keep normal offer rules and evolutions still require their gameplay recipe. New Era follows the sixth clear rather than an ability reward.
+- These existing-ability progression edits now publish from this repository with no app rebuild. The game update that first adds v3 support is required once. It preserves career v4 progress; invalid snapshots retain the last valid config.
 
 ## Useful settings
 
@@ -37,4 +45,4 @@ The workflow validates the entire snapshot, publishes only JSON/schema files, an
 - `standee*`: photo power/tick, cooldown, duration, attraction radius and fan limit for one cardboard photo prop. Rivals ignore the distraction.
 - Hype, recovery, gifts, pickup ranges, camera/readability and audio mix are also in this snapshot.
 
-Changes to mechanics, new IDs, art, audio recordings, pool sizes or code require a game update. Keep schema version 2 stable for supported value/text changes; incompatible changes require a new versioned endpoint. Run validation for both versions before publication. Never add secrets, authentication tokens or personal data to this public repository.
+Changes to mechanics, new IDs, art, audio recordings, pool sizes or code require a game update. Keep schema version 3 stable for supported value/text/unlock changes; incompatible changes require a new versioned endpoint. Run validation for all three versions before publication. Never add secrets, authentication tokens or personal data to this public repository.
