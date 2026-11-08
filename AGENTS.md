@@ -40,14 +40,14 @@ uses the same class weights, active limits and budget costs. Required fan introd
 | `arrivalCost` | Budget spent by one fan; ordinary fans cost 1. A Banner costing 3 replaces three ordinary arrivals |
 
 `fans[kind=2].charm` is Banner's base endurance; `followerValue` is XP per faint, while `moneyValue` stays
-Training cash. Current Banner values are endurance 96, XP 120, cash 2, speed 2.2 and contact 6. Its reveal
+Training cash. Current Banner values are endurance 64, XP 120, cash 2, speed 2.2 and contact 6. Its reveal
 count is 1, weights 0.04 → 0.32, ramp 12 levels, limits 2 → 18 and cost 3. All other fan attributes stay as
 in v3. Later tours start with previous classes already established; their next new class still reveals rare.
 
 Basic fans start fading at `retireBasicLevel` on `retireBasicTour` or later, over `basicFanFadeLevels` earned
 levels. Current values are tour 1, level 32 and 20 levels, so basics are gone at 52. Swarm count settings now
 mean ordinary-fan budget units: durable members buy fewer bodies. Saturated arrivals discard unused budget;
-class caps and the global `maxHostiles = 180` never queue a release flood. A repeated late beat at a full
+class caps and the global `maxHostiles = 90` never queue a release flood. A repeated late beat at a full
 class allowance advances without adding more of that type.
 
 Future Banner retunes need only this config: edit its `fans` row and/or `fanArrivals` row, preserve every
@@ -89,7 +89,7 @@ preserved, and v5 uses its own balance cache.
 - `training*`, signature settings and `careerGoalRewards`: permanent progression. Costs are twenty entries per track.
 - `tourCashMultipliers`: six repeatable Training-cash rates, currently 1 / 1.25 / 1.5 / 1.75 / 2 / 2.25. Applies to bills and follower support, including Exit to Home; match XP, career goals and first-clear bonuses stay separate. Each run locks its rate and preserves fractional earnings.
 - `tourHealthPerStop`, `tourArrivalsPerStop`, `rivalHealthPerStop`: linear increases per tour after Tour 1. Current increments are 20% fan endurance, 12% regular arrival pressure and 30% rival endurance. Do not infer an hours-to-progress target from these values.
-- `maxHostiles`: strict shared active cap across ordinary arrivals, swarms, reveals and rival summons. Preserve 180 unless a requested change and testing justify otherwise. Required encounters make room; rejected arrivals do not queue.
+- `maxHostiles`: strict shared active cap across ordinary arrivals, swarms, reveals and rival summons. Preserve 90 unless a requested change and testing justify otherwise. Required encounters make room; rejected arrivals do not queue.
 - `selfiePhotos`, `selfiePhotoInterval`, `fancam*`: group-photo drone. `fancamDamage` is total burst power, divided across its photos; The frame half-width is 1.2 × `fancamRadius`; half-height is 0.9 × it. Existing follow-camera appearance values are legacy compatibility fields.
 - `bubble*`: power, cooldown, radius, capture limit, lifetime, speed and range for one active hold-and-pop bubble. Rivals resist the hold.
 - `standee*`: photo power/tick, cooldown, duration, attraction radius and fan limit for one cardboard photo prop. Rivals ignore the distraction.

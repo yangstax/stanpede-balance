@@ -1,6 +1,6 @@
 {
   "schemaVersion": 6,
-  "revision": "2026-11-08.health-regen",
+  "revision": "2026-11-08.rival-banner-crowd",
   "abilityText": [
     {
       "key": "FingerHeart",
@@ -533,7 +533,7 @@
   "spawnCurve": 1.5,
   "forwardSpawnChance": 0.3,
   "forwardSpawnAngleDegrees": 140,
-  "maxHostiles": 180,
+  "maxHostiles": 90,
   "charmGrowthLinear": 0.28,
   "charmGrowthQuadratic": 0.15,
   "charmGrowthDelay": 60,
@@ -568,7 +568,7 @@
     },
     {
       "kind": 2,
-      "charm": 96,
+      "charm": 64,
       "speed": 2.2,
       "contactDamage": 6,
       "followerValue": 120,
@@ -901,7 +901,7 @@
   ],
   "tourFirstClearCash": 150,
   "tourClearCashPerStop": 50,
-  "rivalMidHealth": 300,
+  "rivalMidHealth": 900,
   "rivalMidXp": 300,
   "rivalFinalHealth": 1800,
   "rivalHealthPerStop": 0.3,
