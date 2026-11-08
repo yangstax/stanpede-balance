@@ -6,7 +6,7 @@
 
 Tour cash pays 1× / 1.25× / 1.5× / 1.75× / 2× / 2.25× on bills and follower support. Fractional cash carries across pickups and runs. XP, career goals and first-clear bonuses stay separate. Higher stops add 20% fan endurance, 12% regular arrival pressure and 30% rival endurance per stop after Tour 1. The active crowd cap remains 180 across all sources.
 
-Selfie Drone uses the stable `FancamFlash` key, with total burst power shared across its photos. Bubble Pop unlocks for Tour 2; Photo Standee for Tour 3; Selfie Drone for Tour 4. `AGENTS.md` describes their settings. These mechanics and strict shared-cap enforcement require the updated app; later supported tuning uses this endpoint without another build.
+Selfie Drone uses the stable `FancamFlash` key, with total burst power shared across its photos. The updated app unlocks Selfie Drone for Tour 2, Photo Standee for Tour 3 and Bubble Pop for Tour 4. Unlock gates and clear rewards require the updated app; they are not live config fields. `AGENTS.md` describes their configurable values. Later supported value/text tuning uses this endpoint without another build.
 
 ## Change it from ChatGPT on your phone
 
