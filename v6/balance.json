@@ -1,6 +1,6 @@
 {
   "schemaVersion": 6,
-  "revision": "2026-11-08.finger-heart-flat-fans",
+  "revision": "2026-11-08.fan-threat-ladder",
   "abilityText": [
     {
       "key": "FingerHeart",
@@ -559,7 +559,7 @@
     },
     {
       "kind": 1,
-      "charm": 22,
+      "charm": 96,
       "speed": 2.4,
       "contactDamage": 4,
       "followerValue": 45,
@@ -577,7 +577,7 @@
     },
     {
       "kind": 3,
-      "charm": 90,
+      "charm": 144,
       "speed": 1.3,
       "contactDamage": 10,
       "followerValue": 300,
@@ -586,7 +586,7 @@
     },
     {
       "kind": 4,
-      "charm": 18,
+      "charm": 176,
       "speed": 2.3,
       "contactDamage": 6,
       "followerValue": 60,
@@ -613,7 +613,7 @@
     },
     {
       "kind": 7,
-      "charm": 56,
+      "charm": 224,
       "speed": 1.35,
       "contactDamage": 8,
       "followerValue": 120,
@@ -622,7 +622,7 @@
     },
     {
       "kind": 8,
-      "charm": 24,
+      "charm": 288,
       "speed": 1.3,
       "contactDamage": 6,
       "followerValue": 120,
@@ -1044,7 +1044,7 @@
       "levelsToCommon": 12,
       "initialMaxActive": 2,
       "commonMaxActive": 18,
-      "arrivalCost": 2
+      "arrivalCost": 4
     },
     {
       "kind": 3,
@@ -1054,7 +1054,7 @@
       "levelsToCommon": 12,
       "initialMaxActive": 1,
       "commonMaxActive": 8,
-      "arrivalCost": 4
+      "arrivalCost": 5
     },
     {
       "kind": 4,
@@ -1064,7 +1064,7 @@
       "levelsToCommon": 12,
       "initialMaxActive": 2,
       "commonMaxActive": 24,
-      "arrivalCost": 2
+      "arrivalCost": 6
     },
     {
       "kind": 7,
@@ -1074,7 +1074,7 @@
       "levelsToCommon": 12,
       "initialMaxActive": 2,
       "commonMaxActive": 18,
-      "arrivalCost": 3
+      "arrivalCost": 7
     },
     {
       "kind": 8,
@@ -1084,7 +1084,7 @@
       "levelsToCommon": 12,
       "initialMaxActive": 2,
       "commonMaxActive": 16,
-      "arrivalCost": 2
+      "arrivalCost": 8
     }
   ],
   "starBurstRadius": [

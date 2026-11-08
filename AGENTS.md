@@ -41,8 +41,23 @@ uses the same class weights, active limits and budget costs. Required fan introd
 
 `fans[kind=2].charm` is Banner's base endurance; `followerValue` is XP per faint, while `moneyValue` stays
 Training cash. Current Banner values are endurance 64, XP 120, cash 2, speed 2.2 and contact 6. Its reveal
-count is 1, weights 0.04 → 0.32, ramp 12 levels, limits 2 → 18 and cost 3. All other fan attributes stay as
-in v3. Later tours start with previous classes already established; their next new class still reveals rare.
+count is 1, weights 0.04 → 0.32, ramp 12 levels, limits 2 → 18 and cost 3. Each newly introduced class
+should increase pressure while keeping its distinct behavior. Current endurance and budget costs are:
+
+| Class, in reveal order | Base HP | Arrival cost |
+|---|---:|---:|
+| Banner Squad | 64 | 3 |
+| Filmer | 96 | 4 |
+| Dad | 144 | 5 |
+| Grandma | 176 | 6 |
+| Headphone Crew | 224 | 7 |
+| Plush Tosser | 288 | 8 |
+
+Both individual endurance and endurance per arrival-budget unit rise along this ladder. Higher costs
+reduce body arrivals at the same pressure budget. Movement, contact strength, XP/cash rewards, weights,
+active limits and twelve-level ramps are unchanged. Each class still reveals alone. This is a tuning
+target for a noticeable difficulty increase, not a substitute for a human playtest. Do not reintroduce
+elapsed-time stat growth. Later tours start with previous classes established; their next class reveals rare.
 
 Basic fans start fading at `retireBasicLevel` on `retireBasicTour` or later, over `basicFanFadeLevels` earned
 levels. Current values are tour 1, level 32 and 20 levels, so basics are gone at 52. Swarm count settings now
