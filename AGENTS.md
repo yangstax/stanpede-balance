@@ -20,7 +20,7 @@ The workflow validates the entire snapshot, publishes only JSON/schema files, an
 ## Useful settings
 
 - `tourFanLevels`, `tourSingleLevels`, `tourRivalLevels`, `tourCycleLevels`: fan → single → rival phases. Current phases are 12/16/20, 22/26/30, then every ten levels.
-- `spawnRateStart/End`, `spawnCurve`, `regularGroupSize`, `openingMaxHostiles`, `lateSwarmTimes/Fans`: arrival pacing. Keep crowds readable and slow enough to steer through.
+- `spawnRateStart/End`, `spawnCurve`, `regularGroupSize`, `openingMaxHostiles`, `openingCrowdGraceSeconds`, `lateSwarmTimes/Fans`: arrival pacing. The opening limit applies to regular arrivals during its grace window; scripted swarms still use the shared global cap. Keep crowds readable and slow enough to steer through.
 - `fans`: health/charm, speed, contact health loss, XP/cash rewards and collision radius per fan type.
 - `fanScalingSecondsPerLevel`, `fanScalingOverflowFraction`: the level-based soft ceiling and continued time scaling beyond it. Avoid freezing pressure when XP collection stops.
 - `crowdAreaQuietRate`: how much arrival pressure remains on cleared ground. Preserve time to collect loot, while preventing stationary safety.

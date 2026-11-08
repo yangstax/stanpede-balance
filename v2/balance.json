@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "revision": "2026-11-08.tours-v2",
+  "revision": "2026-11-08.turnover-v2",
   "abilityText": [
     {
       "key": "FingerHeart",
@@ -480,11 +480,11 @@
   "arrivalCrowdFadeSeconds": 0.35,
   "openingSeconds": 120,
   "openingSideEntrySeconds": 18,
-  "openingCrowdGraceSeconds": 30,
+  "openingCrowdGraceSeconds": 60,
   "openingMaxHostiles": 30,
   "firstUpgradeBreatherSeconds": 3,
   "openingWaveTime": 40,
-  "openingWaveFans": 32,
+  "openingWaveFans": 24,
   "swarmWarningSeconds": 3,
   "swarmDepth": 2,
   "gateRushTime": 120,
@@ -513,7 +513,7 @@
   "hypeDropFansMax": 28,
   "hypePerPickup": 50,
   "hypePickupDelay": 0.6,
-  "spawnRateStart": 2.2,
+  "spawnRateStart": 2.0,
   "regularGroupSize": 3,
   "regularGroupSpacing": 0.75,
   "spawnRateEnd": 17,
@@ -538,9 +538,9 @@
   "fans": [
     {
       "kind": 0,
-      "charm": 12,
-      "speed": 1.6,
-      "contactDamage": 6,
+      "charm": 8,
+      "speed": 1.8,
+      "contactDamage": 8,
       "followerValue": 30,
       "moneyValue": 1,
       "radius": 0.3
@@ -631,11 +631,11 @@
   "heartVisualScale": 2,
   "lightstickVisualScale": 1.6,
   "photocardDamage": [
-    5,
-    6,
-    7.5,
+    7,
+    8,
     9,
-    11
+    10,
+    12
   ],
   "photocardTargets": [
     3,
@@ -645,11 +645,11 @@
     7
   ],
   "photocardCooldown": [
-    2.2,
-    2,
-    1.8,
-    1.6,
-    1.4
+    0.8,
+    0.75,
+    0.7,
+    0.65,
+    0.6
   ],
   "photocardFirstDelay": 0.35,
   "photocardSpeed": 10,
