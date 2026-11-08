@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "revision": "2026-11-08.6",
+  "revision": "2026-11-08.7",
   "abilityText": [
     {
       "key": "FingerHeart",
@@ -419,7 +419,7 @@
   "spawnCurve": 1.25,
   "forwardSpawnChance": 0.3,
   "forwardSpawnAngleDegrees": 140,
-  "maxHostiles": 420,
+  "maxHostiles": 180,
   "charmGrowthLinear": 0.28,
   "charmGrowthQuadratic": 0.15,
   "charmGrowthDelay": 60,
@@ -454,7 +454,7 @@
     },
     {
       "kind": 2,
-      "charm": 72,
+      "charm": 48,
       "speed": 2.2,
       "contactDamage": 6,
       "followerValue": 60,
