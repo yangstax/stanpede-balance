@@ -1,6 +1,6 @@
 {
   "schemaVersion": 6,
-  "revision": "2026-11-08.rival-banner-crowd",
+  "revision": "2026-11-08.finger-heart-flat-fans",
   "abilityText": [
     {
       "key": "FingerHeart",
@@ -258,11 +258,11 @@
     3
   ],
   "fingerHeartPower": [
-    7,
-    8.5,
-    9,
     10,
-    12
+    11.5,
+    12,
+    13,
+    15
   ],
   "fingerHeartPierce": [
     0,
@@ -534,12 +534,12 @@
   "forwardSpawnChance": 0.3,
   "forwardSpawnAngleDegrees": 140,
   "maxHostiles": 90,
-  "charmGrowthLinear": 0.28,
-  "charmGrowthQuadratic": 0.15,
+  "charmGrowthLinear": 0,
+  "charmGrowthQuadratic": 0,
   "charmGrowthDelay": 60,
   "fanScalingSecondsPerLevel": 30,
   "fanScalingOverflowFraction": 0.7,
-  "damageGrowthPerMinute": 0.22,
+  "damageGrowthPerMinute": 0,
   "crowdAreaRadius": 10,
   "crowdAreaFans": 36,
   "crowdAreaRefillSeconds": 60,
