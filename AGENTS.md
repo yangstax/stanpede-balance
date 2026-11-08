@@ -24,6 +24,7 @@ The workflow validates the entire snapshot, publishes only JSON/schema files, an
 - `crowdAreaQuietRate`: how much arrival pressure remains on cleared ground. Preserve time to collect loot, while preventing stationary safety.
 - `firstLevelFollowers`, `openingLevelFollowers`, `levelGrowth`: XP requirements. Filling a bar must still earn its choice; rival battles hold choices until won.
 - Ability arrays have five ranks. `fingerHeartPower`, `sparklePower`, `lightstickDamage`, `soundWaveDamage`, `photocardDamage`, `confettiDamage`, `fancamDamage` are internal values; cards show power ×10. Cooldowns are seconds.
+- Sparkle Burst uses the stable `Wink` key. `sparkleSpreadDegrees` is the total fan width; `sparkleAimDegrees` is the forward cone for assistance. Its reach follows `sparkleSpeed × sparkleLifetime`; power is per comet, so consider the shot count when tuning it.
 - `powerPerRank`, `protectionPerRank`, `cooldownReductionPerRank`, `areaPerRank`: match passive effects, written as fractions (0.15 means 15%).
 - `training*`, signature settings and `careerGoalRewards`: permanent progression. Costs are twenty entries per track.
 - Hype, recovery, gifts, pickup ranges, camera/readability and audio mix are also in this snapshot.

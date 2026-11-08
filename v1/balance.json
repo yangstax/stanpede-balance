@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "revision": "2026-11-08.7",
+  "revision": "2026-11-08.8",
   "abilityText": [
     {
       "key": "FingerHeart",
@@ -16,14 +16,14 @@
     },
     {
       "key": "Wink",
-      "name": "Sparkle Shot",
-      "shortDescription": "Pierces the way you move.",
+      "name": "Sparkle Burst",
+      "shortDescription": "A wide burst in front of you.",
       "descriptions": [
-        "Piercing sparkles fire the way you move.",
+        "Three sparkles spread across fans in front.",
         "Stronger sparkles pierce more fans.",
-        "Fires 2 sparkles at once.",
+        "Fires four sparkles in a wide burst.",
         "Stronger sparkles pierce more fans.",
-        "Fires 3 sparkles faster."
+        "Faster five-sparkle bursts."
       ]
     },
     {
@@ -246,11 +246,11 @@
     0.95
   ],
   "sparklePower": [
-    12,
-    14,
-    16,
-    18,
-    22
+    4,
+    5,
+    8,
+    9,
+    13
   ],
   "sparklePierce": [
     2,
@@ -260,14 +260,14 @@
     5
   ],
   "sparkleShots": [
-    1,
-    1,
-    2,
-    2,
-    3
+    3,
+    3,
+    4,
+    4,
+    5
   ],
   "sparkleSpeed": 13,
-  "sparkleLifetime": 0.9,
+  "sparkleLifetime": 0.38,
   "lightstickCount": [
     1,
     2,
@@ -819,5 +819,7 @@
   "sceneryScale": 1,
   "playerVisualScale": 1.25,
   "fanVisualScale": 1.12,
-  "pickupVisualScale": 1.25
+  "pickupVisualScale": 1.25,
+  "sparkleAimDegrees": 90,
+  "sparkleSpreadDegrees": 60
 }

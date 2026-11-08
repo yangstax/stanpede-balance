@@ -18,6 +18,8 @@
     "sparklePower",
     "sparklePierce",
     "sparkleShots",
+    "sparkleSpreadDegrees",
+    "sparkleAimDegrees",
     "sparkleSpeed",
     "sparkleLifetime",
     "lightstickCount",
@@ -639,6 +641,16 @@
         "minimum": 1,
         "maximum": 8
       }
+    },
+    "sparkleSpreadDegrees": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 120
+    },
+    "sparkleAimDegrees": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 180
     },
     "sparkleSpeed": {
       "type": "number",
