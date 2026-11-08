@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "revision": "2026-11-08.gradual-opening-v2",
+  "revision": "2026-11-08.banner-later-v2",
   "abilityText": [
     {
       "key": "FingerHeart",
@@ -859,7 +859,7 @@
     30
   ],
   "tourFanLevels": [
-    12,
+    14,
     22
   ],
   "tourCycleLevels": 10,
