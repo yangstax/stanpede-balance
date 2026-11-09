@@ -1,6 +1,6 @@
 {
   "schemaVersion": 6,
-  "revision": "2026-11-08.fan-threat-ladder",
+  "revision": "2026-11-09.earlier-fans",
   "abilityText": [
     {
       "key": "FingerHeart",
@@ -493,10 +493,10 @@
   "openingSeconds": 120,
   "openingSideEntrySeconds": 18,
   "openingCrowdGraceSeconds": 60,
-  "openingMaxHostiles": 20,
+  "openingMaxHostiles": 24,
   "firstUpgradeBreatherSeconds": 3,
   "openingWaveTime": 70,
-  "openingWaveFans": 12,
+  "openingWaveFans": 16,
   "swarmWarningSeconds": 3,
   "swarmDepth": 2,
   "gateRushTime": 120,
@@ -525,12 +525,12 @@
   "hypeDropFansMax": 28,
   "hypePerPickup": 50,
   "hypePickupDelay": 0.6,
-  "spawnRateStart": 0.9,
+  "spawnRateStart": 1.2,
   "regularGroupSize": 3,
   "regularGroupSpacing": 0.75,
   "spawnRateEnd": 17,
   "encoreSpawnMult": 1.5,
-  "spawnCurve": 1.5,
+  "spawnCurve": 1.4,
   "forwardSpawnChance": 0.3,
   "forwardSpawnAngleDegrees": 140,
   "maxHostiles": 90,
@@ -863,16 +863,16 @@
   "giftDamage": 0.04,
   "giftCash": 25,
   "tourSingleLevels": [
-    16,
-    26
+    14,
+    24
   ],
   "tourRivalLevels": [
-    20,
-    30
+    18,
+    28
   ],
   "tourFanLevels": [
-    14,
-    22
+    10,
+    20
   ],
   "tourCycleLevels": 10,
   "lateSwarmTimes": [

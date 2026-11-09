@@ -92,7 +92,7 @@ preserved, and v5 uses its own balance cache.
 
 ## Useful settings
 
-- `tourFanLevels`, `tourSingleLevels`, `tourRivalLevels`, `tourCycleLevels`: fan → single → rival phases. Current phases are 14/16/20, 22/26/30, then every ten levels.
+- `tourFanLevels`, `tourSingleLevels`, `tourRivalLevels`, `tourCycleLevels`: fan → single → rival phases. Current phases are 10/14/18, 20/24/28, then every ten levels.
 - `spawnRateStart/End`, `spawnCurve`, `regularGroupSize`, `openingMaxHostiles`, `openingCrowdGraceSeconds`, `lateSwarmTimes/Fans`: arrival pacing. The opening limit applies to regular arrivals during its grace window; scripted swarms still use the shared global cap. Keep crowds readable and slow enough to steer through.
 - `fans`: health/charm, speed, contact health loss, XP/cash rewards and collision radius per fan type. Fan endurance and contact strength do not grow with elapsed time: `charmGrowthLinear`, `charmGrowthQuadratic` and `damageGrowthPerMinute` are zero. Preserve that rule; difficulty progresses through tour slopes and the earned-level fan-arrival profiles.
 - `fanScalingSecondsPerLevel`, `fanScalingOverflowFraction`: legacy limits for time-based fan stat scaling. They have no effect while the three growth coefficients remain zero.
