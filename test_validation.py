@@ -13,8 +13,62 @@ from validate import ROOT, load_document, unique_properties, validate
 
 class BalanceValidationTests(unittest.TestCase):
     def setUp(self):
-        self.data = json.loads((ROOT / "v6/balance.json").read_text())
-        self.schema = json.loads((ROOT / "v6/balance.schema.json").read_text())
+        self.data = json.loads((ROOT / "v7/balance.json").read_text())
+        self.schema = json.loads((ROOT / "v7/balance.schema.json").read_text())
+
+    def test_wave_rows_need_a_starting_level_and_sorted_unique_thresholds(self):
+        for levels in ([2, 10, 20], [1, 1, 20], [1, 20, 10]):
+            with self.subTest(levels=levels):
+                data = copy.deepcopy(self.data)
+                for row, level in zip(data["levelPresets"], levels, strict=True):
+                    row["fromLevel"] = level
+                with self.assertRaises(ValidationError):
+                    validate(data, self.schema)
+
+    def test_wave_rows_must_be_complete_and_bounded(self):
+        for field, value in (("waveDurationSeconds", 0), ("breatherDurationSeconds", -1),
+                             ("waveSpawnRate", -1), ("breatherSpawnRate", 61)):
+            with self.subTest(field=field):
+                data = copy.deepcopy(self.data)
+                data["levelPresets"][0][field] = value
+                with self.assertRaises(ValidationError):
+                    validate(data, self.schema)
+        self.data["levelPresets"][0].pop("waveDurationSeconds")
+        with self.assertRaises(ValidationError):
+            validate(self.data, self.schema)
+
+    def test_breather_cannot_spawn_faster_than_wave(self):
+        self.data["levelPresets"][0]["breatherSpawnRate"] = 60
+        with self.assertRaises(ValidationError):
+            validate(self.data, self.schema)
+
+    def test_zero_rate_breather_is_valid(self):
+        self.data["levelPresets"][0]["breatherSpawnRate"] = 0
+        validate(self.data, self.schema)
+
+    def test_missing_or_excessive_presets_are_rejected(self):
+        for rows in ([], self.data["levelPresets"] * 3):
+            with self.subTest(count=len(rows)):
+                data = copy.deepcopy(self.data)
+                data["levelPresets"] = rows
+                with self.assertRaises(ValidationError):
+                    validate(data, self.schema)
+
+    def test_disengagement_needs_offscreen_distance_and_positive_timeout(self):
+        for field, value in (("giveUpDistanceScreens", 0.1), ("giveUpAfterSecondsOffscreen", 0)):
+            with self.subTest(field=field):
+                data = copy.deepcopy(self.data)
+                data[field] = value
+                with self.assertRaises(ValidationError):
+                    validate(data, self.schema)
+
+    def test_retired_pacing_knobs_cannot_silently_stack(self):
+        for field in ("spawnRateStart", "openingWaveTime", "crowdAreaQuietRate", "charmGrowthLinear"):
+            with self.subTest(field=field):
+                data = copy.deepcopy(self.data)
+                data[field] = 1
+                with self.assertRaises(ValidationError):
+                    validate(data, self.schema)
 
     def test_regeneration_has_five_ranks(self):
         self.data["healthRegenFraction"] = [0.01]
@@ -85,7 +139,7 @@ class BalanceValidationTests(unittest.TestCase):
             json.loads('{"revision":"a","revision":"b"}', object_pairs_hook=unique_properties)
 
     def test_older_client_contract_remains_valid(self):
-        for version in (1, 2, 3, 4, 5):
+        for version in (1, 2, 3, 4, 5, 6):
             data = json.loads((ROOT / f"v{version}/balance.json").read_text())
             schema = json.loads((ROOT / f"v{version}/balance.schema.json").read_text())
             validate(data, schema)
@@ -114,14 +168,14 @@ class BalanceValidationTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             subprocess.run([sys.executable, str(ROOT / "validate.py"), "--publish-dir", directory,
                             "--revision", "published.test"], check=True, capture_output=True)
-            for version in (1, 2, 3, 4, 5, 6):
+            for version in (1, 2, 3, 4, 5, 6, 7):
                 data = json.loads((Path(directory) / f"v{version}/balance.json").read_text())
                 self.assertEqual(data["schemaVersion"], version)
                 self.assertEqual(data["revision"], "published.test")
                 original = json.loads((ROOT / f"v{version}/balance.json").read_text())
                 original["revision"] = "published.test"
                 self.assertEqual(data, original)
-            self.assertEqual(len(list(Path(directory).rglob("*.json"))), 12)
+            self.assertEqual(len(list(Path(directory).rglob("*.json"))), 14)
 
     def test_unlocks_can_be_reordered_without_changing_ids(self):
         self.data["abilityUnlocks"].reverse()

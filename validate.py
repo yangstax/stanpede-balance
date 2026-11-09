@@ -47,19 +47,30 @@ def validate(data, schema):
         previous_rival = rival
     if data["tourFanLevels"][-1] + data["tourCycleLevels"] <= previous_rival:
         raise ValidationError("The next fan phase must follow the previous rival.")
-    if data["openingMaxHostiles"] > data["maxHostiles"]:
-        raise ValidationError("Opening crowd exceeds the crowd cap.")
     if data["dropMinFans"] > data["dropMaxFans"] or data["hypeDropFansMin"] > data["hypeDropFansMax"]:
         raise ValidationError("A minimum exceeds its maximum.")
-    if data["openingWaveTime"] < data["swarmWarningSeconds"] or data["gateRushTime"] <= data["openingWaveTime"]:
-        raise ValidationError("Opening swarm times are out of order.")
-    if len(data["lateSwarmTimes"]) != len(data["lateSwarmFans"]):
-        raise ValidationError("Each late swarm needs a time and count.")
-    previous_time = data["gateRushTime"]
-    for wave_time in data["lateSwarmTimes"]:
-        if wave_time <= previous_time:
-            raise ValidationError("Late swarm times must increase after the gate rush.")
-        previous_time = wave_time
+    if data["schemaVersion"] >= 7:
+        previous_level = 0
+        if data["levelPresets"][0]["fromLevel"] != 1:
+            raise ValidationError("Wave presets must begin at level 1.")
+        for row in data["levelPresets"]:
+            if row["fromLevel"] <= previous_level:
+                raise ValidationError("Wave preset levels must be strictly increasing.")
+            if row["breatherSpawnRate"] > row["waveSpawnRate"]:
+                raise ValidationError("A breather cannot have a higher arrival rate than its wave.")
+            previous_level = row["fromLevel"]
+    else:
+        if data["openingMaxHostiles"] > data["maxHostiles"]:
+            raise ValidationError("Opening crowd exceeds the crowd cap.")
+        if data["openingWaveTime"] < data["swarmWarningSeconds"] or data["gateRushTime"] <= data["openingWaveTime"]:
+            raise ValidationError("Opening swarm times are out of order.")
+        if len(data["lateSwarmTimes"]) != len(data["lateSwarmFans"]):
+            raise ValidationError("Each late swarm needs a time and count.")
+        previous_time = data["gateRushTime"]
+        for wave_time in data["lateSwarmTimes"]:
+            if wave_time <= previous_time:
+                raise ValidationError("Late swarm times must increase after the gate rush.")
+            previous_time = wave_time
     if any(cooldown < data["soundWaveSeconds"] for cooldown in data["soundWaveCooldown"]):
         raise ValidationError("A sound wave must finish before the next cast.")
     if any(not ability["name"].strip() for ability in data["abilityText"]):

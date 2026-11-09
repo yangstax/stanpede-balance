@@ -4,16 +4,16 @@ This repository controls the live balance of STANPEDE, a K-pop survivors game. T
 
 ## Make a change
 
-1. Pull latest main, then read `v6/balance.json` and `v6/balance.schema.json`. Fetch the live v5 snapshot with a fresh query parameter before editing. Versions 1–5 are archived for older builds: preserve their values unless the user explicitly requests an older-client change.
+1. Pull latest main, then read `v7/balance.json` and `v7/balance.schema.json`. Fetch the live v7 snapshot with a fresh query parameter before editing. Versions 1–6 are archived for older builds: preserve their values unless the user explicitly requests an older-client change.
 2. Change only the requested values. Preserve the existing unrelated balance. Keep names short, clear and affectionate; use Charm power, faint, health, and Chart Topper. Never introduce violent wording.
 3. Keep upgrade keys and fan kind IDs stable. Change `abilityText[].name` to rename an upgrade; update its descriptions when needed. Fan kind IDs: 0 ordinary, 1 filmer, 2 banner, 3 dad, 4 grandma, 5 rival fans, 6 rival idol, 7 headphones, 8 plush tosser.
 4. Install `requirements.txt`, then run `python3 -m unittest test_validation.py` and `python3 validate.py`.
 5. Commit and push to **main** as `yangstax` when the user requests a completed change. These instructions authorize routine config publication for a requested balance change; no game build or local Mac is needed.
 6. Watch the GitHub Actions result, then fetch the live URL with a fresh query parameter and verify the changed values. Report the actual published revision and exact changes. A successful push alone does not prove publication.
 
-Current live URL: https://yangstax.github.io/stanpede-balance/v6/balance.json
+Current live URL: https://yangstax.github.io/stanpede-balance/v7/balance.json
 
-Version 6 contains 312 settings, nine fan kinds, twenty ability texts and eighteen persistent ability unlock rows. Use schemaVersion 6. Names and five-rank descriptions are configurable; IDs and array sizes are the app contract. The stable `FancamFlash` key now means Selfie Drone. `BubblePop` and `PhotoStandee` are new keys. `LaserLight` and `BoomBox` remain retired.
+Version 7 contains 286 settings, nine fan kinds, twenty ability texts and eighteen persistent ability unlock rows. Use schemaVersion 7. Names and five-rank descriptions are configurable; IDs and array sizes are the app contract. The stable `FancamFlash` key now means Selfie Drone. `BubblePop` and `PhotoStandee` are new keys. `LaserLight` and `BoomBox` remain retired.
 
 The workflow validates the entire snapshot, publishes only JSON/schema files, and uses the source commit as the served revision. Existing matches keep their snapshot. The game downloads changes on launch/resume and about once a minute, applying them between matches. It keeps the last valid config for offline play.
 
@@ -94,10 +94,8 @@ preserved, and v5 uses its own balance cache.
 ## Useful settings
 
 - `tourFanLevels`, `tourSingleLevels`, `tourRivalLevels`, `tourCycleLevels`: fan → single → rival phases. Current phases are 10/14/18, 20/24/28, then every ten levels.
-- `spawnRateStart/End`, `spawnCurve`, `regularGroupSize`, `openingMaxHostiles`, `openingCrowdGraceSeconds`, `lateSwarmTimes/Fans`: arrival pacing. The opening limit applies to regular arrivals during its grace window; scripted swarms still use the shared global cap. Keep crowds readable and slow enough to steer through.
-- `fans`: health/charm, speed, contact health loss, XP/cash rewards and collision radius per fan type. Fan endurance and contact strength do not grow with elapsed time: `charmGrowthLinear`, `charmGrowthQuadratic` and `damageGrowthPerMinute` are zero. Preserve that rule; difficulty progresses through tour slopes and the earned-level fan-arrival profiles.
-- `fanScalingSecondsPerLevel`, `fanScalingOverflowFraction`: legacy limits for time-based fan stat scaling. They have no effect while the three growth coefficients remain zero.
-- `crowdAreaQuietRate`: how much arrival pressure remains on cleared ground. Preserve time to collect loot, while preventing stationary safety.
+- `levelPresets`: the complete wave/breather rows below. `giveUpDistanceScreens` and `giveUpAfterSecondsOffscreen`: reward-free distant-fan disengagement. Old time ramps/swarms/local depletion are archived in v1–6.
+- `fans`: health/charm, speed, contact health loss, XP/cash rewards and collision radius per fan type. Fan endurance and contact strength do not grow with elapsed time; those call sites and time-growth fields are removed in v7. Preserve that rule; difficulty progresses through tour slopes and the earned-level fan-arrival profiles.
 - `firstLevelFollowers`, `openingLevelFollowers`, `levelGrowth`: XP requirements. Filling a bar must still earn its choice; rival battles hold choices until won.
 - Ability arrays have five ranks. `fingerHeartPower`, `sparklePower`, `lightstickDamage`, `soundWaveDamage`, `photocardDamage`, `confettiDamage`, `fancamDamage` are internal values; cards show power ×10. Cooldowns are seconds.
 - Shooting Star uses the stable `Wink` key. `sparklePower` is total volley power, divided across its shot count; see the v5 star fields above. The old spread/aim/pierce fields no longer control its behavior.
@@ -111,7 +109,7 @@ preserved, and v5 uses its own balance cache.
 - `standee*`: photo power/tick, cooldown, duration, attraction radius and fan limit for one cardboard photo prop. Rivals ignore the distraction.
 - Hype, recovery, gifts, pickup ranges, camera/readability and audio mix are also in this snapshot.
 
-Changes to mechanics, new IDs, art, audio recordings, pool sizes or code require a game update. Keep schema version 5 stable for supported value/text/unlock changes; incompatible changes require a new versioned endpoint. Run validation for all five versions before publication. Never add secrets, authentication tokens or personal data to this public repository.
+Changes to mechanics, new IDs, art, audio recordings, pool sizes or code require a game update. Keep schema version 7 stable for supported value/text/unlock changes; incompatible changes require a new versioned endpoint. Run validation for all seven versions before publication. Never add secrets, authentication tokens or personal data to this public repository.
 
 ## Health Regen and health gifts
 
@@ -125,3 +123,46 @@ Health gifts keep `giftHealth = 8` maximum health plus healing. `giftHealFractio
 previously fixed healing fraction of the new maximum. Feedback separately shows the cap increase and
 actual extra healing; the world popup shows actual health gained. V6 adds this passive/config support and
 requires a new app build once. Existing career v4 progress and v1–5 config values are preserved.
+
+## Waves and breathers (v7)
+
+A cycle lasts **30 gameplay seconds of arrivals, then 12 seconds of lighter arrivals**. The highest
+`fromLevel` reached at wave start selects one complete row for that wave and its breather. Menus,
+held introductions and rival duels freeze the timer; returning resumes its remaining time. The first
+cycle begins after the entrance/basic introduction. Waves use the existing incoming sound, with no new HUD.
+
+| From level | Wave duration (s) | Wave rate (units/s) | Breather duration (s) | Breather rate (units/s) |
+|---|---:|---:|---:|---:|
+| 1 | 30 | 1.2 | 12 | 0.15 |
+| 10 | 30 | 2.4 | 12 | 0.25 |
+| 20 | 30 | 4 | 12 | 0.35 |
+
+**Spawn rate means arrival-budget units per gameplay second, not fan count.** An ordinary fan costs 1;
+Banner costs 3, Filmer 4, Dad 5, Grandma 6, Headphones 7 and Tosser 8, from the existing `fanArrivals` rows.
+For example, 30 seconds at 1.2 units/s funds up to 36 ordinary fans or 12 Banners, before class/global caps.
+Only the existing tour modifier applies: `1 + (tour - 1) × tourArrivalsPerStop`, currently +12% per tour.
+Existing class unlocks, weights, reveal counts, earned-level ramps, class caps and basic retirement remain.
+
+The director selects one eligible fan before checking affordability and waits for its full cost. This
+lets expensive fans arrive without cheap fans continually spending their budget. Fractional credit stays
+within a phase. Phase changes, blocked selected classes and the shared cap discard credit and selection;
+there is no spawn debt or missed-arrival queue. Fan introductions retain their small configured groups.
+Required rivals reserve room and retain their existing arena/summon/milestone rules under **cap 90**.
+
+`giveUpDistanceScreens = 1.25` measures distance from the unshaken camera center as
+`max(abs(dx) / fullScreenWorldWidth, abs(dy) / fullScreenWorldHeight)`; the visible edge is 0.5. Ordinary
+fans both beyond that distance and fully outside the actual camera frame for
+`giveUpAfterSecondsOffscreen = 8` continuous gameplay seconds disengage. Returning closer or visible
+resets the timer. Menus/introductions/duels pause it; required rival actors are exempt. Disengagement
+releases a pooled slot without a faint, cash, XP, followers, Hype, chart credit or charge. Fans just outside
+the screen keep approaching. Distant fans never teleport around the player.
+
+Ordinary fan HP is class endurance × the existing tour multiplier; contact strength is the class value.
+Neither depends on elapsed time. The old ramp, timed swarms, local depletion and song/Hype/Encore spawn
+multipliers and time-strength fields are removed from v7. `urgentBannerSeconds` retains the previous event
+banner duration. Intro protection (`openingSeconds`/`firstUpgradeBreatherSeconds`) remains separate.
+
+The [small example](https://github.com/yangstax/ksurvivor/blob/main/Tools/Balance/proposals/wave-breather.example.json) shows the supported pacing fields;
+it is a fragment, not a complete publishable snapshot. The versioned v7 endpoint needs one app update.
+Later durations/rates/level presets, costs/class profiles and disengagement thresholds are config-only
+edits from the phone balance chat. Keep v1–6 values and career v4 progress intact.
