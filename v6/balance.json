@@ -1,6 +1,6 @@
 {
   "schemaVersion": 6,
-  "revision": "2026-11-09.earlier-fans",
+  "revision": "2026-11-09.banner-pressure",
   "abilityText": [
     {
       "key": "FingerHeart",
@@ -1029,10 +1029,10 @@
     {
       "kind": 2,
       "introductionCount": 1,
-      "initialWeight": 0.04,
+      "initialWeight": 0.2,
       "commonWeight": 0.32,
-      "levelsToCommon": 12,
-      "initialMaxActive": 2,
+      "levelsToCommon": 6,
+      "initialMaxActive": 6,
       "commonMaxActive": 18,
       "arrivalCost": 3
     },

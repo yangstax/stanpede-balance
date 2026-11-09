@@ -214,7 +214,7 @@ class BalanceValidationTests(unittest.TestCase):
             validate(self.data, self.schema)
 
     def test_a_reveal_cannot_exceed_its_initial_active_limit(self):
-        self.data["fanArrivals"][0]["introductionCount"] = 3
+        self.data["fanArrivals"][0].update(initialMaxActive=2, introductionCount=3)
         with self.assertRaises(ValidationError):
             validate(self.data, self.schema)
 
