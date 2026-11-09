@@ -1,6 +1,6 @@
 {
   "schemaVersion": 7,
-  "revision": "2026-11-09.denser-waves",
+  "revision": "2026-11-09.midpoint-waves",
   "abilityText": [
     {
       "key": "FingerHeart",
@@ -1077,21 +1077,21 @@
     {
       "fromLevel": 1,
       "waveDurationSeconds": 30,
-      "waveSpawnRate": 3,
+      "waveSpawnRate": 2.1,
       "breatherDurationSeconds": 12,
       "breatherSpawnRate": 0.15
     },
     {
       "fromLevel": 10,
       "waveDurationSeconds": 30,
-      "waveSpawnRate": 5,
+      "waveSpawnRate": 3.7,
       "breatherDurationSeconds": 12,
       "breatherSpawnRate": 0.25
     },
     {
       "fromLevel": 20,
       "waveDurationSeconds": 30,
-      "waveSpawnRate": 8,
+      "waveSpawnRate": 6,
       "breatherDurationSeconds": 12,
       "breatherSpawnRate": 0.35
     }
