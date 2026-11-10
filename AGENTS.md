@@ -134,9 +134,10 @@ cycle begins after the entrance/basic introduction. Waves use the existing incom
 | From level | Wave duration (s) | Wave rate (units/s) | Breather duration (s) | Breather rate (units/s) |
 |---|---:|---:|---:|---:|
 | 1 | 30 | 1.2 | 12 | 0.15 |
-| 3 | 30 | 1.5 | 12 | 0.15 |
-| 4 | 30 | 1.8 | 12 | 0.15 |
-| 5 | 30 | 2.1 | 12 | 0.15 |
+| 2 | 30 | 1.5 | 12 | 0.15 |
+| 3 | 30 | 1.8 | 12 | 0.15 |
+| 4 | 30 | 2.1 | 12 | 0.15 |
+| 5 | 30 | 2.4 | 12 | 0.15 |
 | 6 | 30 | 2.4 | 12 | 0.15 |
 | 10 | 30 | 3.7 | 12 | 0.25 |
 | 20 | 30 | 6 | 12 | 0.35 |
@@ -175,7 +176,7 @@ edits from the phone balance chat. Keep v1–6 values and career v4 progress int
 
 ```json
 "abilityTiming": {
-  "Lightstick": { "activeSeconds": 5, "restSeconds": 2 }
+  "Lightstick": { "activeSeconds": 3, "restSeconds": 2 }
 }
 ```
 

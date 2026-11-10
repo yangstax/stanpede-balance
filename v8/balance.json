@@ -1,6 +1,6 @@
 {
   "schemaVersion": 8,
-  "revision": "ability-timing-2026-11-10",
+  "revision": "2026-11-10.early-ramp-orbit-rest",
   "abilityText": [
     {
       "key": "FingerHeart",
@@ -1082,23 +1082,30 @@
       "breatherSpawnRate": 0.15
     },
     {
-      "fromLevel": 3,
+      "fromLevel": 2,
       "waveDurationSeconds": 30,
       "waveSpawnRate": 1.5,
       "breatherDurationSeconds": 12,
       "breatherSpawnRate": 0.15
     },
     {
-      "fromLevel": 4,
+      "fromLevel": 3,
       "waveDurationSeconds": 30,
       "waveSpawnRate": 1.8,
       "breatherDurationSeconds": 12,
       "breatherSpawnRate": 0.15
     },
     {
-      "fromLevel": 5,
+      "fromLevel": 4,
       "waveDurationSeconds": 30,
       "waveSpawnRate": 2.1,
+      "breatherDurationSeconds": 12,
+      "breatherSpawnRate": 0.15
+    },
+    {
+      "fromLevel": 5,
+      "waveDurationSeconds": 30,
+      "waveSpawnRate": 2.4,
       "breatherDurationSeconds": 12,
       "breatherSpawnRate": 0.15
     },
@@ -1126,7 +1133,7 @@
   ],
   "abilityTiming": {
     "Lightstick": {
-      "activeSeconds": 5,
+      "activeSeconds": 3,
       "restSeconds": 2
     }
   }
