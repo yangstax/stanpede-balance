@@ -20,6 +20,7 @@ class BalanceValidationTests(unittest.TestCase):
         for levels in ([2, 10, 20], [1, 1, 20], [1, 20, 10]):
             with self.subTest(levels=levels):
                 data = copy.deepcopy(self.data)
+                data["levelPresets"] = data["levelPresets"][:len(levels)]
                 for row, level in zip(data["levelPresets"], levels, strict=True):
                     row["fromLevel"] = level
                 with self.assertRaises(ValidationError):

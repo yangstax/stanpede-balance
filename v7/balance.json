@@ -1,6 +1,6 @@
 {
   "schemaVersion": 7,
-  "revision": "2026-11-09.midpoint-waves",
+  "revision": "2026-11-10.gentle-early-levels",
   "abilityText": [
     {
       "key": "FingerHeart",
@@ -1076,6 +1076,27 @@
   "levelPresets": [
     {
       "fromLevel": 1,
+      "waveDurationSeconds": 30,
+      "waveSpawnRate": 1.2,
+      "breatherDurationSeconds": 12,
+      "breatherSpawnRate": 0.15
+    },
+    {
+      "fromLevel": 3,
+      "waveDurationSeconds": 30,
+      "waveSpawnRate": 1.5,
+      "breatherDurationSeconds": 12,
+      "breatherSpawnRate": 0.15
+    },
+    {
+      "fromLevel": 4,
+      "waveDurationSeconds": 30,
+      "waveSpawnRate": 1.8,
+      "breatherDurationSeconds": 12,
+      "breatherSpawnRate": 0.15
+    },
+    {
+      "fromLevel": 5,
       "waveDurationSeconds": 30,
       "waveSpawnRate": 2.1,
       "breatherDurationSeconds": 12,

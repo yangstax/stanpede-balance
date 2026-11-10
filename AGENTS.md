@@ -133,13 +133,16 @@ cycle begins after the entrance/basic introduction. Waves use the existing incom
 
 | From level | Wave duration (s) | Wave rate (units/s) | Breather duration (s) | Breather rate (units/s) |
 |---|---:|---:|---:|---:|
-| 1 | 30 | 2.1 | 12 | 0.15 |
+| 1 | 30 | 1.2 | 12 | 0.15 |
+| 3 | 30 | 1.5 | 12 | 0.15 |
+| 4 | 30 | 1.8 | 12 | 0.15 |
+| 5 | 30 | 2.1 | 12 | 0.15 |
 | 10 | 30 | 3.7 | 12 | 0.25 |
 | 20 | 30 | 6 | 12 | 0.35 |
 
 **Spawn rate means arrival-budget units per gameplay second, not fan count.** An ordinary fan costs 1;
 Banner costs 3, Filmer 4, Dad 5, Grandma 6, Headphones 7 and Tosser 8, from the existing `fanArrivals` rows.
-For example, 30 seconds at 2.1 units/s funds up to 63 ordinary fans or 21 Banners, before class/global caps.
+For example, 30 seconds at 1.2 units/s funds up to 36 ordinary fans or 12 Banners, before class/global caps.
 Only the existing tour modifier applies: `1 + (tour - 1) × tourArrivalsPerStop`, currently +12% per tour.
 Existing class unlocks, weights, reveal counts, earned-level ramps, class caps and basic retirement remain.
 
