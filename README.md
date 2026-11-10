@@ -57,13 +57,13 @@ cycle begins after the entrance/basic introduction. Waves use the existing incom
 | From level | Wave duration (s) | Wave rate (units/s) | Breather duration (s) | Breather rate (units/s) |
 |---|---:|---:|---:|---:|
 | 1 | 30 | 1.2 | 12 | 0.15 |
-| 2 | 30 | 1.5 | 12 | 0.15 |
-| 3 | 30 | 1.8 | 12 | 0.15 |
-| 4 | 30 | 2.1 | 12 | 0.15 |
-| 5 | 30 | 2.4 | 12 | 0.15 |
-| 6 | 30 | 2.4 | 12 | 0.15 |
-| 10 | 30 | 3.7 | 12 | 0.25 |
-| 20 | 30 | 6 | 12 | 0.35 |
+| 2 | 30 | 2 | 12 | 0.15 |
+| 3 | 30 | 2.4 | 12 | 0.15 |
+| 4 | 30 | 2.8 | 12 | 0.15 |
+| 5 | 30 | 3.2 | 12 | 0.15 |
+| 6 | 30 | 3.2 | 12 | 0.15 |
+| 10 | 30 | 5 | 12 | 0.25 |
+| 20 | 30 | 8 | 12 | 0.35 |
 
 **Spawn rate means arrival-budget units per gameplay second, not fan count.** An ordinary fan costs 1;
 Banner costs 3, Filmer 4, Dad 5, Grandma 6, Headphones 7 and Tosser 8, from the existing `fanArrivals` rows.
