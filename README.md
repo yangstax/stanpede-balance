@@ -1,8 +1,8 @@
 # STANPEDE live balance
 
-[Live config](https://yangstax.github.io/stanpede-balance/v8/balance.json) · [Edit on GitHub](https://github.com/yangstax/stanpede-balance/edit/main/v8/balance.json)
+[Live config](https://yangstax.github.io/stanpede-balance/v9/balance.json) · [Edit on GitHub](https://github.com/yangstax/stanpede-balance/edit/main/v9/balance.json)
 
-`v8/balance.json` is the current source for pacing, fan stats, ability values/names/descriptions/unlocks, tour rewards/payouts, XP, Hype, pickups and Training. Pushing a valid change to main publishes it through GitHub Pages. The updated app applies settings between matches and keeps a valid offline copy. Versions 1–7 remain available for older apps; v4 receives the supported Wave/Orbit changes described below.
+`v9/balance.json` is the current source for pacing, fan stats, ability values/names/descriptions/unlocks, tour rewards/payouts, XP, Hype, pickups and Training. Pushing a valid change to main publishes it through GitHub Pages. The updated app applies settings between matches and keeps a valid offline copy. Versions 1–8 remain available for older apps; v4 receives the supported Wave/Orbit changes described below.
 
 Tour cash pays 1× / 1.25× / 1.5× / 1.75× / 2× / 2.25× on bills and follower support. Fractional cash carries across pickups and runs. XP, career goals and first-clear bonuses stay separate. Higher stops add 20% fan endurance, 12% regular arrival pressure and 30% rival endurance per stop after Tour 1. The active crowd cap remains 180 across all sources.
 
@@ -112,3 +112,28 @@ The small reusable clock can later be called by another sustained move; there is
 
 V8 adds one keyed object (287 settings total), its schema and a separate offline cache. Older v1–7
 values and career v4 progress remain intact. One app update is needed; future timing edits use config only.
+
+## Ranged fan pressure (v9)
+
+Fancam Filmers stop, mark three orange shot lanes for **0.75 gameplay seconds**, then send gold camera
+flashes along those locked directions. Sidestepping avoids the volley; standing still costs 10 health
+per hit before protection. They rest 2.2 seconds, then aim again. The old automatic proximity slow is gone.
+
+| Setting | Units | Starting value |
+|---|---|---:|
+| `filmerRange` | World units | 6.5 |
+| `filmerWarningSeconds` | Gameplay seconds before firing | 0.75 |
+| `filmerCooldown` | Gameplay seconds after firing, before aiming again | 2.2 |
+| `filmerShotSpeed` | World units/second | 6 |
+| `filmerShotDamage` | Health before protection, per hit | 10 |
+| `filmerShotCount` | Shots/volley, 1–5 | 3 |
+| `filmerSpreadDegrees` | Total angle between the outer shots | 28 |
+
+Warnings freeze with gameplay. A hidden/HUD-covered fan cannot aim or fire; fainting, distraction and
+rival arenas cancel pending aim. A bounded pool requires a visible marker for every volley. Existing
+Hype/protection and hit immunity also apply to these projectiles.
+
+Plush Tossers keep their 0.8s wind-up, but range/speed/power/rest become 6.5/4.8/8/2.6s through their
+existing `tosser*` fields. V9 derives from live v8 `8f8e46e`: every unrelated value is preserved, including
+the stronger earned-level wave rates, class HP/arrival profiles, cap 90, abilities, XP and Training.
+One app update adds the new attack and v9 endpoint; future ranged retunes need only config edits.

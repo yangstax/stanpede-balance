@@ -13,8 +13,18 @@ from validate import ROOT, load_document, unique_properties, validate
 
 class BalanceValidationTests(unittest.TestCase):
     def setUp(self):
-        self.data = json.loads((ROOT / "v8/balance.json").read_text())
-        self.schema = json.loads((ROOT / "v8/balance.schema.json").read_text())
+        self.data = json.loads((ROOT / "v9/balance.json").read_text())
+        self.schema = json.loads((ROOT / "v9/balance.schema.json").read_text())
+
+    def test_filmer_volleys_have_bounded_readable_settings(self):
+        for key, value in (("filmerShotCount", 6), ("filmerShotSpeed", 0),
+                           ("filmerWarningSeconds", 0.1), ("filmerCooldown", -1),
+                           ("filmerRange", 20), ("filmerSpreadDegrees", 90)):
+            with self.subTest(setting=key):
+                candidate = copy.deepcopy(self.data)
+                candidate[key] = value
+                with self.assertRaises(ValidationError):
+                    validate(candidate, self.schema)
 
     def test_lightstick_timing_accepts_fractional_seconds_and_zero_rest(self):
         self.data["abilityTiming"]["Lightstick"] = {"activeSeconds": 3.25, "restSeconds": 0}
@@ -200,14 +210,14 @@ class BalanceValidationTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             subprocess.run([sys.executable, str(ROOT / "validate.py"), "--publish-dir", directory,
                             "--revision", "published.test"], check=True, capture_output=True)
-            for version in (1, 2, 3, 4, 5, 6, 7, 8):
+            for version in range(1, 10):
                 data = json.loads((Path(directory) / f"v{version}/balance.json").read_text())
                 self.assertEqual(data["schemaVersion"], version)
                 self.assertEqual(data["revision"], "published.test")
                 original = json.loads((ROOT / f"v{version}/balance.json").read_text())
                 original["revision"] = "published.test"
                 self.assertEqual(data, original)
-            self.assertEqual(len(list(Path(directory).rglob("*.json"))), 16)
+            self.assertEqual(len(list(Path(directory).rglob("*.json"))), 18)
 
     def test_unlocks_can_be_reordered_without_changing_ids(self):
         self.data["abilityUnlocks"].reverse()

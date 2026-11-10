@@ -4,16 +4,16 @@ This repository controls the live balance of STANPEDE, a K-pop survivors game. T
 
 ## Make a change
 
-1. Pull latest main, then read `v8/balance.json` and `v8/balance.schema.json`. Fetch the live v8 snapshot with a fresh query parameter before editing. Versions 1–7 are archived for older builds: preserve their values unless the user explicitly requests an older-client change.
+1. Pull latest main, then read `v9/balance.json` and `v9/balance.schema.json`. Fetch the live v9 snapshot with a fresh query parameter before editing. Versions 1–8 are archived for older builds: preserve their values unless the user explicitly requests an older-client change.
 2. Change only the requested values. Preserve the existing unrelated balance. Keep names short, clear and affectionate; use Charm power, faint, health, and Chart Topper. Never introduce violent wording.
 3. Keep upgrade keys and fan kind IDs stable. Change `abilityText[].name` to rename an upgrade; update its descriptions when needed. Fan kind IDs: 0 ordinary, 1 filmer, 2 banner, 3 dad, 4 grandma, 5 rival fans, 6 rival idol, 7 headphones, 8 plush tosser.
 4. Install `requirements.txt`, then run `python3 -m unittest test_validation.py` and `python3 validate.py`.
 5. Commit and push to **main** as `yangstax` when the user requests a completed change. These instructions authorize routine config publication for a requested balance change; no game build or local Mac is needed.
 6. Watch the GitHub Actions result, then fetch the live URL with a fresh query parameter and verify the changed values. Report the actual published revision and exact changes. A successful push alone does not prove publication.
 
-Current live URL: https://yangstax.github.io/stanpede-balance/v8/balance.json
+Current live URL: https://yangstax.github.io/stanpede-balance/v9/balance.json
 
-Version 8 contains 287 settings, nine fan kinds, twenty ability texts and eighteen persistent ability unlock rows. Use schemaVersion 8. Names and five-rank descriptions are configurable; IDs and array sizes are the app contract. The stable `FancamFlash` key now means Selfie Drone. `BubblePop` and `PhotoStandee` are new keys. `LaserLight` and `BoomBox` remain retired.
+Version 9 contains 294 settings, nine fan kinds, twenty ability texts and eighteen persistent ability unlock rows. Use schemaVersion 9. Names and five-rank descriptions are configurable; IDs and array sizes are the app contract. The stable `FancamFlash` key now means Selfie Drone. `BubblePop` and `PhotoStandee` are new keys. `LaserLight` and `BoomBox` remain retired.
 
 The workflow validates the entire snapshot, publishes only JSON/schema files, and uses the source commit as the served revision. Existing matches keep their snapshot. The game downloads changes on launch/resume and about once a minute, applying them between matches. It keeps the last valid config for offline play.
 
@@ -189,3 +189,28 @@ The small reusable clock can later be called by another sustained move; there is
 
 V8 adds one keyed object (287 settings total), its schema and a separate offline cache. Older v1–7
 values and career v4 progress remain intact. One app update is needed; future timing edits use config only.
+
+## Ranged fan pressure (v9)
+
+Fancam Filmers stop, mark three orange shot lanes for **0.75 gameplay seconds**, then send gold camera
+flashes along those locked directions. Sidestepping avoids the volley; standing still costs 10 health
+per hit before protection. They rest 2.2 seconds, then aim again. The old automatic proximity slow is gone.
+
+| Setting | Units | Starting value |
+|---|---|---:|
+| `filmerRange` | World units | 6.5 |
+| `filmerWarningSeconds` | Gameplay seconds before firing | 0.75 |
+| `filmerCooldown` | Gameplay seconds after firing, before aiming again | 2.2 |
+| `filmerShotSpeed` | World units/second | 6 |
+| `filmerShotDamage` | Health before protection, per hit | 10 |
+| `filmerShotCount` | Shots/volley, 1–5 | 3 |
+| `filmerSpreadDegrees` | Total angle between the outer shots | 28 |
+
+Warnings freeze with gameplay. A hidden/HUD-covered fan cannot aim or fire; fainting, distraction and
+rival arenas cancel pending aim. A bounded pool requires a visible marker for every volley. Existing
+Hype/protection and hit immunity also apply to these projectiles.
+
+Plush Tossers keep their 0.8s wind-up, but range/speed/power/rest become 6.5/4.8/8/2.6s through their
+existing `tosser*` fields. V9 derives from live v8 `8f8e46e`: every unrelated value is preserved, including
+the stronger earned-level wave rates, class HP/arrival profiles, cap 90, abilities, XP and Training.
+One app update adds the new attack and v9 endpoint; future ranged retunes need only config edits.
