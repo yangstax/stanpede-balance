@@ -1,6 +1,6 @@
 {
   "schemaVersion": 7,
-  "revision": "2026-11-10.gentle-early-levels",
+  "revision": "2026-11-10.banner-share-level-six",
   "abilityText": [
     {
       "key": "FingerHeart",
@@ -992,7 +992,7 @@
       "kind": 2,
       "introductionCount": 1,
       "initialWeight": 0.2,
-      "commonWeight": 0.32,
+      "commonWeight": 0.4,
       "levelsToCommon": 6,
       "initialMaxActive": 6,
       "commonMaxActive": 18,
@@ -1099,6 +1099,13 @@
       "fromLevel": 5,
       "waveDurationSeconds": 30,
       "waveSpawnRate": 2.1,
+      "breatherDurationSeconds": 12,
+      "breatherSpawnRate": 0.15
+    },
+    {
+      "fromLevel": 6,
+      "waveDurationSeconds": 30,
+      "waveSpawnRate": 2.4,
       "breatherDurationSeconds": 12,
       "breatherSpawnRate": 0.15
     },

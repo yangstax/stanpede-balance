@@ -41,7 +41,7 @@ uses the same class weights, active limits and budget costs. Required fan introd
 
 `fans[kind=2].charm` is Banner's base endurance; `followerValue` is XP per faint, while `moneyValue` stays
 Training cash. Current Banner values are endurance 64, XP 120, cash 2, speed 2.2 and contact 6. Its reveal
-count is 1, weights 0.20 → 0.32, ramp 6 levels, limits 6 → 18 and cost 3. Each newly introduced class
+count is 1, weights 0.20 → 0.40, ramp 6 levels, limits 6 → 18 and cost 3. Each newly introduced class
 should increase pressure while keeping its distinct behavior. Current endurance and budget costs are:
 
 | Class, in reveal order | Base HP | Arrival cost |
@@ -137,6 +137,7 @@ cycle begins after the entrance/basic introduction. Waves use the existing incom
 | 3 | 30 | 1.5 | 12 | 0.15 |
 | 4 | 30 | 1.8 | 12 | 0.15 |
 | 5 | 30 | 2.1 | 12 | 0.15 |
+| 6 | 30 | 2.4 | 12 | 0.15 |
 | 10 | 30 | 3.7 | 12 | 0.25 |
 | 20 | 30 | 6 | 12 | 0.35 |
 
