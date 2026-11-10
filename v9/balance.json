@@ -1,6 +1,6 @@
 {
   "schemaVersion": 9,
-  "revision": "2026-11-10.filmer",
+  "revision": "2026-11-10.opening-power-spikes",
   "abilityText": [
     {
       "key": "FingerHeart",
@@ -8,10 +8,10 @@
       "shortDescription": "Shoots at the nearest fan.",
       "descriptions": [
         "Hearts target the nearest fans.",
-        "Stronger hearts. Faster shots.",
-        "Fires 2 hearts at once.",
-        "Hearts pierce 1 extra fan.",
-        "Faster triple shots. Add Attack Speed to evolve."
+        "Two hearts target different fans.",
+        "Hearts pass through an extra fan.",
+        "Three hearts at once.",
+        "Faster shots pass through two extra fans."
       ]
     },
     {
@@ -20,10 +20,10 @@
       "shortDescription": "Seeks tough fans, then bursts.",
       "descriptions": [
         "A homing star bursts around a tough fan.",
-        "Stronger stars. Wider bursts.",
-        "Two homing stars burst around tough fans.",
-        "Stronger stars. Wider bursts.",
-        "Three homing stars with bigger bursts."
+        "Two homing stars with wider bursts.",
+        "Wider bursts catch more nearby fans.",
+        "Three homing stars with bigger bursts.",
+        "Stronger stars. Biggest bursts."
       ]
     },
     {
@@ -252,9 +252,9 @@
   ],
   "fingerHeartShots": [
     1,
-    1,
     2,
     2,
+    3,
     3
   ],
   "fingerHeartPower": [
@@ -267,9 +267,9 @@
   "fingerHeartPierce": [
     0,
     0,
-    0,
     1,
-    1
+    1,
+    2
   ],
   "fingerHeartSpeed": 9,
   "fingerHeartLifetime": 1.4,
@@ -297,9 +297,9 @@
   ],
   "sparkleShots": [
     1,
-    1,
     2,
     2,
+    3,
     3
   ],
   "sparkleSpreadDegrees": 60,
@@ -885,10 +885,10 @@
   ],
   "soundWaveRadius": [
     2.5,
-    2.65,
-    2.8,
-    2.95,
-    3.1
+    3,
+    3.25,
+    3.5,
+    3.75
   ],
   "soundWaveKnockback": 0.2,
   "headphoneWaveDamageMult": 0.65,
@@ -1051,10 +1051,10 @@
   ],
   "starBurstRadius": [
     1.05,
-    1.15,
-    1.3,
-    1.45,
-    1.65
+    1.35,
+    1.6,
+    1.85,
+    2.1
   ],
   "starTurnDegrees": 360,
   "starTargetRange": 8,
@@ -1076,59 +1076,59 @@
   "levelPresets": [
     {
       "fromLevel": 1,
-      "waveDurationSeconds": 30,
-      "waveSpawnRate": 1.2,
-      "breatherDurationSeconds": 12,
-      "breatherSpawnRate": 0.15
+      "waveDurationSeconds": 22,
+      "waveSpawnRate": 1.5,
+      "breatherDurationSeconds": 16,
+      "breatherSpawnRate": 0
     },
     {
       "fromLevel": 2,
-      "waveDurationSeconds": 30,
-      "waveSpawnRate": 2,
-      "breatherDurationSeconds": 12,
-      "breatherSpawnRate": 0.15
+      "waveDurationSeconds": 22,
+      "waveSpawnRate": 2.7,
+      "breatherDurationSeconds": 16,
+      "breatherSpawnRate": 0
     },
     {
       "fromLevel": 3,
-      "waveDurationSeconds": 30,
-      "waveSpawnRate": 2.4,
-      "breatherDurationSeconds": 12,
-      "breatherSpawnRate": 0.15
+      "waveDurationSeconds": 22,
+      "waveSpawnRate": 3.1,
+      "breatherDurationSeconds": 16,
+      "breatherSpawnRate": 0
     },
     {
       "fromLevel": 4,
-      "waveDurationSeconds": 30,
-      "waveSpawnRate": 2.8,
-      "breatherDurationSeconds": 12,
-      "breatherSpawnRate": 0.15
+      "waveDurationSeconds": 22,
+      "waveSpawnRate": 3.6,
+      "breatherDurationSeconds": 16,
+      "breatherSpawnRate": 0
     },
     {
       "fromLevel": 5,
-      "waveDurationSeconds": 30,
-      "waveSpawnRate": 3.2,
-      "breatherDurationSeconds": 12,
-      "breatherSpawnRate": 0.15
+      "waveDurationSeconds": 22,
+      "waveSpawnRate": 4.1,
+      "breatherDurationSeconds": 16,
+      "breatherSpawnRate": 0
     },
     {
       "fromLevel": 6,
-      "waveDurationSeconds": 30,
-      "waveSpawnRate": 3.2,
-      "breatherDurationSeconds": 12,
-      "breatherSpawnRate": 0.15
+      "waveDurationSeconds": 22,
+      "waveSpawnRate": 4.1,
+      "breatherDurationSeconds": 16,
+      "breatherSpawnRate": 0
     },
     {
       "fromLevel": 10,
-      "waveDurationSeconds": 30,
-      "waveSpawnRate": 5,
-      "breatherDurationSeconds": 12,
-      "breatherSpawnRate": 0.25
+      "waveDurationSeconds": 22,
+      "waveSpawnRate": 6.4,
+      "breatherDurationSeconds": 16,
+      "breatherSpawnRate": 0
     },
     {
       "fromLevel": 20,
-      "waveDurationSeconds": 30,
-      "waveSpawnRate": 8,
-      "breatherDurationSeconds": 12,
-      "breatherSpawnRate": 0.35
+      "waveDurationSeconds": 22,
+      "waveSpawnRate": 10.2,
+      "breatherDurationSeconds": 16,
+      "breatherSpawnRate": 0
     }
   ],
   "abilityTiming": {

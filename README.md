@@ -49,25 +49,29 @@ requires a new app build once. Existing career v4 progress and v1–5 config val
 
 ## Waves and breathers (v7)
 
-A cycle lasts **30 gameplay seconds of arrivals, then 12 seconds of lighter arrivals**. The highest
+A cycle lasts **22 gameplay seconds of arrivals, then 16 seconds with no ordinary arrivals**.
+Fans already approaching keep moving; required introductions and rivals retain their earned-level rules. The highest
 `fromLevel` reached at wave start selects one complete row for that wave and its breather. Menus,
 held introductions and rival duels freeze the timer; returning resumes its remaining time. The first
 cycle begins after the entrance/basic introduction. Waves use the existing incoming sound, with no new HUD.
 
 | From level | Wave duration (s) | Wave rate (units/s) | Breather duration (s) | Breather rate (units/s) |
 |---|---:|---:|---:|---:|
-| 1 | 30 | 1.2 | 12 | 0.15 |
-| 2 | 30 | 2 | 12 | 0.15 |
-| 3 | 30 | 2.4 | 12 | 0.15 |
-| 4 | 30 | 2.8 | 12 | 0.15 |
-| 5 | 30 | 3.2 | 12 | 0.15 |
-| 6 | 30 | 3.2 | 12 | 0.15 |
-| 10 | 30 | 5 | 12 | 0.25 |
-| 20 | 30 | 8 | 12 | 0.35 |
+| 1 | 22 | 1.5 | 16 | 0 |
+| 2 | 22 | 2.7 | 16 | 0 |
+| 3 | 22 | 3.1 | 16 | 0 |
+| 4 | 22 | 3.6 | 16 | 0 |
+| 5 | 22 | 4.1 | 16 | 0 |
+| 6 | 22 | 4.1 | 16 | 0 |
+| 10 | 22 | 6.4 | 16 | 0 |
+| 20 | 22 | 10.2 | 16 | 0 |
 
 **Spawn rate means arrival-budget units per gameplay second, not fan count.** An ordinary fan costs 1;
 Banner costs 3, Filmer 4, Dad 5, Grandma 6, Headphones 7 and Tosser 8, from the existing `fanArrivals` rows.
-For example, 30 seconds at 1.2 units/s funds up to 36 ordinary fans or 12 Banners, before class/global caps.
+For example, 22 seconds at 1.5 units/s funds up to 33 ordinary fans or 11 Banners, before class/global caps.
+The longer zero-arrival breather lets the existing crowd clear and leaves time to collect. Average
+budget per full cycle stays within about 7% of the preceding live presets; pressure is concentrated
+into shorter waves. These are fixed designer settings, not a response to the current build.
 Only the existing tour modifier applies: `1 + (tour - 1) × tourArrivalsPerStop`, currently +12% per tour.
 Existing class unlocks, weights, reveal counts, earned-level ramps, class caps and basic retirement remain.
 
@@ -137,3 +141,14 @@ Plush Tossers keep their 0.8s wind-up, but range/speed/power/rest become 6.5/4.8
 existing `tosser*` fields. V9 derives from live v8 `8f8e46e`: every unrelated value is preserved, including
 the stronger earned-level wave rates, class HP/arrival profiles, cap 90, abilities, XP and Training.
 One app update adds the new attack and v9 endpoint; future ranged retunes need only config edits.
+
+## Opening power spikes (10 November)
+
+The v9 opening concentrates pressure into 22s waves and 16s zero-arrival breathers. Finger Heart
+shots are 1/2/2/3/3 and extra pierce is 0/0/1/1/2; Shooting Star shots are 1/2/2/3/3, still sharing
+its configured volley power. Star burst radii are 1.05/1.35/1.6/1.85/2.1 and Sound Wave radii
+2.5/3/3.25/3.5/3.75. Rank-one power stays unchanged. Descriptions follow the new rank breakpoints.
+Fans, XP, Training, rewards, milestone levels, cap 90 and Lightstick timing stay unchanged. These
+values remain config-only. The companion app update guarantees an eligible owned attack upgrade
+alongside other choices, preserves evolution priority, demonstrates core casts on purchase and
+shows the actual count/radius changes first on cards.
