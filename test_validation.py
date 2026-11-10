@@ -13,8 +13,39 @@ from validate import ROOT, load_document, unique_properties, validate
 
 class BalanceValidationTests(unittest.TestCase):
     def setUp(self):
-        self.data = json.loads((ROOT / "v7/balance.json").read_text())
-        self.schema = json.loads((ROOT / "v7/balance.schema.json").read_text())
+        self.data = json.loads((ROOT / "v8/balance.json").read_text())
+        self.schema = json.loads((ROOT / "v8/balance.schema.json").read_text())
+
+    def test_lightstick_timing_accepts_fractional_seconds_and_zero_rest(self):
+        self.data["abilityTiming"]["Lightstick"] = {"activeSeconds": 3.25, "restSeconds": 0}
+        validate(self.data, self.schema)
+
+    def test_lightstick_timing_is_required(self):
+        for value in (None, {}, {"Lightstick": {"activeSeconds": 5}}, {"Lightstick": {"restSeconds": 2}}):
+            with self.subTest(value=value):
+                candidate = copy.deepcopy(self.data)
+                if value is None:
+                    candidate.pop("abilityTiming")
+                else:
+                    candidate["abilityTiming"] = value
+                with self.assertRaises(ValidationError):
+                    validate(candidate, self.schema)
+
+    def test_timing_rejects_unknown_or_unimplemented_ids(self):
+        for key in ("LightstickOrbit", "FingerHeart", "Unknown"):
+            with self.subTest(key=key):
+                candidate = copy.deepcopy(self.data)
+                candidate["abilityTiming"][key] = {"activeSeconds": 5, "restSeconds": 2}
+                with self.assertRaises(ValidationError):
+                    validate(candidate, self.schema)
+
+    def test_timing_rejects_invalid_seconds_and_misspelled_fields(self):
+        for field, value in (("activeSeconds", 0), ("activeSeconds", 121), ("restSeconds", -1), ("restSeconds", 121), ("cooldown", 2)):
+            with self.subTest(field=field, value=value):
+                candidate = copy.deepcopy(self.data)
+                candidate["abilityTiming"]["Lightstick"][field] = value
+                with self.assertRaises(ValidationError):
+                    validate(candidate, self.schema)
 
     def test_wave_rows_need_a_starting_level_and_sorted_unique_thresholds(self):
         for levels in ([2, 10, 20], [1, 1, 20], [1, 20, 10]):
@@ -140,7 +171,7 @@ class BalanceValidationTests(unittest.TestCase):
             json.loads('{"revision":"a","revision":"b"}', object_pairs_hook=unique_properties)
 
     def test_older_client_contract_remains_valid(self):
-        for version in (1, 2, 3, 4, 5, 6):
+        for version in (1, 2, 3, 4, 5, 6, 7):
             data = json.loads((ROOT / f"v{version}/balance.json").read_text())
             schema = json.loads((ROOT / f"v{version}/balance.schema.json").read_text())
             validate(data, schema)
@@ -169,14 +200,14 @@ class BalanceValidationTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             subprocess.run([sys.executable, str(ROOT / "validate.py"), "--publish-dir", directory,
                             "--revision", "published.test"], check=True, capture_output=True)
-            for version in (1, 2, 3, 4, 5, 6, 7):
+            for version in (1, 2, 3, 4, 5, 6, 7, 8):
                 data = json.loads((Path(directory) / f"v{version}/balance.json").read_text())
                 self.assertEqual(data["schemaVersion"], version)
                 self.assertEqual(data["revision"], "published.test")
                 original = json.loads((ROOT / f"v{version}/balance.json").read_text())
                 original["revision"] = "published.test"
                 self.assertEqual(data, original)
-            self.assertEqual(len(list(Path(directory).rglob("*.json"))), 14)
+            self.assertEqual(len(list(Path(directory).rglob("*.json"))), 16)
 
     def test_unlocks_can_be_reordered_without_changing_ids(self):
         self.data["abilityUnlocks"].reverse()

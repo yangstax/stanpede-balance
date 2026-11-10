@@ -1,8 +1,8 @@
 # STANPEDE live balance
 
-[Live config](https://yangstax.github.io/stanpede-balance/v7/balance.json) · [Edit on GitHub](https://github.com/yangstax/stanpede-balance/edit/main/v7/balance.json)
+[Live config](https://yangstax.github.io/stanpede-balance/v8/balance.json) · [Edit on GitHub](https://github.com/yangstax/stanpede-balance/edit/main/v8/balance.json)
 
-`v7/balance.json` is the current source for pacing, fan stats, ability values/names/descriptions/unlocks, tour rewards/payouts, XP, Hype, pickups and Training. Pushing a valid change to main publishes it through GitHub Pages. The updated app applies settings between matches and keeps a valid offline copy. Versions 1–6 remain available for older apps; v4 receives the supported Wave/Orbit changes described below.
+`v8/balance.json` is the current source for pacing, fan stats, ability values/names/descriptions/unlocks, tour rewards/payouts, XP, Hype, pickups and Training. Pushing a valid change to main publishes it through GitHub Pages. The updated app applies settings between matches and keeps a valid offline copy. Versions 1–7 remain available for older apps; v4 receives the supported Wave/Orbit changes described below.
 
 Tour cash pays 1× / 1.25× / 1.5× / 1.75× / 2× / 2.25× on bills and follower support. Fractional cash carries across pickups and runs. XP, career goals and first-clear bonuses stay separate. Higher stops add 20% fan endurance, 12% regular arrival pressure and 30% rival endurance per stop after Tour 1. The active crowd cap remains 180 across all sources.
 
@@ -89,3 +89,21 @@ The [small example](https://github.com/yangstax/ksurvivor/blob/main/Tools/Balanc
 it is a fragment, not a complete publishable snapshot. The versioned v7 endpoint needs one app update.
 Later durations/rates/level presets, costs/class profiles and disengagement thresholds are config-only
 edits from the phone balance chat. Keep v1–6 values and career v4 progress intact.
+
+## Sustained ability timing (v8)
+
+```json
+"abilityTiming": {
+  "Lightstick": { "activeSeconds": 5, "restSeconds": 2 }
+}
+```
+
+Keys are existing stable ability IDs; v8 supports **Lightstick only**. Durations are literal gameplay
+seconds shared by all ranks. It starts active immediately, hides and stops contacts during rest, and
+repeats. Attack-speed/cooldown bonuses shorten neither interval. Rank-ups retain cycle progress;
+menus/introductions pause it and retry resets it. `activeSeconds` accepts 0.05–120; `restSeconds` accepts
+0–120, with zero restoring continuous orbit. Its power, radius, count, spin and contact gap are unchanged.
+The small reusable clock can later be called by another sustained move; there is no ability framework.
+
+V8 adds one keyed object (287 settings total), its schema and a separate offline cache. Older v1–7
+values and career v4 progress remain intact. One app update is needed; future timing edits use config only.
