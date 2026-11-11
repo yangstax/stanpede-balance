@@ -152,3 +152,13 @@ Fans, XP, Training, rewards, milestone levels, cap 90 and Lightstick timing stay
 values remain config-only. The companion app update guarantees an eligible owned attack upgrade
 alongside other choices, preserves evolution priority, demonstrates core casts on purchase and
 shows the actual count/radius changes first on cards.
+
+## Starting health (11 November)
+
+Base health (`maxStamina`) is 80, reduced from 100. Conditioning still adds 0.75 maximum health per rank
+(20 ranks, +15 total), and health gifts still add 8 maximum health plus their existing heal within a run.
+Basic contact remains 8: ten unprotected ordinary contacts overwhelm a fresh idol before gifts or
+healing, instead of thirteen. All fan stats, wave pacing, attacks, Training, Hype and rewards are
+unchanged. This supported v9 edit applies between matches without a new app build. Two matched
+ten-minute movement controls (fresh and early Training) remained viable; these are bot guardrails,
+not a claim about human difficulty.

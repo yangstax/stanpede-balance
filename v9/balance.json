@@ -1,6 +1,6 @@
 {
   "schemaVersion": 9,
-  "revision": "2026-11-10.opening-power-spikes",
+  "revision": "2026-11-11.starting-health",
   "abilityText": [
     {
       "key": "FingerHeart",
@@ -492,7 +492,7 @@
   "openingSeconds": 120,
   "firstUpgradeBreatherSeconds": 3,
   "moveSpeed": 4.4,
-  "maxStamina": 100,
+  "maxStamina": 80,
   "playerRadius": 0.32,
   "autoTargetScreenInset": 0.5,
   "minHitInterval": 0.15,
