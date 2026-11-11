@@ -96,6 +96,11 @@ def validate(data, schema):
                 raise ValidationError("A learned fan class cannot become rarer as its ramp completes.")
             if not row["introductionCount"] <= row["initialMaxActive"] <= row["commonMaxActive"]:
                 raise ValidationError("Reveal size and active limits must grow in order.")
+    if data["schemaVersion"] >= 10:
+        for key in ("trainingBaseCosts", "trainingAdvancedCosts", "trainingSignatureCosts"):
+            costs = data[key]
+            if len(costs) != 40 or costs[0] < 1 or any(right < left for left, right in zip(costs, costs[1:])):
+                raise ValidationError("Training needs forty positive, nondecreasing prices per track.")
     return data
 
 

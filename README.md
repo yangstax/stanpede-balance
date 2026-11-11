@@ -1,8 +1,8 @@
 # STANPEDE live balance
 
-[Live config](https://yangstax.github.io/stanpede-balance/v9/balance.json) · [Edit on GitHub](https://github.com/yangstax/stanpede-balance/edit/main/v9/balance.json)
+[Live config](https://yangstax.github.io/stanpede-balance/v10/balance.json) · [Edit on GitHub](https://github.com/yangstax/stanpede-balance/edit/main/v10/balance.json)
 
-`v9/balance.json` is the current source for pacing, fan stats, ability values/names/descriptions/unlocks, tour rewards/payouts, XP, Hype, pickups and Training. Pushing a valid change to main publishes it through GitHub Pages. The updated app applies settings between matches and keeps a valid offline copy. Versions 1–8 remain available for older apps; v4 receives the supported Wave/Orbit changes described below.
+`v10/balance.json` is the current source for pacing, fan stats, ability values/names/descriptions/unlocks, tour rewards/payouts, XP, Hype, pickups and Training. Pushing a valid change to main publishes it through GitHub Pages. The updated app applies settings between matches and keeps a valid offline copy. Versions 1–9 remain available for older apps; v4 receives the supported Wave/Orbit changes described below.
 
 Tour cash pays 1× / 1.25× / 1.5× / 1.75× / 2× / 2.25× on bills and follower support. Fractional cash carries across pickups and runs. XP, career goals and first-clear bonuses stay separate. Higher stops add 20% fan endurance, 12% regular arrival pressure and 30% rival endurance per stop after Tour 1. The active crowd cap remains 180 across all sources.
 
@@ -11,6 +11,45 @@ Ability unlocks and featured clear rewards are configurable in `abilityUnlocks` 
 Fan progression is also configurable in `fanArrivals`: new classes reveal in small numbers, then their odds and active limits grow over earned levels. Tougher fans spend more arrival budget, giving fewer bodies. Banner starts alone at endurance 96, grows from a two-active limit, and becomes common over twelve levels. Basics fade between levels 32 and 52. Edit these values from the phone balance chat; see the field table in `AGENTS.md`. The one app update adding v4 is required once.
 
 Shooting Star replaces the old forward Sparkle Burst with homing stars and a local burst. Sound Wave has more power, clear cast audio and a short pulse that follows the idol. All star power, timing, radius, range and steering settings are in v5; Drone and fan balance stay unchanged. V4 also receives the supported Wave numeric/text/mix and rank-one Orbit changes (8 → 10) for existing installs.
+
+
+## Forty-rank Training (v10, 11 November)
+
+V10 derives from the latest live v9 `4a8a02a`. Every Training track now has **40 ranks**, with
+continuous per-rank gains halved and the same maximum bonuses. The three 40-price arrays are
+positive, nondecreasing curves rounded to tens. Each track keeps its preceding total cost:
+61,380 foundation / 133,560 advanced / 377,800 signature (1,718,220 across all nine). Initial
+prices are 40 / 120 / 650. There is no change to earnings or match progression.
+
+Functional milestones use the existing training paths and signature perks:
+- Foundation rank 16 opens advanced Training; foundation 24 plus advanced 16 and three career
+  goals opens that branch's signature. Higher signature purchases keep their linked-rank rules.
+- Heart Encore adds piercing at 16 / 28 / 40, ending at four extra fans and +10% heart power.
+- Second Wind develops its base heal over four ranks; rank 40 grants a second rescue. Its final
+  healing/protection remain 38.5% / 1.92s.
+- Gift Tour develops its base reward over four ranks, begins adding cash at rank 14, adds health
+  at 16 / 28 / 40 and gains wider reach at 40. Final bonuses remain 7 health, 24% Showstopper,
+  21 cash and 0.45 reach. The early milestone grants the same discrete behavior: piercing is
+  never a fractional fan and a rescue is always a whole use.
+
+`signatureBaseRanks` controls the base-perk ramp (4), `giftTourHealthRankInterval` controls added
+health steps (12), and `giftTourCashStartRank` is the cash ramp's starting rank (12). The first
+whole cash arrives after enough `giftTourCashPerRank` accumulates; at 0.75 that is rank 14.
+`heartPierceRankInterval`, `secondWindExtraUseRank`, the existing gate fields and these three
+new fields drive both actual behavior and the next-milestone UI. All values/prices remain
+editable from this repository after the required app update. Forty ranks is this schema's cap.
+
+The app converts career v4 into a separate v5 checkpoint, doubling purchased ranks once while
+preserving cash, unlocks, signatures, fractional earnings and the current run's credit ledger.
+The original v4 bytes remain untouched. Both new checkpoints are written on conversion; an
+existing damaged v5 never silently rolls back to an older v4. Reset creates a fresh v5, so
+reopening cannot import the retained legacy save again. Never reset real phone progress to test.
+
+Versions 1–9 keep their existing values. In particular v9 retains 20 ranks and base health 80.
+V10 preserves all unrelated live v9 values: waves 22s/16s, cap 90, fan stats, move values, XP,
+Hype, rewards and tour gates. Later numeric edits use v10; this initial app update is required
+for 40-rank purchases, migration and milestone feedback.
+
 
 ## Change it from ChatGPT on your phone
 

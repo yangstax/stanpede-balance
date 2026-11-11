@@ -2,18 +2,57 @@
 
 This repository controls the live balance of STANPEDE, a K-pop survivors game. The game code and artwork live separately in `yangstax/ksurvivor`.
 
+
+## Forty-rank Training (v10, 11 November)
+
+V10 derives from the latest live v9 `4a8a02a`. Every Training track now has **40 ranks**, with
+continuous per-rank gains halved and the same maximum bonuses. The three 40-price arrays are
+positive, nondecreasing curves rounded to tens. Each track keeps its preceding total cost:
+61,380 foundation / 133,560 advanced / 377,800 signature (1,718,220 across all nine). Initial
+prices are 40 / 120 / 650. There is no change to earnings or match progression.
+
+Functional milestones use the existing training paths and signature perks:
+- Foundation rank 16 opens advanced Training; foundation 24 plus advanced 16 and three career
+  goals opens that branch's signature. Higher signature purchases keep their linked-rank rules.
+- Heart Encore adds piercing at 16 / 28 / 40, ending at four extra fans and +10% heart power.
+- Second Wind develops its base heal over four ranks; rank 40 grants a second rescue. Its final
+  healing/protection remain 38.5% / 1.92s.
+- Gift Tour develops its base reward over four ranks, begins adding cash at rank 14, adds health
+  at 16 / 28 / 40 and gains wider reach at 40. Final bonuses remain 7 health, 24% Showstopper,
+  21 cash and 0.45 reach. The early milestone grants the same discrete behavior: piercing is
+  never a fractional fan and a rescue is always a whole use.
+
+`signatureBaseRanks` controls the base-perk ramp (4), `giftTourHealthRankInterval` controls added
+health steps (12), and `giftTourCashStartRank` is the cash ramp's starting rank (12). The first
+whole cash arrives after enough `giftTourCashPerRank` accumulates; at 0.75 that is rank 14.
+`heartPierceRankInterval`, `secondWindExtraUseRank`, the existing gate fields and these three
+new fields drive both actual behavior and the next-milestone UI. All values/prices remain
+editable from this repository after the required app update. Forty ranks is this schema's cap.
+
+The app converts career v4 into a separate v5 checkpoint, doubling purchased ranks once while
+preserving cash, unlocks, signatures, fractional earnings and the current run's credit ledger.
+The original v4 bytes remain untouched. Both new checkpoints are written on conversion; an
+existing damaged v5 never silently rolls back to an older v4. Reset creates a fresh v5, so
+reopening cannot import the retained legacy save again. Never reset real phone progress to test.
+
+Versions 1–9 keep their existing values. In particular v9 retains 20 ranks and base health 80.
+V10 preserves all unrelated live v9 values: waves 22s/16s, cap 90, fan stats, move values, XP,
+Hype, rewards and tour gates. Later numeric edits use v10; this initial app update is required
+for 40-rank purchases, migration and milestone feedback.
+
+
 ## Make a change
 
-1. Pull latest main, then read `v9/balance.json` and `v9/balance.schema.json`. Fetch the live v9 snapshot with a fresh query parameter before editing. Versions 1–8 are archived for older builds: preserve their values unless the user explicitly requests an older-client change.
+1. Pull latest main, then read `v10/balance.json` and `v10/balance.schema.json`. Fetch the live v10 snapshot with a fresh query parameter before editing. Versions 1–9 are archived for older builds: preserve their values unless the user explicitly requests an older-client change.
 2. Change only the requested values. Preserve the existing unrelated balance. Keep names short, clear and affectionate; use Charm power, faint, health, and Chart Topper. Never introduce violent wording.
 3. Keep upgrade keys and fan kind IDs stable. Change `abilityText[].name` to rename an upgrade; update its descriptions when needed. Fan kind IDs: 0 ordinary, 1 filmer, 2 banner, 3 dad, 4 grandma, 5 rival fans, 6 rival idol, 7 headphones, 8 plush tosser.
 4. Install `requirements.txt`, then run `python3 -m unittest test_validation.py` and `python3 validate.py`.
 5. Commit and push to **main** as `yangstax` when the user requests a completed change. These instructions authorize routine config publication for a requested balance change; no game build or local Mac is needed.
 6. Watch the GitHub Actions result, then fetch the live URL with a fresh query parameter and verify the changed values. Report the actual published revision and exact changes. A successful push alone does not prove publication.
 
-Current live URL: https://yangstax.github.io/stanpede-balance/v9/balance.json
+Current live URL: https://yangstax.github.io/stanpede-balance/v10/balance.json
 
-Version 9 contains 294 settings, nine fan kinds, twenty ability texts and eighteen persistent ability unlock rows. Use schemaVersion 9. Names and five-rank descriptions are configurable; IDs and array sizes are the app contract. The stable `FancamFlash` key now means Selfie Drone. `BubblePop` and `PhotoStandee` are new keys. `LaserLight` and `BoomBox` remain retired.
+Version 10 contains 297 settings, nine fan kinds, twenty ability texts and eighteen persistent ability unlock rows. Use schemaVersion 10. Names and five-rank descriptions are configurable; IDs and array sizes are the app contract. The stable `FancamFlash` key now means Selfie Drone. `BubblePop` and `PhotoStandee` are new keys. `LaserLight` and `BoomBox` remain retired.
 
 The workflow validates the entire snapshot, publishes only JSON/schema files, and uses the source commit as the served revision. Existing matches keep their snapshot. The game downloads changes on launch/resume and about once a minute, applying them between matches. It keeps the last valid config for offline play.
 
@@ -100,7 +139,7 @@ preserved, and v5 uses its own balance cache.
 - Ability arrays have five ranks. `fingerHeartPower`, `sparklePower`, `lightstickDamage`, `soundWaveDamage`, `photocardDamage`, `confettiDamage`, `fancamDamage` are internal values; cards show power ×10. Cooldowns are seconds.
 - Shooting Star uses the stable `Wink` key. `sparklePower` is total volley power, divided across its shot count; see the v5 star fields above. The old spread/aim/pierce fields no longer control its behavior.
 - `powerPerRank`, `protectionPerRank`, `cooldownReductionPerRank`, `areaPerRank`: match passive effects, written as fractions (0.15 means 15%).
-- `training*`, signature settings and `careerGoalRewards`: permanent progression. Costs are twenty entries per track.
+- `training*`, signature settings and `careerGoalRewards`: permanent progression. Costs are forty entries per track.
 - `tourCashMultipliers`: six repeatable Training-cash rates, currently 1 / 1.25 / 1.5 / 1.75 / 2 / 2.25. Applies to bills and follower support, including Exit to Home; match XP, career goals and first-clear bonuses stay separate. Each run locks its rate and preserves fractional earnings.
 - `tourHealthPerStop`, `tourArrivalsPerStop`, `rivalHealthPerStop`: linear increases per tour after Tour 1. Current increments are 20% fan endurance, 12% regular arrival pressure and 30% rival endurance. Do not infer an hours-to-progress target from these values.
 - `maxHostiles`: strict shared active cap across ordinary arrivals, swarms, reveals and rival summons. Preserve 90 unless a requested change and testing justify otherwise. Required encounters make room; rejected arrivals do not queue.
@@ -109,7 +148,7 @@ preserved, and v5 uses its own balance cache.
 - `standee*`: photo power/tick, cooldown, duration, attraction radius and fan limit for one cardboard photo prop. Rivals ignore the distraction.
 - Hype, recovery, gifts, pickup ranges, camera/readability and audio mix are also in this snapshot.
 
-Changes to mechanics, new IDs, art, audio recordings, pool sizes or code require a game update. Keep schema version 8 stable for supported value/text/unlock changes; incompatible changes require a new versioned endpoint. Run validation for all eight versions before publication. Never add secrets, authentication tokens or personal data to this public repository.
+Changes to mechanics, new IDs, art, audio recordings, pool sizes or code require a game update. Keep schema version 10 stable for supported value/text/unlock changes; incompatible changes require a new versioned endpoint. Run validation for all ten versions before publication. Never add secrets, authentication tokens or personal data to this public repository.
 
 ## Health Regen and health gifts
 

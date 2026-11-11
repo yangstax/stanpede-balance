@@ -1,0 +1,2949 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "STANPEDE balance v10",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "revision",
+    "abilityText",
+    "fingerHeartCooldown",
+    "fingerHeartShots",
+    "fingerHeartPower",
+    "fingerHeartPierce",
+    "fingerHeartSpeed",
+    "fingerHeartLifetime",
+    "fingerHeartRange",
+    "sparkleCooldown",
+    "sparklePower",
+    "sparklePierce",
+    "sparkleShots",
+    "sparkleSpreadDegrees",
+    "sparkleAimDegrees",
+    "sparkleSpeed",
+    "sparkleLifetime",
+    "lightstickCount",
+    "lightstickRadius",
+    "lightstickSpin",
+    "soundWaveSeconds",
+    "barragePower",
+    "barrageCooldown",
+    "barrageSpeed",
+    "barragePierce",
+    "barrageLifetime",
+    "barrageHoming",
+    "powerPerRank",
+    "moveSpeedPerRank",
+    "areaPerRank",
+    "protectionPerRank",
+    "cooldownReductionPerRank",
+    "chainBasePower",
+    "chainPowerPerRank",
+    "chainBaseRadius",
+    "chainRadiusPerRank",
+    "instantHealFraction",
+    "healthRegenFraction",
+    "healthRegenSeconds",
+    "instantCash",
+    "abilityTiming",
+    "basicFanWeight",
+    "basicFanFadeLevels",
+    "fanArrivals",
+    "sfxVolume",
+    "sfxRoutineVolume",
+    "sfxEventVolume",
+    "sfxPulseVolume",
+    "sfxRoutineCutoff",
+    "sfxEventCutoff",
+    "sfxArrivalCutoff",
+    "sfxPopGap",
+    "sfxFaintVolume",
+    "sfxCashVolume",
+    "sfxCashPitch",
+    "sfxCashCutoff",
+    "crowdChatterVolume",
+    "crowdChatterFullAt",
+    "sfxCoinGap",
+    "hitHapticIntensity",
+    "giftHapticIntensity",
+    "sfxShotGap",
+    "sfxWinkGap",
+    "sfxPulseGap",
+    "sfxHurtGap",
+    "sfxHypeGap",
+    "sfxShutterGap",
+    "menuMusicVolume",
+    "matchMusicVolume",
+    "musicDuckVolume",
+    "cameraWorldWidth",
+    "cashBundleRadius",
+    "cashBundleSettleSeconds",
+    "selfiePhotos",
+    "selfiePhotoInterval",
+    "selfieFollowOffset",
+    "bubblePower",
+    "bubbleCooldown",
+    "bubbleRadius",
+    "bubbleMaxFans",
+    "bubbleLifetime",
+    "bubbleSpeed",
+    "bubbleTargetRange",
+    "standeePower",
+    "standeeCooldown",
+    "standeeDuration",
+    "standeeRadius",
+    "standeeMaxFans",
+    "standeeTickSeconds",
+    "runDuration",
+    "encoreTime",
+    "rivalArenaHeadroom",
+    "rivalArenaBottomInset",
+    "rivalDashWarningSeconds",
+    "rivalDashSeconds",
+    "rivalDashSpeedMult",
+    "rivalProjectileSpeed",
+    "rivalProjectileScale",
+    "dropTime",
+    "dropSeconds",
+    "dropTargetPace",
+    "dropMinFans",
+    "dropMaxFans",
+    "allKillCash",
+    "peakedCash",
+    "arrivalSeconds",
+    "arrivalWalkSeconds",
+    "arrivalNoticeTime",
+    "arrivalSkipAfter",
+    "arrivalWalkDistance",
+    "arrivalGateY",
+    "arrivalSceneryFadeDelay",
+    "arrivalSceneryFadeSeconds",
+    "arrivalFrameRate",
+    "arrivalFanApproachSeconds",
+    "arrivalFlashDelay",
+    "arrivalFlashInterval",
+    "arrivalFanStaggerSeconds",
+    "arrivalReactionHopHeight",
+    "arrivalFingerHeartTime",
+    "arrivalFingerHeartSeconds",
+    "arrivalWalkVolume",
+    "arrivalCrowdVolume",
+    "arrivalCrowdReactionVolume",
+    "arrivalCrowdDuckSeconds",
+    "arrivalNoticeVolume",
+    "arrivalShutterVolume",
+    "arrivalCrowdFadeSeconds",
+    "openingSeconds",
+    "firstUpgradeBreatherSeconds",
+    "moveSpeed",
+    "maxStamina",
+    "playerRadius",
+    "autoTargetScreenInset",
+    "minHitInterval",
+    "fanHitCooldown",
+    "pickupRadius",
+    "cashMagnetRadius",
+    "grandmaMilkDropChance",
+    "firstRecoveryDropTime",
+    "recoveryPickupDelay",
+    "recoveryHealFraction",
+    "firstLevelFollowers",
+    "openingLevelFollowers",
+    "levelGrowth",
+    "hypeDropFansMin",
+    "hypeDropFansMax",
+    "hypePerPickup",
+    "hypePickupDelay",
+    "forwardSpawnChance",
+    "forwardSpawnAngleDegrees",
+    "maxHostiles",
+    "urgentBannerSeconds",
+    "ultChargeNeeded",
+    "ultChargeGrowth",
+    "faintSeconds",
+    "fans",
+    "cashMagnetRangePerRank",
+    "moveSlots",
+    "lightstickDamage",
+    "lightstickHitInterval",
+    "heartVisualScale",
+    "lightstickVisualScale",
+    "photocardDamage",
+    "photocardTargets",
+    "photocardCooldown",
+    "photocardFirstDelay",
+    "photocardSpeed",
+    "photocardTargetRange",
+    "photocardBounceRange",
+    "photocardLifetime",
+    "photocardHitRadius",
+    "photocardScale",
+    "photocardSpin",
+    "confettiDamage",
+    "confettiDropInterval",
+    "confettiRadius",
+    "confettiLifetime",
+    "confettiTickSeconds",
+    "confettiMinMoveDistance",
+    "confettiBehindDistance",
+    "confettiFadeSeconds",
+    "auraRibbonWidth",
+    "auraRibbonSpacing",
+    "auraRibbonOpacity",
+    "auraReachOpacity",
+    "fancamDamage",
+    "fancamCooldown",
+    "fancamRadius",
+    "fancamFirstDelay",
+    "fancamTargetRange",
+    "fancamMarkSeconds",
+    "fancamFlashSeconds",
+    "fancamCameraOffset",
+    "fancamCameraScale",
+    "fancamBoundaryOpacity",
+    "fanSpeechInterval",
+    "trainingBaseCosts",
+    "trainingAdvancedCosts",
+    "trainingSignatureCosts",
+    "trainingAdvancedUnlock",
+    "signatureFoundationUnlock",
+    "signatureAdvancedUnlock",
+    "signatureGoalUnlock",
+    "careerGoalRewards",
+    "trainingDamagePerRank",
+    "trainingAttackSpeedPerRank",
+    "trainingHealthPerRank",
+    "trainingHealingPerRank",
+    "trainingPickupPerRank",
+    "trainingHypeDurationPerRank",
+    "trainingHypeDamagePerRank",
+    "signatureBaseRanks",
+    "giftTourHealthRankInterval",
+    "giftTourCashStartRank",
+    "signatureHeartPierce",
+    "heartPierceRankInterval",
+    "signatureHeartDamagePerRank",
+    "secondWindThreshold",
+    "secondWindHealing",
+    "secondWindHealingPerRank",
+    "secondWindProtection",
+    "secondWindProtectionPerRank",
+    "secondWindExtraUseRank",
+    "giftTourHealth",
+    "giftTourCharge",
+    "giftTourChargePerRank",
+    "giftTourCashPerRank",
+    "giftTourMasterReach",
+    "hypeChargeNeeded",
+    "hypeShieldSeconds",
+    "hypeBurstDamage",
+    "hypeExtensionSeconds",
+    "hypeDropGrowthSeconds",
+    "hypeBurstRadius",
+    "followersPerTrainingCash",
+    "giftCellSize",
+    "giftOpenRadius",
+    "giftVisualScale",
+    "giftHealth",
+    "giftHealFraction",
+    "giftDamage",
+    "giftCash",
+    "starBurstRadius",
+    "starTurnDegrees",
+    "starTargetRange",
+    "starHitRadius",
+    "starVisualScale",
+    "starFirstDelay",
+    "tourSingleLevels",
+    "tourRivalLevels",
+    "tourFanLevels",
+    "tourCycleLevels",
+    "tourClearRivals",
+    "retireBasicTour",
+    "retireBasicLevel",
+    "tourHealthPerStop",
+    "tourArrivalsPerStop",
+    "tourCashMultipliers",
+    "tourFirstClearCash",
+    "tourClearCashPerStop",
+    "rivalMidHealth",
+    "rivalMidXp",
+    "rivalFinalHealth",
+    "rivalHealthPerStop",
+    "rivalHealthPerRepeat",
+    "rivalEnrageSeconds",
+    "soundWaveDamage",
+    "soundWaveCooldown",
+    "soundWaveRadius",
+    "soundWaveKnockback",
+    "headphoneWaveDamageMult",
+    "headphoneKnockbackMult",
+    "dadKnockbackMult",
+    "filmerRange",
+    "filmerWarningSeconds",
+    "filmerCooldown",
+    "filmerShotSpeed",
+    "filmerShotDamage",
+    "filmerShotCount",
+    "filmerSpreadDegrees",
+    "tosserRange",
+    "tosserWarningSeconds",
+    "tosserCooldown",
+    "tosserShotSpeed",
+    "tosserShotDamage",
+    "abilityUnlocks",
+    "tourAbilityRewards",
+    "levelPresets",
+    "giveUpDistanceScreens",
+    "giveUpAfterSecondsOffscreen",
+    "scenerySpacing",
+    "sceneryScale",
+    "playerVisualScale",
+    "fanVisualScale",
+    "pickupVisualScale"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "minimum": 10,
+      "maximum": 10
+    },
+    "revision": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._-]{1,64}$"
+    },
+    "abilityText": {
+      "type": "array",
+      "minItems": 20,
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "key",
+          "name",
+          "shortDescription",
+          "descriptions"
+        ],
+        "properties": {
+          "key": {
+            "type": "string",
+            "enum": [
+              "FingerHeart",
+              "Wink",
+              "Lightstick",
+              "HighNote",
+              "VocalTraining",
+              "DancePractice",
+              "StagePresence",
+              "Bodyguards",
+              "Manager",
+              "Aegyo",
+              "DominoSwoon",
+              "HeartBarrage",
+              "BananaMilk",
+              "FanMeetBonus",
+              "PhotocardRicochet",
+              "ConfettiTrail",
+              "FancamFlash",
+              "BubblePop",
+              "PhotoStandee",
+              "HealthRegen"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 28,
+            "pattern": "^[^\u003C\u003E]*$"
+          },
+          "shortDescription": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 100,
+            "pattern": "^[^\u003C\u003E]*$"
+          },
+          "descriptions": {
+            "type": "array",
+            "minItems": 5,
+            "maxItems": 5,
+            "items": {
+              "type": "string",
+              "minLength": 0,
+              "maxLength": 180,
+              "pattern": "^[^\u003C\u003E]*$"
+            }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "FingerHeart"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "Wink"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "Lightstick"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "HighNote"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "VocalTraining"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "DancePractice"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "StagePresence"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "Bodyguards"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "Manager"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "Aegyo"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "DominoSwoon"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "HeartBarrage"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "BananaMilk"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "FanMeetBonus"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "PhotocardRicochet"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "ConfettiTrail"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "FancamFlash"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "BubblePop"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "PhotoStandee"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "HealthRegen"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        }
+      ]
+    },
+    "fingerHeartCooldown": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "number",
+        "minimum": 0.05,
+        "maximum": 60
+      }
+    },
+    "fingerHeartShots": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 5
+      }
+    },
+    "fingerHeartPower": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1000
+      }
+    },
+    "fingerHeartPierce": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 20
+      }
+    },
+    "fingerHeartSpeed": {
+      "type": "number",
+      "minimum": 0.1,
+      "maximum": 40
+    },
+    "fingerHeartLifetime": {
+      "type": "number",
+      "minimum": 0.1,
+      "maximum": 30
+    },
+    "fingerHeartRange": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "sparkleCooldown": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "number",
+        "minimum": 0.05,
+        "maximum": 60
+      }
+    },
+    "sparklePower": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1000
+      },
+      "description": "Total charm power per volley, shared across its homing stars."
+    },
+    "sparklePierce": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 20
+      }
+    },
+    "sparkleShots": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 8
+      }
+    },
+    "sparkleSpreadDegrees": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 120
+    },
+    "sparkleAimDegrees": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 180
+    },
+    "sparkleSpeed": {
+      "type": "number",
+      "minimum": 0.1,
+      "maximum": 40
+    },
+    "sparkleLifetime": {
+      "type": "number",
+      "minimum": 0.1,
+      "maximum": 30
+    },
+    "lightstickCount": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 4
+      }
+    },
+    "lightstickRadius": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "number",
+        "minimum": 0.1,
+        "maximum": 16
+      }
+    },
+    "lightstickSpin": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 720
+      }
+    },
+    "soundWaveSeconds": {
+      "type": "number",
+      "minimum": 0.05,
+      "maximum": 60
+    },
+    "barragePower": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000
+    },
+    "barrageCooldown": {
+      "type": "number",
+      "minimum": 0.05,
+      "maximum": 60
+    },
+    "barrageSpeed": {
+      "type": "number",
+      "minimum": 0.1,
+      "maximum": 40
+    },
+    "barragePierce": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 20
+    },
+    "barrageLifetime": {
+      "type": "number",
+      "minimum": 0.1,
+      "maximum": 30
+    },
+    "barrageHoming": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "powerPerRank": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "moveSpeedPerRank": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "areaPerRank": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "protectionPerRank": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 0.18
+    },
+    "cooldownReductionPerRank": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 0.18
+    },
+    "chainBasePower": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000
+    },
+    "chainPowerPerRank": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000
+    },
+    "chainBaseRadius": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "chainRadiusPerRank": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "instantHealFraction": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "healthRegenFraction": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "number",
+        "minimum": 0.001,
+        "maximum": 1
+      }
+    },
+    "healthRegenSeconds": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 60
+    },
+    "instantCash": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "abilityTiming": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Lightstick"
+      ],
+      "properties": {
+        "Lightstick": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "activeSeconds",
+            "restSeconds"
+          ],
+          "properties": {
+            "activeSeconds": {
+              "type": "number",
+              "minimum": 0.05,
+              "maximum": 120
+            },
+            "restSeconds": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 120
+            }
+          }
+        }
+      },
+      "description": "Gameplay seconds keyed by stable ability ID. Rest is fixed and ignores cooldown bonuses. Only Lightstick is supported."
+    },
+    "basicFanWeight": {
+      "type": "number",
+      "minimum": 0.1,
+      "maximum": 10
+    },
+    "basicFanFadeLevels": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100,
+      "description": "Earned levels over which ordinary arrivals fade out, starting at retireBasicLevel on retireBasicTour or later."
+    },
+    "fanArrivals": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "kind",
+          "introductionCount",
+          "initialWeight",
+          "commonWeight",
+          "levelsToCommon",
+          "initialMaxActive",
+          "commonMaxActive",
+          "arrivalCost"
+        ],
+        "properties": {
+          "kind": {
+            "type": "integer",
+            "enum": [
+              2,
+              1,
+              3,
+              4,
+              7,
+              8
+            ]
+          },
+          "introductionCount": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 8
+          },
+          "initialWeight": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10
+          },
+          "commonWeight": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10
+          },
+          "levelsToCommon": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "initialMaxActive": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 640
+          },
+          "commonMaxActive": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 640
+          },
+          "arrivalCost": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 20
+          }
+        }
+      },
+      "allOf": [
+        {
+          "contains": {
+            "properties": {
+              "kind": {
+                "const": 2
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "kind": {
+                "const": 1
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "kind": {
+                "const": 3
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "kind": {
+                "const": 4
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "kind": {
+                "const": 7
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "kind": {
+                "const": 8
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        }
+      ],
+      "description": "One row per special class: reveal size, relative odds, level ramp, active limits and arrival-budget cost. Rivals keep their own encounters."
+    },
+    "sfxVolume": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "sfxRoutineVolume": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "sfxEventVolume": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "sfxPulseVolume": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Sound Wave\u0027s rounded pulse sits below short attack sounds."
+    },
+    "sfxRoutineCutoff": {
+      "type": "number",
+      "minimum": 1000,
+      "maximum": 22000,
+      "description": "Low-pass cutoff for repeated attacks and pickups; music has no filter."
+    },
+    "sfxEventCutoff": {
+      "type": "number",
+      "minimum": 1000,
+      "maximum": 22000
+    },
+    "sfxArrivalCutoff": {
+      "type": "number",
+      "minimum": 1000,
+      "maximum": 22000
+    },
+    "sfxPopGap": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "sfxFaintVolume": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "sfxCashVolume": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "sfxCashPitch": {
+      "type": "number",
+      "minimum": 0.5,
+      "maximum": 2
+    },
+    "sfxCashCutoff": {
+      "type": "number",
+      "minimum": 1000,
+      "maximum": 22000
+    },
+    "crowdChatterVolume": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "crowdChatterFullAt": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "sfxCoinGap": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "hitHapticIntensity": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "giftHapticIntensity": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "sfxShotGap": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "sfxWinkGap": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "sfxPulseGap": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "sfxHurtGap": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "sfxHypeGap": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "sfxShutterGap": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "menuMusicVolume": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "matchMusicVolume": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "musicDuckVolume": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "cameraWorldWidth": {
+      "type": "number",
+      "minimum": 6,
+      "maximum": 18,
+      "description": "Visible world width across portrait phones and the editor\u0027s portrait frame. Larger values zoom out."
+    },
+    "cashBundleRadius": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Settled bills this close combine into a fixed stack, preserving every cash and XP reward."
+    },
+    "cashBundleSettleSeconds": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "selfiePhotos": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 6
+      }
+    },
+    "selfiePhotoInterval": {
+      "type": "number",
+      "minimum": 0.1,
+      "maximum": 3
+    },
+    "selfieFollowOffset": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "bubblePower": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1000
+      }
+    },
+    "bubbleCooldown": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "number",
+        "minimum": 0.05,
+        "maximum": 60
+      }
+    },
+    "bubbleRadius": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "number",
+        "minimum": 0.1,
+        "maximum": 8
+      }
+    },
+    "bubbleMaxFans": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 16
+      }
+    },
+    "bubbleLifetime": {
+      "type": "number",
+      "minimum": 0.2,
+      "maximum": 5
+    },
+    "bubbleSpeed": {
+      "type": "number",
+      "minimum": 0.1,
+      "maximum": 10
+    },
+    "bubbleTargetRange": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "standeePower": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1000
+      }
+    },
+    "standeeCooldown": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "number",
+        "minimum": 0.05,
+        "maximum": 60
+      }
+    },
+    "standeeDuration": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "number",
+        "minimum": 0.5,
+        "maximum": 10
+      }
+    },
+    "standeeRadius": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "number",
+        "minimum": 0.1,
+        "maximum": 8
+      }
+    },
+    "standeeMaxFans": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 16
+      }
+    },
+    "standeeTickSeconds": {
+      "type": "number",
+      "minimum": 0.05,
+      "maximum": 60
+    },
+    "runDuration": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "encoreTime": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "rivalArenaHeadroom": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "rivalArenaBottomInset": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "rivalDashWarningSeconds": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "rivalDashSeconds": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "rivalDashSpeedMult": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "rivalProjectileSpeed": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "rivalProjectileScale": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "dropTime": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "dropSeconds": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 120
+    },
+    "dropTargetPace": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000,
+      "description": "Required fan charms during the song, as a fraction of the pre-song charm pace."
+    },
+    "dropMinFans": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "dropMaxFans": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "allKillCash": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "peakedCash": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "arrivalSeconds": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "arrivalWalkSeconds": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "arrivalNoticeTime": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "arrivalSkipAfter": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "arrivalWalkDistance": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "arrivalGateY": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "arrivalSceneryFadeDelay": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "arrivalSceneryFadeSeconds": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "arrivalFrameRate": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "arrivalFanApproachSeconds": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "arrivalFlashDelay": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "arrivalFlashInterval": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "arrivalFanStaggerSeconds": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "arrivalReactionHopHeight": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "arrivalFingerHeartTime": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "arrivalFingerHeartSeconds": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "arrivalWalkVolume": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "arrivalCrowdVolume": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "arrivalCrowdReactionVolume": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "arrivalCrowdDuckSeconds": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "arrivalNoticeVolume": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "arrivalShutterVolume": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "arrivalCrowdFadeSeconds": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "openingSeconds": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "firstUpgradeBreatherSeconds": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000,
+      "description": "Brief protection after choosing the first upgrade during the opening window."
+    },
+    "moveSpeed": {
+      "type": "number",
+      "minimum": 0.5,
+      "maximum": 12
+    },
+    "maxStamina": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 10000
+    },
+    "playerRadius": {
+      "type": "number",
+      "minimum": 0.1,
+      "maximum": 1
+    },
+    "autoTargetScreenInset": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000,
+      "description": "Fans must be this far inside the camera view before attacks can target or charm them."
+    },
+    "minHitInterval": {
+      "type": "number",
+      "minimum": 0.05,
+      "maximum": 10,
+      "description": "Minimum seconds between two hits on the player, whatever the crowd size."
+    },
+    "fanHitCooldown": {
+      "type": "number",
+      "minimum": 0.05,
+      "maximum": 10,
+      "description": "Seconds before the same fan can hit you again."
+    },
+    "pickupRadius": {
+      "type": "number",
+      "minimum": 0.1,
+      "maximum": 10
+    },
+    "cashMagnetRadius": {
+      "type": "number",
+      "minimum": 0.1,
+      "maximum": 10,
+      "description": "Cash starts flying to the idol only inside this range. Cash Magnet and Summer multiply it."
+    },
+    "grandmaMilkDropChance": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Chance that a charmed Turbo Grandma leaves Yakult."
+    },
+    "firstRecoveryDropTime": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000,
+      "description": "After this time, the next visible fan charmed drops Yakult if no bottle has been shown yet."
+    },
+    "recoveryPickupDelay": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000,
+      "description": "Seconds a Yakult bottle rests before it can be attracted or collected, so its drop is visible."
+    },
+    "recoveryHealFraction": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "firstLevelFollowers": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 100000
+    },
+    "openingLevelFollowers": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 12,
+      "items": {
+        "type": "number",
+        "minimum": 1,
+        "maximum": 100000
+      },
+      "description": "XP costs after the first choice. Later costs grow from the last listed value."
+    },
+    "levelGrowth": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 1.25
+    },
+    "hypeDropFansMin": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10000,
+      "description": "Charmed fans between gold Hype drops, drawn again after each drop."
+    },
+    "hypeDropFansMax": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10000
+    },
+    "hypePerPickup": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "hypePickupDelay": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000,
+      "description": "Seconds a gold Hype pickup rests before attraction or collection."
+    },
+    "forwardSpawnChance": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Fraction of arrivals approaching from ahead of the idol\u0027s movement."
+    },
+    "forwardSpawnAngleDegrees": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000,
+      "description": "Full angular spread of travel-facing entries. Every entry remains outside the camera frame."
+    },
+    "maxHostiles": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 640
+    },
+    "urgentBannerSeconds": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000,
+      "description": "Duration of urgent event banners, in gameplay seconds."
+    },
+    "ultChargeNeeded": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100000
+    },
+    "ultChargeGrowth": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Each use raises the next charge requirement by this factor, so Showstopper stays a big moment."
+    },
+    "faintSeconds": {
+      "type": "number",
+      "minimum": 0.2,
+      "maximum": 3,
+      "description": "Seconds for a quick happy hop, twirl and heart-eyed swoon, then a short fade. Dads use the same timing; the Rival Idol takes 20% longer. Cash drops immediately when the fan is charmed."
+    },
+    "fans": {
+      "type": "array",
+      "minItems": 9,
+      "maxItems": 9,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "kind",
+          "charm",
+          "speed",
+          "contactDamage",
+          "followerValue",
+          "moneyValue",
+          "radius"
+        ],
+        "properties": {
+          "kind": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 8
+          },
+          "charm": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 1000000
+          },
+          "speed": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 12
+          },
+          "contactDamage": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1000
+          },
+          "followerValue": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100000
+          },
+          "moneyValue": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10000
+          },
+          "radius": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 1
+          }
+        }
+      },
+      "allOf": [
+        {
+          "contains": {
+            "properties": {
+              "kind": {
+                "const": 0
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "kind": {
+                "const": 1
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "kind": {
+                "const": 2
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "kind": {
+                "const": 3
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "kind": {
+                "const": 4
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "kind": {
+                "const": 5
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "kind": {
+                "const": 6
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "kind": {
+                "const": 7
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "kind": {
+                "const": 8
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        }
+      ]
+    },
+    "cashMagnetRangePerRank": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "moveSlots": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 6
+    },
+    "lightstickDamage": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1000
+      }
+    },
+    "lightstickHitInterval": {
+      "type": "number",
+      "minimum": 0.05,
+      "maximum": 10
+    },
+    "heartVisualScale": {
+      "type": "number",
+      "minimum": 0.5,
+      "maximum": 3
+    },
+    "lightstickVisualScale": {
+      "type": "number",
+      "minimum": 0.5,
+      "maximum": 3
+    },
+    "photocardDamage": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1000
+      }
+    },
+    "photocardTargets": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 8
+      }
+    },
+    "photocardCooldown": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "number",
+        "minimum": 0.05,
+        "maximum": 60
+      }
+    },
+    "photocardFirstDelay": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "photocardSpeed": {
+      "type": "number",
+      "minimum": 0.1,
+      "maximum": 40
+    },
+    "photocardTargetRange": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "photocardBounceRange": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "photocardLifetime": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "photocardHitRadius": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "photocardScale": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "photocardSpin": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000,
+      "description": "Visible card rotation in degrees per second; hearts remain upright."
+    },
+    "confettiDamage": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1000
+      }
+    },
+    "confettiDropInterval": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "number",
+        "minimum": 0.05,
+        "maximum": 60
+      }
+    },
+    "confettiRadius": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "number",
+        "minimum": 0.1,
+        "maximum": 16
+      }
+    },
+    "confettiLifetime": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "number",
+        "minimum": 0.1,
+        "maximum": 30
+      }
+    },
+    "confettiTickSeconds": {
+      "type": "number",
+      "minimum": 0.05,
+      "maximum": 60,
+      "description": "One charm tick per fan, shared by all overlapping confetti patches."
+    },
+    "confettiMinMoveDistance": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "confettiBehindDistance": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "confettiFadeSeconds": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "auraRibbonWidth": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "auraRibbonSpacing": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "auraRibbonOpacity": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "auraReachOpacity": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "fancamDamage": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1000
+      }
+    },
+    "fancamCooldown": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "number",
+        "minimum": 0.05,
+        "maximum": 60
+      }
+    },
+    "fancamRadius": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "number",
+        "minimum": 0.1,
+        "maximum": 16
+      }
+    },
+    "fancamFirstDelay": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "fancamTargetRange": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "fancamMarkSeconds": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "fancamFlashSeconds": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "fancamCameraOffset": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "fancamCameraScale": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "fancamBoundaryOpacity": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "fanSpeechInterval": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 30,
+      "description": "Gameplay seconds between ordinary fan speech balloons."
+    },
+    "trainingBaseCosts": {
+      "type": "array",
+      "minItems": 40,
+      "maxItems": 40,
+      "items": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 1000000
+      }
+    },
+    "trainingAdvancedCosts": {
+      "type": "array",
+      "minItems": 40,
+      "maxItems": 40,
+      "items": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 1000000
+      }
+    },
+    "trainingSignatureCosts": {
+      "type": "array",
+      "minItems": 40,
+      "maxItems": 40,
+      "items": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 1000000
+      }
+    },
+    "trainingAdvancedUnlock": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 40
+    },
+    "signatureFoundationUnlock": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 40
+    },
+    "signatureAdvancedUnlock": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 40
+    },
+    "signatureGoalUnlock": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "careerGoalRewards": {
+      "type": "array",
+      "minItems": 20,
+      "maxItems": 20,
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 1000000
+      }
+    },
+    "trainingDamagePerRank": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "trainingAttackSpeedPerRank": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "trainingHealthPerRank": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 10
+    },
+    "trainingHealingPerRank": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "trainingPickupPerRank": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "trainingHypeDurationPerRank": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "trainingHypeDamagePerRank": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "signatureBaseRanks": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 40
+    },
+    "giftTourHealthRankInterval": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 40
+    },
+    "giftTourCashStartRank": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 40
+    },
+    "signatureHeartPierce": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "heartPierceRankInterval": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 40
+    },
+    "signatureHeartDamagePerRank": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "secondWindThreshold": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "secondWindHealing": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "secondWindHealingPerRank": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "secondWindProtection": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "secondWindProtectionPerRank": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "secondWindExtraUseRank": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 40
+    },
+    "giftTourHealth": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "giftTourCharge": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "giftTourChargePerRank": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "giftTourCashPerRank": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "giftTourMasterReach": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "hypeChargeNeeded": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 100000
+    },
+    "hypeShieldSeconds": {
+      "type": "number",
+      "minimum": 0.1,
+      "maximum": 30
+    },
+    "hypeBurstDamage": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000
+    },
+    "hypeExtensionSeconds": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "hypeDropGrowthSeconds": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 3600
+    },
+    "hypeBurstRadius": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "followersPerTrainingCash": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100000
+    },
+    "giftCellSize": {
+      "type": "number",
+      "minimum": 8,
+      "maximum": 100
+    },
+    "giftOpenRadius": {
+      "type": "number",
+      "minimum": 0.1,
+      "maximum": 10
+    },
+    "giftVisualScale": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "giftHealth": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "giftHealFraction": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "giftDamage": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000
+    },
+    "giftCash": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "starBurstRadius": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "number",
+        "minimum": 0.1,
+        "maximum": 6
+      }
+    },
+    "starTurnDegrees": {
+      "type": "number",
+      "minimum": 30,
+      "maximum": 1440
+    },
+    "starTargetRange": {
+      "type": "number",
+      "minimum": 0.5,
+      "maximum": 16
+    },
+    "starHitRadius": {
+      "type": "number",
+      "minimum": 0.1,
+      "maximum": 1
+    },
+    "starVisualScale": {
+      "type": "number",
+      "minimum": 0.5,
+      "maximum": 3
+    },
+    "starFirstDelay": {
+      "type": "number",
+      "minimum": 0.05,
+      "maximum": 5
+    },
+    "tourSingleLevels": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 16,
+      "items": {
+        "type": "integer",
+        "minimum": 2,
+        "maximum": 1000
+      }
+    },
+    "tourRivalLevels": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 16,
+      "items": {
+        "type": "integer",
+        "minimum": 2,
+        "maximum": 1000
+      }
+    },
+    "tourFanLevels": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 16,
+      "items": {
+        "type": "integer",
+        "minimum": 2,
+        "maximum": 1000
+      }
+    },
+    "tourCycleLevels": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100
+    },
+    "tourClearRivals": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100,
+      "description": "Unlock the next tour after this many rivals; the current match keeps going."
+    },
+    "retireBasicTour": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "retireBasicLevel": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "tourHealthPerStop": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 2
+    },
+    "tourArrivalsPerStop": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 2
+    },
+    "tourCashMultipliers": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": {
+        "type": "number",
+        "minimum": 1,
+        "maximum": 10
+      }
+    },
+    "tourFirstClearCash": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "tourClearCashPerStop": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "rivalMidHealth": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "rivalMidXp": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "rivalFinalHealth": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "rivalHealthPerStop": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 2
+    },
+    "rivalHealthPerRepeat": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "rivalEnrageSeconds": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "soundWaveDamage": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1000
+      }
+    },
+    "soundWaveCooldown": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "number",
+        "minimum": 0.05,
+        "maximum": 60
+      }
+    },
+    "soundWaveRadius": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "number",
+        "minimum": 0.1,
+        "maximum": 16
+      }
+    },
+    "soundWaveKnockback": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "headphoneWaveDamageMult": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "headphoneKnockbackMult": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "dadKnockbackMult": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "filmerRange": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 12,
+      "description": "World units from the idol at which a visible Filmer can begin aiming."
+    },
+    "filmerWarningSeconds": {
+      "type": "number",
+      "minimum": 0.3,
+      "maximum": 3,
+      "description": "Gameplay seconds showing the locked shot directions before firing."
+    },
+    "filmerCooldown": {
+      "type": "number",
+      "minimum": 0.3,
+      "maximum": 15,
+      "description": "Gameplay seconds resting after a volley, before the next warning."
+    },
+    "filmerShotSpeed": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 15,
+      "description": "Flash projectile speed in world units per gameplay second."
+    },
+    "filmerShotDamage": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 30
+    },
+    "filmerShotCount": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "filmerSpreadDegrees": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 60,
+      "description": "Total angle in degrees between the outer shots of the volley."
+    },
+    "tosserRange": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "tosserWarningSeconds": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "tosserCooldown": {
+      "type": "number",
+      "minimum": 0.05,
+      "maximum": 60
+    },
+    "tosserShotSpeed": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "tosserShotDamage": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000
+    },
+    "abilityUnlocks": {
+      "type": "array",
+      "minItems": 18,
+      "maxItems": 18,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "key",
+          "tour"
+        ],
+        "properties": {
+          "key": {
+            "type": "string",
+            "enum": [
+              "FingerHeart",
+              "Wink",
+              "Lightstick",
+              "HighNote",
+              "VocalTraining",
+              "DancePractice",
+              "StagePresence",
+              "Bodyguards",
+              "Manager",
+              "Aegyo",
+              "DominoSwoon",
+              "HeartBarrage",
+              "PhotocardRicochet",
+              "ConfettiTrail",
+              "FancamFlash",
+              "BubblePop",
+              "PhotoStandee",
+              "HealthRegen"
+            ]
+          },
+          "tour": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 6
+          }
+        }
+      },
+      "allOf": [
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "FingerHeart"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "Wink"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "Lightstick"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "HighNote"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "VocalTraining"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "DancePractice"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "StagePresence"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "Bodyguards"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "Manager"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "Aegyo"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "DominoSwoon"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "HeartBarrage"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "PhotocardRicochet"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "ConfettiTrail"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "FancamFlash"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "BubblePop"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "PhotoStandee"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "key": {
+                "const": "HealthRegen"
+              }
+            }
+          },
+          "minContains": 1,
+          "maxContains": 1
+        }
+      ],
+      "description": "One row per persistent ability. Tour 1 is immediate; Tour 2 requires clearing Tour 1. Instant cash/healing stay available."
+    },
+    "tourAbilityRewards": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "string",
+        "enum": [
+          "FingerHeart",
+          "Wink",
+          "Lightstick",
+          "HighNote",
+          "VocalTraining",
+          "DancePractice",
+          "StagePresence",
+          "Bodyguards",
+          "Manager",
+          "Aegyo",
+          "DominoSwoon",
+          "HeartBarrage",
+          "PhotocardRicochet",
+          "ConfettiTrail",
+          "FancamFlash",
+          "BubblePop",
+          "PhotoStandee",
+          "HealthRegen"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Featured ability earned after clearing Tours 1\u20135. Each must unlock on the following tour."
+    },
+    "levelPresets": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "fromLevel",
+          "waveDurationSeconds",
+          "waveSpawnRate",
+          "breatherDurationSeconds",
+          "breatherSpawnRate"
+        ],
+        "properties": {
+          "fromLevel": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000
+          },
+          "waveDurationSeconds": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 180
+          },
+          "waveSpawnRate": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 60
+          },
+          "breatherDurationSeconds": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 120
+          },
+          "breatherSpawnRate": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 60
+          }
+        },
+        "description": "Arrival rates are budget units per gameplay second; ordinary fans cost 1. The tour arrival multiplier also applies."
+      },
+      "description": "Sorted full presets. The highest reached level is selected at wave start and held through its breather."
+    },
+    "giveUpDistanceScreens": {
+      "type": "number",
+      "minimum": 0.5,
+      "maximum": 5,
+      "description": "Distance from camera center in full screen widths/heights before an offscreen fan can give up. The edge is 0.5."
+    },
+    "giveUpAfterSecondsOffscreen": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 60,
+      "description": "Continuous gameplay seconds beyond that distance before an ordinary fan leaves without rewards."
+    },
+    "scenerySpacing": {
+      "type": "number",
+      "minimum": 8,
+      "maximum": 24,
+      "description": "World-space distance between sparse, solid landmarks. Wide lanes remain open between them."
+    },
+    "sceneryScale": {
+      "type": "number",
+      "minimum": 0.3,
+      "maximum": 1.5
+    },
+    "playerVisualScale": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "fanVisualScale": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "pickupVisualScale": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    }
+  }
+}

@@ -13,8 +13,36 @@ from validate import ROOT, load_document, unique_properties, validate
 
 class BalanceValidationTests(unittest.TestCase):
     def setUp(self):
-        self.data = json.loads((ROOT / "v9/balance.json").read_text())
-        self.schema = json.loads((ROOT / "v9/balance.schema.json").read_text())
+        self.data = json.loads((ROOT / "v10/balance.json").read_text())
+        self.schema = json.loads((ROOT / "v10/balance.schema.json").read_text())
+
+    def test_training_requires_forty_prices_per_track(self):
+        for key in ("trainingBaseCosts", "trainingAdvancedCosts", "trainingSignatureCosts"):
+            candidate = copy.deepcopy(self.data)
+            candidate[key] = candidate[key][:20]
+            with self.subTest(key=key), self.assertRaises(ValidationError):
+                validate(candidate, self.schema)
+
+    def test_training_prices_stay_positive_and_nondecreasing(self):
+        for price in (0, -1):
+            candidate = copy.deepcopy(self.data)
+            candidate["trainingBaseCosts"][0] = price
+            with self.subTest(price=price), self.assertRaises(ValidationError):
+                validate(candidate, self.schema)
+        self.data["trainingBaseCosts"][10] = 1
+        with self.assertRaises(ValidationError):
+            validate(self.data, self.schema)
+
+    def test_training_milestone_settings_are_required_and_bounded(self):
+        for key in ("signatureBaseRanks", "giftTourHealthRankInterval", "giftTourCashStartRank"):
+            candidate = copy.deepcopy(self.data)
+            candidate.pop(key)
+            with self.subTest(missing=key), self.assertRaises(ValidationError):
+                validate(candidate, self.schema)
+            candidate = copy.deepcopy(self.data)
+            candidate[key] = 41
+            with self.subTest(too_large=key), self.assertRaises(ValidationError):
+                validate(candidate, self.schema)
 
     def test_filmer_volleys_have_bounded_readable_settings(self):
         for key, value in (("filmerShotCount", 6), ("filmerShotSpeed", 0),
@@ -181,7 +209,7 @@ class BalanceValidationTests(unittest.TestCase):
             json.loads('{"revision":"a","revision":"b"}', object_pairs_hook=unique_properties)
 
     def test_older_client_contract_remains_valid(self):
-        for version in (1, 2, 3, 4, 5, 6, 7):
+        for version in range(1, 10):
             data = json.loads((ROOT / f"v{version}/balance.json").read_text())
             schema = json.loads((ROOT / f"v{version}/balance.schema.json").read_text())
             validate(data, schema)
@@ -210,14 +238,14 @@ class BalanceValidationTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             subprocess.run([sys.executable, str(ROOT / "validate.py"), "--publish-dir", directory,
                             "--revision", "published.test"], check=True, capture_output=True)
-            for version in range(1, 10):
+            for version in range(1, 11):
                 data = json.loads((Path(directory) / f"v{version}/balance.json").read_text())
                 self.assertEqual(data["schemaVersion"], version)
                 self.assertEqual(data["revision"], "published.test")
                 original = json.loads((ROOT / f"v{version}/balance.json").read_text())
                 original["revision"] = "published.test"
                 self.assertEqual(data, original)
-            self.assertEqual(len(list(Path(directory).rglob("*.json"))), 18)
+            self.assertEqual(len(list(Path(directory).rglob("*.json"))), 20)
 
     def test_unlocks_can_be_reordered_without_changing_ids(self):
         self.data["abilityUnlocks"].reverse()
