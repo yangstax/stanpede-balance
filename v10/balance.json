@@ -1,6 +1,6 @@
 {
   "schemaVersion": 10,
-  "revision": "2026-11-11.training-40",
+  "revision": "2026-11-11.quieter-cash",
   "abilityText": [
     {
       "key": "FingerHeart",
@@ -354,7 +354,7 @@
   "sfxArrivalCutoff": 6500,
   "sfxPopGap": 0.16,
   "sfxFaintVolume": 0.55,
-  "sfxCashVolume": 0.5,
+  "sfxCashVolume": 0.35,
   "sfxCashPitch": 1.26,
   "sfxCashCutoff": 14000,
   "crowdChatterVolume": 0.16,
